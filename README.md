@@ -31,6 +31,18 @@ Anything the router can do beyond that is still reachable through [raw API calls
 
 ## Install
 
+### Let the agent do it
+
+Hand your agent the link to this repository and ask it to set the tool up:
+
+> *"Set this up for me: https://github.com/dummylabs/keenetic-cli — read the README and follow it."*
+
+It will clone the repository, create `.env` from the example, install the skill where your agent looks for skills, and replace the placeholder path inside `SKILL.md` with the real one. That is the fiddly part, and it is the part an agent is good at.
+
+Two steps stay with you, because nobody can do them on your behalf: creating the user account on the router, and entering the password. Both are described below — tell the agent what username you created and it will fill in the rest.
+
+### Or do it by hand
+
 ```bash
 git clone https://github.com/dummylabs/keenetic-cli.git
 cd keenetic-cli
@@ -38,6 +50,8 @@ cp .env.example .env
 ```
 
 Fill in `KEENETIC_HOST` and `KEENETIC_USERNAME` in `.env`. The password is covered [below](#the-password) — it can go in the same file or, on macOS, in the keychain.
+
+Then install the skill as described in [The agent skill](#the-agent-skill).
 
 ### The router account
 
