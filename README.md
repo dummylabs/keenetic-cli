@@ -6,6 +6,22 @@ It exists because letting an agent talk to a router with raw `curl` is a bad ide
 
 Single file, no packaging: dependencies are declared inline per [PEP 723](https://peps.python.org/pep-0723/), so `uv run` fetches them itself. The only third-party dependency is `aiohttp`.
 
+## What you can ask the agent to do
+
+With the skill installed, you stop looking things up in the router's web interface and just ask. Some examples of what that sounds like in practice:
+
+- *"Which devices are routed through the Netherlands VPN right now?"*
+- *"Put the kids' tablet back on the default policy."*
+- *"Anything wrong in the router log in the last hour?"*
+- *"I'm adding a NAS — find me a free IP that DHCP won't hand out to anything else."*
+- *"Are all my WireGuard tunnels up? Which one keeps dropping?"*
+- *"Change the DNS servers the router hands out over DHCP."*
+- *"Add a static route for this subnet through the VPN interface."*
+
+The first few map to commands this CLI has built in, so the agent just runs them: clients and their policies, the system log with error filtering, DHCP occupancy and free addresses, interface state and statistics.
+
+The rest — DNS, routes, VPN setup, anything this CLI has no dedicated command for — the agent reaches through raw API calls. That works, but it is worth knowing how it behaves: reads go through immediately, while anything that could change the router is refused unless you explicitly allow it. So the agent can look at your DNS configuration on its own, and has to come back to you before changing it. Point it at the vendor's command manual (see [below](#give-the-agent-the-command-reference)) and it gets noticeably better at finding the right endpoint instead of guessing.
+
 ## Requirements
 
 - Python 3.11+
