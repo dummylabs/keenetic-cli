@@ -1,9 +1,9 @@
 # keenetic-cli
 
-A command-line tool for inspecting and managing a **Keenetic router** through its HTTP API (RCI),
+A command-line tool for inspecting and managing a **Keenetic/Netcraze router** through its HTTP API (RCI),
 plus an agent skill that teaches an AI coding assistant how to drive it safely.
 
-It exists because letting an agent talk to a router with raw `curl` is a bad idea. Keenetic's API
+It exists because letting an agent talk to a router with raw `curl` is a bad idea. Keenetic/Netcraze's API
 reports command failures inside HTTP 200 bodies, hands out secrets in plain reads, and makes
 `reboot` look exactly like a query. This CLI handles authentication, redacts credentials from every
 output, and refuses anything that could change the router unless you say so explicitly.
@@ -15,7 +15,7 @@ so `uv run` fetches them itself. The only third-party dependency is `aiohttp`.
 
 - Python 3.11+
 - [`uv`](https://docs.astral.sh/uv/)
-- A Keenetic router reachable over HTTP, and an account on it with the **Web interface** permission
+- A Keenetic/Netcraze router reachable over HTTP, and an account on it with the **Web interface** permission
 
 ## Install
 
@@ -32,14 +32,13 @@ Fill in `KEENETIC_HOST` and `KEENETIC_USERNAME` in `.env`.
 Create a dedicated user on the router rather than reusing the admin account. In the web interface:
 **Management → Users → add user**.
 
-Tick **Web interface** — that permission alone is enough for everything this tool does, including
-writes. **Command line** (telnet/SSH) is not needed; leaving it off means the account cannot get a
-shell on the router at all.
+Tick **Web interface**. That is the only permission this tool needs, and it covers everything,
+including writes.
 
-Do **not** tick **Prohibit saving system settings** if you want `set policy` to work: on Keenetic,
+Do **not** tick **Prohibit saving system settings** if you want `set policy` to work: on Keenetic/Netcraze,
 write access is the default state and that checkbox takes it away.
 
-> Note: some Keenetic firmware rejects a hyphen in the username. `keenetic_cli` works.
+> Note: some Keenetic/Netcraze firmware rejects a hyphen in the username. `keenetic_cli` works.
 
 ### The password
 
@@ -148,6 +147,25 @@ uv run keenetic_cli.py api request \
 JSON output redacts sensitive fields by default. `--no-redact` prints the router's response
 unmasked.
 
+#### Give the agent the command reference
+
+Raw calls are where an agent guesses, and a guessed endpoint on a router is not a cheap mistake.
+It does much better with the vendor's CLI manual in front of it, because the manual documents every
+command, its arguments, and — crucially — whether it changes settings.
+
+Download the manual and keep it somewhere the agent can read, for example:
+
+<https://storage.googleapis.com/docs.help.keenetic.com/cli/5.0/en/cli_manual_kn-1011.pdf>
+
+That one is for the KN-1011, but **the manuals are nearly identical across models**, so any of them
+works for learning the API surface: the command tree and the CLI-to-RCI mapping are shared. Grab the
+one for your own model if you want exact coverage of its hardware-specific commands.
+
+Converting the PDF to Markdown, split by chapter, makes it far more usable: the agent can grep for a
+command instead of paging through a few hundred pages, and it can read one chapter rather than
+loading the whole document into context. Tell it where the files are and it will consult them before
+inventing an endpoint.
+
 ## Safety model
 
 The gate that decides whether a request needs `--unsafe` is the most safety-critical code here. A
@@ -172,7 +190,7 @@ never a way around what `--json` masks.
 ## The agent skill
 
 `skill/` contains a skill that teaches an agent to use this CLI: the safety rules, the command
-recipes, and how to translate Keenetic CLI commands into `/rci/...` endpoints.
+recipes, and how to translate Keenetic/Netcraze CLI commands into `/rci/...` endpoints.
 
 For Claude Code:
 
@@ -180,11 +198,25 @@ For Claude Code:
 cp -r skill ~/.claude/skills/keenetic-router-api
 ```
 
-Then edit `~/.claude/skills/keenetic-router-api/SKILL.md` and replace `/path/to/keenetic-cli` with
-wherever you cloned this repository.
+For Codex:
 
-The skill deliberately does not bundle Keenetic's command reference — that is the vendor's
-copyrighted manual, not ours to redistribute. Get the CLI manual for your model from Keenetic's
+```bash
+cp -r skill ~/.codex/skills/keenetic-router-api
+```
+
+If you use both, keep one copy and symlink the other at it, so you only edit the skill once:
+
+```bash
+cp -r skill ~/.agents/skills/keenetic-router-api
+ln -s ~/.agents/skills/keenetic-router-api ~/.claude/skills/keenetic-router-api
+ln -s ~/.agents/skills/keenetic-router-api ~/.codex/skills/keenetic-router-api
+```
+
+Either way, edit the installed `SKILL.md` and replace `/path/to/keenetic-cli` with wherever you
+cloned this repository.
+
+The skill deliberately does not bundle Keenetic/Netcraze's command reference — that is the vendor's
+copyrighted manual, not ours to redistribute. Get the CLI manual for your model from Keenetic/Netcraze's
 documentation site; the skill explains where to point the agent at it if you convert it to Markdown.
 
 ## Tests
@@ -201,4 +233,4 @@ beyond that needs a live router, so try read-only commands first.
 
 MIT — see [LICENSE](LICENSE).
 
-This project is not affiliated with or endorsed by Keenetic.
+This project is not affiliated with or endorsed by Keenetic/Netcraze.

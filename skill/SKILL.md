@@ -1,11 +1,11 @@
 ---
 name: keenetic-router-api
-description: "Use when the agent needs to inspect or manage a Keenetic router through the local Python CLI and the Keenetic Web API (RCI). Triggers include: Keenetic API, router interfaces, WireGuard/OpenVPN/ZeroTier state, show interfaces, show interface-stat, show log, show dhcp, running Keenetic CLI commands, translating Keenetic CLI commands to /rci endpoints, or safely calling raw router API requests."
+description: "Use when the agent needs to inspect or manage a Keenetic/Netcraze router through the local Python CLI and the Keenetic/Netcraze Web API (RCI). Triggers include: Keenetic API, Netcraze API, router interfaces, WireGuard/OpenVPN/ZeroTier state, show interfaces, show interface-stat, show log, show dhcp, running Keenetic/Netcraze CLI commands, translating Keenetic/Netcraze CLI commands to /rci endpoints, or safely calling raw router API requests."
 ---
 
-# Keenetic Router API
+# Keenetic/Netcraze Router API
 
-Use the local CLI wrapper instead of raw `curl`/HTTP. It handles Keenetic authentication and has a safety guard for read-only API calls.
+Use the local CLI wrapper instead of raw `curl`/HTTP. It handles Keenetic/Netcraze authentication and has a safety guard for read-only API calls.
 
 ## Project paths
 
@@ -46,7 +46,7 @@ After any mutating request, verify against the **running** config:
 - `{"show":{"sc":{...}}}` is the last **saved** state and will differ until `system configuration save`.
 - The GET path form `/rci/show/sc/...` is **not** equivalent to the nested batch and must not be used
   to tell the two apart — it has been observed returning running-config content.
-- The Keenetic **web UI renders `sc`**, so it shows stale state until a save. Never verify by
+- The Keenetic/Netcraze **web UI renders `sc`**, so it shows stale state until a save. Never verify by
   screenshot, and warn the user that saving anything from a stale UI page may write the old
   configuration back over the running one.
 
@@ -169,7 +169,7 @@ If a raw call is blocked, explain that default mode permits any body-less `GET` 
 path, and that this endpoint was blocked because it names an action; ask for/confirm unsafe
 intent before retrying with `--unsafe`.
 
-## Translating Keenetic CLI commands to RCI endpoints
+## Translating Keenetic/Netcraze CLI commands to RCI endpoints
 
 Use the docs before inventing endpoints. The rule of thumb:
 
@@ -197,11 +197,13 @@ Parameter placement rules:
 
 Arguments from the manual can be passed as query parameters or JSON body. Batch/nested requests use `POST /rci/` with JSON and require `--unsafe` in this CLI even when the nested command is read-only.
 
-## Keenetic command reference
+## Keenetic/Netcraze command reference
 
-This repository does not bundle Keenetic's command reference: it is the vendor's copyrighted
-manual, not ours to redistribute. Get the CLI manual for your model from Keenetic's own
-documentation site and keep it where you can read it.
+This repository does not bundle Keenetic/Netcraze's command reference: it is the vendor's copyrighted
+manual, not ours to redistribute. Get the CLI manual for your model from Keenetic/Netcraze's own
+documentation site and keep it where you can read it, for example
+<https://storage.googleapis.com/docs.help.keenetic.com/cli/5.0/en/cli_manual_kn-1011.pdf>
+(that one is for the KN-1011, but the manuals are nearly identical across models).
 
 If you convert that manual to Markdown, put it somewhere local and add the paths here so the
 agent can grep it instead of guessing endpoints. The mapping in the previous section is enough
@@ -211,7 +213,7 @@ for the common cases; the manual matters when you need an endpoint this CLI has 
 
 1. Identify whether the task is read-only inspection or mutation.
 2. For common interface/client/policy tasks, use high-level CLI commands.
-3. For unknown commands, consult the Keenetic CLI manual for the router model in question.
+3. For unknown commands, consult the Keenetic/Netcraze CLI manual for the router model in question.
 4. Convert CLI command path to `/rci/...` endpoint and choose method/body from the docs.
 5. Run any read-only `GET` directly, including config reads outside `/rci/show/...`; ask/confirm
    before `--unsafe` when mutation or a batched `POST /rci/` is involved.
