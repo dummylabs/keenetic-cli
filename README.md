@@ -23,6 +23,36 @@ With the skill installed, you stop clicking through the router's web interface a
 
 Anything the router can do beyond that is still reachable through [raw API calls](#raw-api-calls) — DNS, routes, VPN setup and the rest.
 
+## Safety model
+
+Handing a router to an AI agent raises two obvious worries. Both were design constraints here, not afterthoughts.
+
+### Your secrets do not reach the conversation
+
+Everything this tool prints passes through redaction first, so router credentials do not end up in a chat transcript, in a log an agent writes, or in a bug report someone pastes online.
+
+That covers more than the obvious `password` field. The router hands out secrets in several shapes, and each is caught: JSON keys containing `password`, `secret`, `token`, `psk` or ending in `-key`; free-text directives in `show running-config`, where the keyword is not at the start of the line (`wireguard private-key <key>`, `authentication wpa-psk ns3 <psk>`); and the oddly-named ones that match no general rule — `servicepass`, `wlankey`, `wlanwps` in `show defaults`, `authtoken` for NextDNS, the WPS PIN, the SIM PIN, RADIUS secrets.
+
+Redaction applies to every command and every output mode equally, read-only or not. A table is never a way around what `--json` masks. `--no-redact` exists for when you genuinely need the raw value, and it is the only way to get one.
+
+Your own router password gets the same treatment from the other direction: it never travels in the clear and never appears in the tool's own output. Authentication hashes it into a challenge response, and the config object that holds it is built so that printing it while debugging cannot leak it.
+
+What is *not* hidden is the inventory itself — device names, MAC addresses, IP assignments. Showing you those is the job, so a conversation about your network will contain your network. Redaction is about credentials, not about the existence of a printer.
+
+### Nothing changes the router by accident
+
+The gate that decides whether a request needs `--unsafe` is the most safety-critical code here. A request is allowed without the flag only when all three hold:
+
+1. the method is `GET`;
+2. no path segment **and no query parameter name** names an action — the RCI query string is an argument channel, so `/rci/system/configuration?save` is the same action as `.../save`;
+3. there is no request body, since a nested command sent as a `GET` body would be invisible to (2).
+
+Segments are matched after percent-decoding, case folding, and stripping control characters, surrounding whitespace and dots, so `/rci/system/configuration/%73ave` does not slip through.
+
+One check is **not** waived by `--unsafe`, because it is about which machine is contacted rather than what runs there: the endpoint must be a path rooted at a single `/`. Otherwise `@evil.example/rci/show/version` would turn the router's `host:port` into URL userinfo and send the request, and any `--data-json` body, somewhere else entirely.
+
+The gate is a pure function with tests behind it, and it errs toward blocking: some genuinely read-only requests are refused rather than risk letting a write through.
+
 ## Requirements
 
 - Python 3.11+
@@ -161,7 +191,7 @@ The commands above cover what you reach for most days. Everything else the route
 - *"Reserve this IP for that device permanently."*
 - *"What does the router think its WAN configuration is?"*
 
-Reading anything is free. Most of the items above also *change* the router, and those the CLI refuses until you say you meant it — the rules are right below.
+Reading anything is free. Most of the items above also *change* the router, and those the CLI refuses until you say you meant it — see [Safety model](#safety-model) for why the line falls where it does.
 
 ```bash
 uv run keenetic_cli.py api request --method GET --endpoint /rci/show/interface
@@ -179,7 +209,7 @@ uv run keenetic_cli.py api request \
   --unsafe
 ```
 
-JSON output redacts sensitive fields by default. `--no-redact` prints the router's response unmasked.
+Output is redacted by default, here as everywhere else. `--no-redact` prints the router's response unmasked, and is the only way to see a raw secret.
 
 #### Give the agent the command reference
 
@@ -199,20 +229,6 @@ Either of these will do the conversion:
 - [markit](https://github.com/shift-labs-ai/markit) — Node, `npm install -g @shiftlabs/markit`, then `markit cli_manual.pdf -o manual.md`. Rust engine, no OCR, so it is fast on a text-layer PDF like this one.
 
 The manual has a text layer, so neither needs OCR. Splitting the result by chapter is worth the extra minute: a few hundred pages in one file defeats the point of grepping it.
-
-## Safety model
-
-The gate that decides whether a request needs `--unsafe` is the most safety-critical code here. A request is allowed without the flag only when all three hold:
-
-1. the method is `GET`;
-2. no path segment **and no query parameter name** names an action — the RCI query string is an argument channel, so `/rci/system/configuration?save` is the same action as `.../save`;
-3. there is no request body, since a nested command sent as a `GET` body would be invisible to (2).
-
-Segments are matched after percent-decoding, case folding, and stripping control characters, surrounding whitespace and dots, so `/rci/system/configuration/%73ave` does not slip through.
-
-One check is **not** waived by `--unsafe`, because it is about which machine is contacted rather than what runs there: the endpoint must be a path rooted at a single `/`. Otherwise `@evil.example/rci/show/version` would turn the router's `host:port` into URL userinfo and send the request, and any `--data-json` body, somewhere else entirely.
-
-Redaction applies to every request, read-only or not, and to every output mode equally — a table is never a way around what `--json` masks.
 
 ## The agent skill
 
