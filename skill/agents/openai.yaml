@@ -1,0 +1,4 @@
+interface:
+  display_name: "Keenetic Router API"
+  short_description: "Inspect and manage Keenetic routers via CLI/API"
+  default_prompt: "Use $keenetic-router-api to inspect Keenetic router interfaces and call safe read-only API commands."
