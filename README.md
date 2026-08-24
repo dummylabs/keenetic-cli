@@ -179,6 +179,13 @@ That one is for the KN-1011, but **the manuals are nearly identical across model
 
 Converting the PDF to Markdown, split by chapter, makes it far more usable: the agent can grep for a command instead of paging through a few hundred pages, and it can read one chapter rather than loading the whole document into context. Tell it where the files are and it will consult them before inventing an endpoint.
 
+Either of these will do the conversion:
+
+- [markitdown](https://github.com/microsoft/markitdown) — Python, `pip install 'markitdown[all]'`, then `markitdown cli_manual.pdf -o manual.md`. Built specifically to produce Markdown for LLMs.
+- [markit](https://github.com/shift-labs-ai/markit) — Node, `npm install -g @shiftlabs/markit`, then `markit cli_manual.pdf -o manual.md`. Rust engine, no OCR, so it is fast on a text-layer PDF like this one.
+
+The manual has a text layer, so neither needs OCR. Splitting the result by chapter is worth the extra minute: a few hundred pages in one file defeats the point of grepping it.
+
 ## Safety model
 
 The gate that decides whether a request needs `--unsafe` is the most safety-critical code here. A request is allowed without the flag only when all three hold:
