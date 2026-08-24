@@ -8,19 +8,20 @@ Single file, no packaging: dependencies are declared inline per [PEP 723](https:
 
 ## What you can ask the agent to do
 
-With the skill installed, you stop looking things up in the router's web interface and just ask. Some examples of what that sounds like in practice:
+With the skill installed, you stop clicking through the router's web interface and just ask. Everything below maps to a command this CLI has built in, so the agent answers straight away:
 
 - *"Which devices are routed through the Netherlands VPN right now?"*
 - *"Put the kids' tablet back on the default policy."*
+- *"What routing policies do I even have?"*
+- *"Is the printer online, and what IP did it get?"*
 - *"Anything wrong in the router log in the last hour?"*
+- *"Did anything complain about WireGuard today?"*
+- *"Are all my tunnels up? Which one keeps dropping?"*
+- *"How much traffic went through the VPN interface?"*
 - *"I'm adding a NAS — find me a free IP that DHCP won't hand out to anything else."*
-- *"Are all my WireGuard tunnels up? Which one keeps dropping?"*
-- *"Change the DNS servers the router hands out over DHCP."*
-- *"Add a static route for this subnet through the VPN interface."*
+- *"Which addresses are reserved, and which are just leased right now?"*
 
-The first few map to commands this CLI has built in, so the agent just runs them: clients and their policies, the system log with error filtering, DHCP occupancy and free addresses, interface state and statistics.
-
-The rest — DNS, routes, VPN setup, anything this CLI has no dedicated command for — the agent reaches through raw API calls. That works, but it is worth knowing how it behaves: reads go through immediately, while anything that could change the router is refused unless you explicitly allow it. So the agent can look at your DNS configuration on its own, and has to come back to you before changing it. Point it at the vendor's command manual (see [below](#give-the-agent-the-command-reference)) and it gets noticeably better at finding the right endpoint instead of guessing.
+Anything the router can do beyond that is still reachable through [raw API calls](#raw-api-calls) — DNS, routes, VPN setup and the rest.
 
 ## Requirements
 
@@ -136,6 +137,17 @@ Two lists, not one, because they are different claims. Only an address **outside
 Occupancy is counted from two sources: `/rci/show/ip/dhcp/bindings` does not know about an address configured on the device itself, and the hotspot registry does not know about a reservation for a host that is currently offline.
 
 ### Raw API calls
+
+The commands above cover what you reach for most days. Everything else the router can do — and it can do a lot — is one raw call away:
+
+- *"Change the DNS servers the router hands out over DHCP."*
+- *"Add a static route for this subnet through the VPN interface."*
+- *"Set up a new WireGuard peer."*
+- *"Forward this port to my server."*
+- *"Reserve this IP for that device permanently."*
+- *"What does the router think its WAN configuration is?"*
+
+Reading anything is free. Most of the items above also *change* the router, and those the CLI refuses until you say you meant it — the rules are right below.
 
 ```bash
 uv run keenetic_cli.py api request --method GET --endpoint /rci/show/interface
