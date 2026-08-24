@@ -25,7 +25,8 @@ cd keenetic-cli
 cp .env.example .env
 ```
 
-Fill in `KEENETIC_HOST` and `KEENETIC_USERNAME` in `.env`.
+Fill in `KEENETIC_HOST` and `KEENETIC_USERNAME` in `.env`. The password is covered
+[below](#the-password) — it can go in the same file or, on macOS, in the keychain.
 
 ### The router account
 
@@ -42,22 +43,35 @@ write access is the default state and that checkbox takes it away.
 
 ### The password
 
-The password does not go in `.env`. On macOS it lives in the keychain:
+There are two places the password can live, and the CLI reads them in this order:
+
+1. `KEENETIC_PASSWORD` — from the environment or from `.env`
+2. the macOS keychain
+
+Whichever comes first wins, so setting `KEENETIC_PASSWORD` means the keychain is never consulted.
+
+**On any system**, put the password in `.env` next to the other settings:
+
+```
+KEENETIC_PASSWORD=your-router-password
+```
+
+`.env` is in `.gitignore`, so it will not be committed. This is the only option outside macOS, and
+it is a perfectly fine one anywhere: the file sits in your own home directory.
+
+**On macOS** you can instead keep it in the keychain, so no file on disk holds it in the clear:
 
 ```bash
 security add-generic-password -U -s keenetic -a <router-username> -w
 ```
 
-Pass `-w` with **no value** so `security` prompts for the password instead of taking it as a
-command-line argument, where the process list can see it.
+Running this opens a prompt — paste the password there. `security` is the native macOS keychain
+tool, and typing the password into its prompt keeps it out of your shell history.
+
+Leave `KEENETIC_PASSWORD` unset (or commented out) in `.env` for the keychain to be used.
 
 The keychain item is keyed by the *router* username, so pointing `--env-file` at a second router
 looks up that router's own password instead of silently reusing this one's.
-
-If you are not on macOS, or the keychain is unavailable, set `KEENETIC_PASSWORD` in `.env` or in the
-environment — that path still works and takes precedence. It is deliberately kept as an escape
-hatch: this is a tool for diagnosing a broken network, so it must not require working infrastructure
-to start.
 
 ## Usage
 
