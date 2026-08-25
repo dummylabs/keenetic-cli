@@ -23,6 +23,11 @@ cd /path/to/keenetic-cli
 uv run keenetic_cli.py ...
 ```
 
+The bundled command index sits **next to this file**, in the installed skill directory — not in
+the project root you just changed into. Paths like `command-index/commands.csv` below are relative
+to `SKILL.md`, so resolve them against the skill directory (`~/.claude/skills/keenetic-router-api/`
+or wherever this skill was installed).
+
 ## Safety rules
 
 - Start with read-only diagnostics.
@@ -176,19 +181,50 @@ Parameter placement rules:
 
 Arguments from the manual can be passed as query parameters or JSON body. Batch/nested requests use `POST /rci/` with JSON and require `--unsafe` in this CLI even when the nested command is read-only.
 
-## Keenetic/Netcraze command reference
+## Bundled command index
 
-This repository does not bundle Keenetic/Netcraze's command reference: it is the vendor's copyrighted manual, not ours to redistribute. Get the CLI manual for your model from Keenetic/Netcraze's own documentation site and keep it where you can read it, for example
-<https://storage.googleapis.com/docs.help.keenetic.com/cli/5.0/en/cli_manual_kn-1011.pdf>
-(that one is for the KN-1011, but the manuals are nearly identical across models).
+This skill ships with `command-index/`, a compilation of every documented CLI command, sitting
+next to this file in the skill directory. Consult it before inventing an endpoint.
 
-If you convert that manual to Markdown, put it somewhere local and add the paths here so the agent can grep it instead of guessing endpoints. The mapping in the previous section is enough for the common cases; the manual matters when you need an endpoint this CLI has no command for.
+- **`command-index/commands.csv`** — one row per command. Grep it by command name, by a word in
+  the name, or by `/rci` path. Columns: `ref`, `cmd`, `family`, `rci`, `changes_settings`,
+  `no_prefix`, `no_wipes_list`, `multiple_input`, `context`, `interface_type`, `args`,
+  `required_args`, `source`, `entry`.
+- **`command-index/entries/*.md`** — written notes for the commands worth explaining. The `entry`
+  column of a CSV row names the file; open only that file.
+- **`command-index/README.md`** — provenance and known corrections.
+
+How to use it:
+
+```bash
+grep -i 'wireguard peer' command-index/commands.csv
+```
+
+The row gives you the endpoint (`rci`), whether the call changes settings, and the CLI argument
+names with their types. If `entry` is filled in, read that file for the trap the command carries.
+
+Three columns decide how you treat a command:
+
+- `changes_settings = yes` means the call needs `--unsafe` and the user's approval.
+- `no_wipes_list = yes` means the `no` form, called **without its selector**, clears the whole
+  list rather than one item. The entry's **Blast radius** line says what is lost. Read it before
+  any removal.
+- An entry's **Destructive** line marks an effect that cannot be undone — `erase`,
+  `system configuration factory-reset`, `system configuration save`. Saving counts: it makes the
+  current running state permanent, including changes nobody meant to keep.
+
+The index carries CLI argument names, which are **not** always the RCI JSON field names. Read an
+existing object back before writing a new one, as described above.
+
+The index does not cover every command — `crypto`, the VPN-server tuning knobs, and appliance
+features such as `printer` and `snmp` appear in `commands.csv` with their paths and arguments but
+have no written entry.
 
 ## Workflow
 
 1. Identify whether the task is read-only inspection or mutation.
 2. For common interface/client/policy tasks, use high-level CLI commands.
-3. For unknown commands, consult the Keenetic/Netcraze CLI manual for the router model in question.
+3. For unknown commands, grep `command-index/commands.csv` and read the entry it points to.
 4. Convert CLI command path to `/rci/...` endpoint and choose method/body from the docs.
 5. Run any read-only `GET` directly, including config reads outside `/rci/show/...`; ask/confirm before `--unsafe` when mutation or a batched `POST /rci/` is involved.
 6. Summarize results with redacted secrets and include the exact command used when useful.

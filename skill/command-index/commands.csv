@@ -1,0 +1,905 @@
+ref,cmd,family,rci,changes_settings,no_prefix,no_wipes_list,multiple_input,context,interface_type,args,required_args,source,entry
+3.1,Core commands,Core,/rci/Core/commands,,,no,,,,,,02_commands_core_access_storage_components_crypto(1).md:5,
+3.2,access,access,/rci/access,yes,yes,no,yes,,,directory:String;user:String;mode:Keyword;recursive:Keyword,directory;user;mode,02_commands_core_access_storage_components_crypto(1).md:347,
+3.3,access-list,access-list,/rci/access-list,yes,yes,no,yes,(config-acl),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:391,entries/access-list.md
+3.3.1,access-list auto-delete,access-list,/rci/access-list/auto-delete,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:434,entries/access-list.md
+3.3.2,access-list deny,access-list,/rci/access-list/deny,yes,yes,no,yes,,,tcp:Keyword;udp:Keyword;source:IP address;source-mask:IP-mask;src-port-operator:Keyword;source-port:Integer;source-end-port:Integer;destination:IP address;destination-mask:IP-mask;dst-port-operator:Keyword;destination-port:Integer;icmp:Keyword;esp:Keyword;gre:Keyword;ip:Keyword;ipip:Keyword;destination-end-port:Keyword,source;source-mask;destination;destination-mask,02_commands_core_access_storage_components_crypto(1).md:474,entries/access-list.md
+3.3.3,access-list permit,access-list,/rci/access-list/permit,yes,yes,no,yes,,,tcp:Keyword;udp:Keyword;source:IP address;source-mask:IP-mask;src-port-operator:Keyword;source-port:Integer;source-end-port:Integer;destination:IP address;destination-mask:IP-mask;dst-port-operator:Keyword;destination-port:Integer;icmp:Keyword;esp:Keyword;gre:Keyword;ip:Keyword;ipip:Keyword;destination-end-port:Keyword,source;source-mask;destination;destination-mask,02_commands_core_access_storage_components_crypto(1).md:586,entries/access-list.md
+3.3.4,access-list rule,access-list,/rci/access-list/rule,yes,yes,no,yes,,,index:Integer;disable:Keyword;schedule:Schedule;order:Integer;description:Keyword;new-index:Keyword,index;schedule,02_commands_core_access_storage_components_crypto(1).md:698,entries/access-list.md
+3.4,afp,afp,/rci/afp,no,no,no,no,(config-afp),,,,02_commands_core_access_storage_components_crypto(1).md:759,entries/afp.md
+3.4.1,afp automount,afp,/rci/afp/automount,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:784,entries/afp.md
+3.4.2,afp permissive,afp,/rci/afp/permissive,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:818,entries/afp.md
+3.4.3,afp share,afp,/rci/afp/share,yes,yes,yes,yes,,,label:String;mount:String;description:Keyword,label;mount,02_commands_core_access_storage_components_crypto(1).md:853,entries/afp.md
+3.5,cifs,cifs,/rci/cifs,no,no,no,no,(config-cifs),,,,02_commands_core_access_storage_components_crypto(1).md:905,entries/cifs.md
+3.5.1,cifs automount,cifs,/rci/cifs/automount,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:930,entries/cifs.md
+3.5.2,cifs map-hidden,cifs,/rci/cifs/map-hidden,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:964,entries/cifs.md
+3.5.3,cifs permissive,cifs,/rci/cifs/permissive,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:997,entries/cifs.md
+3.5.4,cifs share,cifs,/rci/cifs/share,yes,yes,yes,yes,,,label:String;mount:String;description:Keyword,label;mount,02_commands_core_access_storage_components_crypto(1).md:1032,entries/cifs.md
+3.6,cloud control2 security-level,cloud,/rci/cloud/control2/security-level,yes,no,no,no,,,public:Keyword;private:Keyword,,02_commands_core_access_storage_components_crypto(1).md:1084,entries/cloud.md
+3.7,components,components,/rci/components,no,no,no,no,(config-comp),,,,02_commands_core_access_storage_components_crypto(1).md:1121,entries/components.md
+3.7.1,components auto-update channel,components,/rci/components/auto-update/channel,yes,yes,no,no,,,channel:Keyword,channel,02_commands_core_access_storage_components_crypto(1).md:1140,entries/components.md
+3.7.2,components auto-update disable,components,/rci/components/auto-update/disable,yes,yes,no,yes,,,,,02_commands_core_access_storage_components_crypto(1).md:1189,entries/components.md
+3.7.3,components auto-update schedule,components,/rci/components/auto-update/schedule,yes,yes,no,no,,,schedule:Schedule,schedule,02_commands_core_access_storage_components_crypto(1).md:1223,entries/components.md
+3.7.4,components check-update,components,/rci/components/check-update,no,no,no,no,,,force:Keyword,,02_commands_core_access_storage_components_crypto(1).md:1264,entries/components.md
+3.7.5,components commit,components,/rci/components/commit,yes,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:1306,entries/components.md
+3.7.6,components install,components,/rci/components/install,yes,no,no,yes,,,component:String,component,02_commands_core_access_storage_components_crypto(1).md:1327,entries/components.md
+3.7.7,components list,components,/rci/components/list,no,no,no,no,,,sandbox:String,,02_commands_core_access_storage_components_crypto(1).md:1359,entries/components.md
+3.7.8,components preset,components,/rci/components/preset,yes,no,no,no,,,preset:Keyword,preset,02_commands_core_access_storage_components_crypto(1).md:1416,entries/components.md
+3.7.9,components preview,components,/rci/components/preview,yes,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:1467,entries/components.md
+3.7.10,components remove,components,/rci/components/remove,yes,no,no,yes,,,component:String,component,02_commands_core_access_storage_components_crypto(1).md:1495,entries/components.md
+3.7.11,components validity-period,components,/rci/components/validity-period,yes,yes,no,no,,,seconds:Integer,seconds,02_commands_core_access_storage_components_crypto(1).md:1528,entries/components.md
+3.1.1,copy,copy,/rci/copy,no,no,no,no,,,source:Filename;destination:Keyword,source,02_commands_core_access_storage_components_crypto(1).md:11,entries/copy.md
+3.8,crypto engine,crypto,/rci/crypto/engine,yes,yes,no,no,,,type:Keyword,type,02_commands_core_access_storage_components_crypto(1).md:1571,
+3.9,crypto ike key,crypto,/rci/crypto/ike/key,yes,yes,no,yes,,,name:String;psk:String;type:Keyword;id:String;any:Keyword,name;psk;type;id,02_commands_core_access_storage_components_crypto(1).md:1611,
+3.10,crypto ike mtu,crypto,/rci/crypto/ike/mtu,yes,yes,no,no,,,value:Integer,,02_commands_core_access_storage_components_crypto(1).md:1666,
+3.11,crypto ike nat-keepalive,crypto,/rci/crypto/ike/nat-keepalive,yes,yes,no,no,,,nat-keepalive:Keyword,,02_commands_core_access_storage_components_crypto(1).md:1706,
+3.12,crypto ike policy,crypto,/rci/crypto/ike/policy,yes,yes,no,yes,(config-ike-policy),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:1748,
+3.12.1,crypto ike policy lifetime,crypto,/rci/crypto/ike/policy/lifetime,yes,yes,no,no,,,lifetime:Integer,lifetime,02_commands_core_access_storage_components_crypto(1).md:1791,
+3.12.2,crypto ike policy mode,crypto,/rci/crypto/ike/policy/mode,yes,yes,no,no,,,mode:Keyword,mode,02_commands_core_access_storage_components_crypto(1).md:1832,
+3.12.3,crypto ike policy negotiation-mode,crypto,/rci/crypto/ike/policy/negotiation-mode,yes,yes,no,no,,,negotiation-mode:Keyword,negotiation-mode,02_commands_core_access_storage_components_crypto(1).md:1872,
+3.12.4,crypto ike policy proposal,crypto,/rci/crypto/ike/policy/proposal,yes,yes,no,yes,,,proposal:String,proposal,02_commands_core_access_storage_components_crypto(1).md:1917,
+3.13,crypto ike proposal,crypto,/rci/crypto/ike/proposal,yes,yes,no,yes,(config-ike-proposal),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:1961,
+3.13.1,crypto ike proposal aead,crypto,/rci/crypto/ike/proposal/aead,no,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:2008,entries/crypto.md
+3.13.2,crypto ike proposal dh-group,crypto,/rci/crypto/ike/proposal/dh-group,yes,yes,no,yes,,,dh-group:Keyword,dh-group,02_commands_core_access_storage_components_crypto(1).md:2032,
+3.13.3,crypto ike proposal encryption,crypto,/rci/crypto/ike/proposal/encryption,yes,yes,no,yes,,,encryption:Keyword,encryption,02_commands_core_access_storage_components_crypto(1).md:2088,
+3.13.4,crypto ike proposal integrity,crypto,/rci/crypto/ike/proposal/integrity,yes,yes,no,yes,,,integrity:Keyword,integrity,02_commands_core_access_storage_components_crypto(1).md:2137,
+3.13.5,crypto ike proposal prf,crypto,/rci/crypto/ike/proposal/prf,yes,yes,no,yes,,,prf:Keyword,prf,02_commands_core_access_storage_components_crypto(1).md:2184,
+3.14,crypto ipsec incompatible,crypto,/rci/crypto/ipsec/incompatible,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:2231,
+3.15,crypto ipsec profile,crypto,/rci/crypto/ipsec/profile,yes,yes,no,yes,(config-ipsec-profile),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:2265,
+3.15.1,crypto ipsec profile authentication-local,crypto,/rci/crypto/ipsec/profile/authentication-local,yes,yes,no,no,,,auth:Keyword,auth,02_commands_core_access_storage_components_crypto(1).md:2309,
+3.15.2,crypto ipsec profile authentication-remote,crypto,/rci/crypto/ipsec/profile/authentication-remote,yes,yes,no,no,,,auth:Keyword,auth,02_commands_core_access_storage_components_crypto(1).md:2351,
+3.15.3,crypto ipsec profile dpd-clear,crypto,/rci/crypto/ipsec/profile/dpd-clear,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:2393,
+3.15.4,crypto ipsec profile dpd-interval,crypto,/rci/crypto/ipsec/profile/dpd-interval,yes,yes,no,no,,,interval:Integer,interval,02_commands_core_access_storage_components_crypto(1).md:2430,
+3.15.5,crypto ipsec profile identity-local,crypto,/rci/crypto/ipsec/profile/identity-local,yes,yes,no,no,,,type:Keyword;id:String,type;id,02_commands_core_access_storage_components_crypto(1).md:2476,
+3.15.6,crypto ipsec profile match-identity-remote,crypto,/rci/crypto/ipsec/profile/match-identity-remote,yes,yes,no,no,,,type:Keyword;id:String;any:Keyword,type;id,02_commands_core_access_storage_components_crypto(1).md:2520,
+3.15.7,crypto ipsec profile mode,crypto,/rci/crypto/ipsec/profile/mode,yes,yes,no,no,,,mode:Keyword,mode,02_commands_core_access_storage_components_crypto(1).md:2568,
+3.15.8,crypto ipsec profile policy,crypto,/rci/crypto/ipsec/profile/policy,yes,yes,no,no,,,policy:String,policy,02_commands_core_access_storage_components_crypto(1).md:2612,
+3.15.9,crypto ipsec profile preshared-key,crypto,/rci/crypto/ipsec/profile/preshared-key,yes,yes,no,no,,,preshare-key:Keyword,,02_commands_core_access_storage_components_crypto(1).md:2662,
+3.15.10,crypto ipsec profile xauth,crypto,/rci/crypto/ipsec/profile/xauth,yes,yes,no,no,,,type:Keyword,type,02_commands_core_access_storage_components_crypto(1).md:2702,
+3.15.11,crypto ipsec profile xauth-identity,crypto,/rci/crypto/ipsec/profile/xauth-identity,yes,yes,no,no,,,identity:String,identity,02_commands_core_access_storage_components_crypto(1).md:2744,
+3.15.12,crypto ipsec profile xauth-password,crypto,/rci/crypto/ipsec/profile/xauth-password,yes,yes,no,no,,,password:String,password,02_commands_core_access_storage_components_crypto(1).md:2785,
+3.16,crypto ipsec rekey delete-delay,crypto,/rci/crypto/ipsec/rekey/delete-delay,yes,yes,no,no,,,delay:Integer,delay,02_commands_core_access_storage_components_crypto(1).md:2826,
+3.17,crypto ipsec rekey make-before,crypto,/rci/crypto/ipsec/rekey/make-before,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:2867,
+3.18,crypto ipsec transform-set,crypto,/rci/crypto/ipsec/transform-set,yes,yes,no,yes,(config-ipsec-transform),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:2902,
+3.18.1,crypto ipsec transform-set aead,crypto,/rci/crypto/ipsec/transform-set/aead,no,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:2949,entries/crypto.md
+3.18.2,crypto ipsec transform-set cypher,crypto,/rci/crypto/ipsec/transform-set/cypher,yes,yes,no,yes,,,cypher:Keyword,cypher,02_commands_core_access_storage_components_crypto(1).md:2973,
+3.18.3,crypto ipsec transform-set dh-group,crypto,/rci/crypto/ipsec/transform-set/dh-group,yes,yes,no,yes,,,dh-group:Keyword,dh-group,02_commands_core_access_storage_components_crypto(1).md:3019,
+3.18.4,crypto ipsec transform-set hmac,crypto,/rci/crypto/ipsec/transform-set/hmac,yes,yes,no,yes,,,hmac:Keyword,hmac,02_commands_core_access_storage_components_crypto(1).md:3068,
+3.18.5,crypto ipsec transform-set lifetime,crypto,/rci/crypto/ipsec/transform-set/lifetime,yes,yes,no,no,,,lifetime:Integer,lifetime,02_commands_core_access_storage_components_crypto(1).md:3115,
+3.19,crypto map,crypto,/rci/crypto/map,yes,yes,no,yes,(config-crypto-map),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:3158,
+3.19.1,crypto map connect,crypto,/rci/crypto/map/connect,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3201,
+3.19.2,crypto map enable,crypto,/rci/crypto/map/enable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3237,
+3.19.3,crypto map fallback-check-interval,crypto,/rci/crypto/map/fallback-check-interval,yes,yes,no,no,,,interval-value:Keyword,,02_commands_core_access_storage_components_crypto(1).md:3270,
+3.19.4,crypto map force-encaps,crypto,/rci/crypto/map/force-encaps,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3313,
+3.19.5,crypto map l2tp-server dhcp route,crypto,/rci/crypto/map/l2tp-server/dhcp/route,yes,yes,yes,yes,,,address:IP address;mask:IP-mask,address;mask,02_commands_core_access_storage_components_crypto(1).md:3349,entries/crypto.md
+3.19.6,crypto map l2tp-server enable,crypto,/rci/crypto/map/l2tp-server/enable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3395,
+3.19.7,crypto map l2tp-server interface,crypto,/rci/crypto/map/l2tp-server/interface,yes,yes,no,no,,,interface:Interface,interface,02_commands_core_access_storage_components_crypto(1).md:3431,
+3.19.8,crypto map l2tp-server ipv6cp,crypto,/rci/crypto/map/l2tp-server/ipv6cp,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3492,
+3.19.9,crypto map l2tp-server lcp echo,crypto,/rci/crypto/map/l2tp-server/lcp/echo,yes,yes,no,no,,,interval:Integer;count:Integer,interval;count,02_commands_core_access_storage_components_crypto(1).md:3529,
+3.19.10,crypto map l2tp-server mru,crypto,/rci/crypto/map/l2tp-server/mru,yes,yes,no,no,,,mru:Integer,mru,02_commands_core_access_storage_components_crypto(1).md:3578,
+3.19.11,crypto map l2tp-server mtu,crypto,/rci/crypto/map/l2tp-server/mtu,yes,yes,no,no,,,mtu:Integer,mtu,02_commands_core_access_storage_components_crypto(1).md:3620,
+3.19.12,crypto map l2tp-server multi-login,crypto,/rci/crypto/map/l2tp-server/multi-login,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3662,
+3.19.13,crypto map l2tp-server nat,crypto,/rci/crypto/map/l2tp-server/nat,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3698,
+3.19.14,crypto map l2tp-server range,crypto,/rci/crypto/map/l2tp-server/range,yes,yes,no,no,,,begin:IP address;end:IP address;size:Integer,begin;end;size,02_commands_core_access_storage_components_crypto(1).md:3734,
+3.19.15,crypto map l2tp-server session-logout,crypto,/rci/crypto/map/l2tp-server/session-logout,yes,no,no,no,,,session:Integer,session,02_commands_core_access_storage_components_crypto(1).md:3782,
+3.19.16,crypto map l2tp-server session-preempt,crypto,/rci/crypto/map/l2tp-server/session-preempt,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3811,
+3.19.17,crypto map l2tp-server static-ip,crypto,/rci/crypto/map/l2tp-server/static-ip,yes,yes,no,no,,,user:String;address:IP address,user;address,02_commands_core_access_storage_components_crypto(1).md:3846,
+3.19.18,crypto map nail-up,crypto,/rci/crypto/map/nail-up,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3888,
+3.19.19,crypto map reauth-passive,crypto,/rci/crypto/map/reauth-passive,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:3922,
+3.19.20,crypto map set-peer,crypto,/rci/crypto/map/set-peer,yes,yes,no,no,,,remote-ip:String,remote-ip,02_commands_core_access_storage_components_crypto(1).md:3959,
+3.19.21,crypto map set-peer-fallback,crypto,/rci/crypto/map/set-peer-fallback,yes,yes,no,no,,,remote-ip:String,remote-ip,02_commands_core_access_storage_components_crypto(1).md:4000,
+3.19.22,crypto map set-profile,crypto,/rci/crypto/map/set-profile,yes,yes,no,no,,,profile:String,profile,02_commands_core_access_storage_components_crypto(1).md:4041,
+3.19.23,crypto map set-tcpmss,crypto,/rci/crypto/map/set-tcpmss,yes,yes,no,no,,,mss-value:Integer,mss-value,02_commands_core_access_storage_components_crypto(1).md:4093,
+3.19.24,crypto map set-transform,crypto,/rci/crypto/map/set-transform,yes,yes,no,no,,,transform-set:String,transform-set,02_commands_core_access_storage_components_crypto(1).md:4139,
+3.19.25,crypto map traffic-selectors,crypto,/rci/crypto/map/traffic-selectors,yes,yes,no,no,,,local:String;remote:String,local;remote,02_commands_core_access_storage_components_crypto(1).md:4190,
+3.19.26,crypto map tunnel-interface,crypto,/rci/crypto/map/tunnel-interface,yes,yes,no,no,,,interface:Interface,interface,02_commands_core_access_storage_components_crypto(1).md:4234,
+3.19.27,crypto map virtual-ip dhcp route,crypto,/rci/crypto/map/virtual-ip/dhcp/route,yes,yes,yes,yes,,,address:IP address;mask:IP-mask,address;mask,02_commands_core_access_storage_components_crypto(1).md:4273,entries/crypto.md
+3.19.28,crypto map virtual-ip dns-server,crypto,/rci/crypto/map/virtual-ip/dns-server,yes,yes,no,no,,,address:IP address,address,02_commands_core_access_storage_components_crypto(1).md:4326,
+3.19.29,crypto map virtual-ip enable,crypto,/rci/crypto/map/virtual-ip/enable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:4366,
+3.19.30,crypto map virtual-ip interface,crypto,/rci/crypto/map/virtual-ip/interface,yes,yes,no,no,,,interface:Interface,interface,02_commands_core_access_storage_components_crypto(1).md:4402,
+3.19.31,crypto map virtual-ip multi-login,crypto,/rci/crypto/map/virtual-ip/multi-login,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:4444,
+3.19.32,crypto map virtual-ip nat,crypto,/rci/crypto/map/virtual-ip/nat,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:4480,
+3.19.33,crypto map virtual-ip range,crypto,/rci/crypto/map/virtual-ip/range,yes,yes,no,no,,,begin:IP address;end:IP address;size:Integer,begin;end;size,02_commands_core_access_storage_components_crypto(1).md:4516,
+3.19.34,crypto map virtual-ip session-logout,crypto,/rci/crypto/map/virtual-ip/session-logout,yes,no,no,no,,,session:Integer,session,02_commands_core_access_storage_components_crypto(1).md:4558,
+3.19.35,crypto map virtual-ip session-preempt,crypto,/rci/crypto/map/virtual-ip/session-preempt,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:4587,
+3.19.36,crypto map virtual-ip static-ip,crypto,/rci/crypto/map/virtual-ip/static-ip,yes,yes,no,yes,,,user:String;address:IP address,user;address,02_commands_core_access_storage_components_crypto(1).md:4624,
+3.20,dlna,dlna,/rci/dlna,no,no,no,no,(config-dlna),,,,02_commands_core_access_storage_components_crypto(1).md:4666,entries/dlna.md
+3.20.1,dlna container,dlna,/rci/dlna/container,yes,yes,no,no,,,container:Keyword,container,02_commands_core_access_storage_components_crypto(1).md:4691,
+3.20.2,dlna db-directory,dlna,/rci/dlna/db-directory,yes,yes,no,no,,,directory:String,directory,02_commands_core_access_storage_components_crypto(1).md:4732,
+3.20.3,dlna directory,dlna,/rci/dlna/directory,yes,yes,no,yes,,,directory:String;media-type:Keyword,directory,02_commands_core_access_storage_components_crypto(1).md:4770,
+3.20.4,dlna display-name,dlna,/rci/dlna/display-name,yes,yes,no,no,,,display-name:Keyword,,02_commands_core_access_storage_components_crypto(1).md:4820,
+3.20.5,dlna interface,dlna,/rci/dlna/interface,yes,yes,yes,yes,,IP,interface:Interface,interface,02_commands_core_access_storage_components_crypto(1).md:4855,entries/dlna.md
+3.20.6,dlna port,dlna,/rci/dlna/port,yes,yes,no,no,,,port:Integer,port,02_commands_core_access_storage_components_crypto(1).md:4914,
+3.20.7,dlna rescan,dlna,/rci/dlna/rescan,no,no,no,no,,,full:Keyword,,02_commands_core_access_storage_components_crypto(1).md:4953,entries/dlna.md
+3.20.8,dlna sort,dlna,/rci/dlna/sort,yes,yes,no,yes,,,key:Keyword;order:Keyword,key,02_commands_core_access_storage_components_crypto(1).md:4989,
+3.21,dns-proxy,dns-proxy,/rci/dns-proxy,no,no,no,no,(config-dnspx),,,,02_commands_core_access_storage_components_crypto(1).md:5038,entries/dns-proxy.md
+3.21.1,dns-proxy debug,dns-proxy,/rci/dns-proxy/debug,yes,yes,no,yes,,,,,02_commands_core_access_storage_components_crypto(1).md:5063,entries/dns-proxy.md
+3.21.2,dns-proxy filter assign host preset,dns-proxy,/rci/dns-proxy/filter/assign/host/preset,yes,yes,yes,yes,,,host:MAC address;preset:String,host;preset,02_commands_core_access_storage_components_crypto(1).md:5094,entries/dns-proxy.md
+3.21.3,dns-proxy filter assign host profile,dns-proxy,/rci/dns-proxy/filter/assign/host/profile,yes,yes,yes,yes,,,host:MAC address;profile:String,host;profile,02_commands_core_access_storage_components_crypto(1).md:5143,entries/dns-proxy.md
+3.21.4,dns-proxy filter assign interface preset,dns-proxy,/rci/dns-proxy/filter/assign/interface/preset,yes,yes,yes,yes,,,interface:Interface;preset:String,interface;preset,02_commands_core_access_storage_components_crypto(1).md:5193,entries/dns-proxy.md
+3.21.5,dns-proxy filter assign interface profile,dns-proxy,/rci/dns-proxy/filter/assign/interface/profile,yes,yes,yes,yes,,,interface:Interface;profile:String,interface;profile,02_commands_core_access_storage_components_crypto(1).md:5244,entries/dns-proxy.md
+3.21.6,dns-proxy filter engine,dns-proxy,/rci/dns-proxy/filter/engine,yes,yes,no,no,,,engine:Keyword,engine,02_commands_core_access_storage_components_crypto(1).md:5301,entries/dns-proxy.md
+3.21.7,dns-proxy filter profile,dns-proxy,/rci/dns-proxy/filter/profile,yes,yes,no,yes,,,name:String,name,02_commands_core_access_storage_components_crypto(1).md:5345,entries/dns-proxy.md
+3.21.8,dns-proxy filter profile description,dns-proxy,/rci/dns-proxy/filter/profile/description,yes,yes,no,no,,,name:String;description:Keyword,name,02_commands_core_access_storage_components_crypto(1).md:5386,entries/dns-proxy.md
+3.21.9,dns-proxy filter profile dns53 upstream,dns-proxy,/rci/dns-proxy/filter/profile/dns53/upstream,yes,yes,yes,yes,,,name:String;address:IP address;port:Integer,name;address,02_commands_core_access_storage_components_crypto(1).md:5426,entries/dns-proxy.md
+3.21.10,dns-proxy filter profile https upstream,dns-proxy,/rci/dns-proxy/filter/profile/https/upstream,yes,yes,yes,yes,,,name:String;url:String;hash:String,name;url,02_commands_core_access_storage_components_crypto(1).md:5475,entries/dns-proxy.md
+3.21.11,dns-proxy filter profile intercept enable,dns-proxy,/rci/dns-proxy/filter/profile/intercept/enable,yes,yes,no,yes,,,name:String,name,02_commands_core_access_storage_components_crypto(1).md:5527,entries/dns-proxy.md
+3.21.12,dns-proxy filter profile tls upstream,dns-proxy,/rci/dns-proxy/filter/profile/tls/upstream,yes,yes,yes,yes,,,name:String;address:IP address;port:Integer;fqdn:String;hash:String,name;address,02_commands_core_access_storage_components_crypto(1).md:5567,entries/dns-proxy.md
+3.21.13,dns-proxy https upstream,dns-proxy,/rci/dns-proxy/https/upstream,yes,yes,yes,yes,,,url:String;format:Keyword;hash:String;interface:Interface;domain:String,url,02_commands_core_access_storage_components_crypto(1).md:5622,entries/dns-proxy.md
+3.21.14,dns-proxy intercept enable,dns-proxy,/rci/dns-proxy/intercept/enable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:5692,entries/dns-proxy.md
+3.21.15,dns-proxy max-ttl,dns-proxy,/rci/dns-proxy/max-ttl,yes,yes,no,no,,,max-ttl:Integer,max-ttl,02_commands_core_access_storage_components_crypto(1).md:5730,entries/dns-proxy.md
+3.21.16,dns-proxy proceed,dns-proxy,/rci/dns-proxy/proceed,yes,yes,no,no,,,proceed:Integer,proceed,02_commands_core_access_storage_components_crypto(1).md:5770,entries/dns-proxy.md
+3.21.17,dns-proxy rebind-protect,dns-proxy,/rci/dns-proxy/rebind-protect,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:5811,entries/dns-proxy.md
+3.21.18,dns-proxy route object-group,dns-proxy,/rci/dns-proxy/route/object-group,yes,yes,yes,yes,,,group:String;gateway:IP address;auto:Keyword;reject:Keyword;interface:Keyword,group;gateway,02_commands_core_access_storage_components_crypto(1).md:5854,entries/dns-proxy.md
+3.21.19,dns-proxy srr-reset,dns-proxy,/rci/dns-proxy/srr-reset,yes,yes,no,no,,,srr-reset:Integer,srr-reset,02_commands_core_access_storage_components_crypto(1).md:5940,entries/dns-proxy.md
+3.21.20,dns-proxy tls upstream,dns-proxy,/rci/dns-proxy/tls/upstream,yes,yes,yes,yes,,,address:IP address;port:Integer;fqdn:String;hash:String;interface:Interface;domain:String,address,02_commands_core_access_storage_components_crypto(1).md:5980,entries/dns-proxy.md
+3.22,dpn accept,dpn,/rci/dpn/accept,no,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6042,entries/dpn.md
+3.23,dyndns profile,dyndns,/rci/dyndns/profile,yes,yes,no,yes,(config-dyndns),,name:String,name,02_commands_core_access_storage_components_crypto(1).md:6067,entries/dyndns.md
+3.23.1,dyndns profile domain,dyndns,/rci/dyndns/profile/domain,yes,yes,no,no,,,domain:Keyword,,02_commands_core_access_storage_components_crypto(1).md:6107,entries/dyndns.md
+3.23.2,dyndns profile password,dyndns,/rci/dyndns/profile/password,yes,yes,no,no,,,password:String,password,02_commands_core_access_storage_components_crypto(1).md:6149,entries/dyndns.md
+3.23.3,dyndns profile send-address,dyndns,/rci/dyndns/profile/send-address,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6194,entries/dyndns.md
+3.23.4,dyndns profile type,dyndns,/rci/dyndns/profile/type,yes,yes,no,no,,,type:Keyword,,02_commands_core_access_storage_components_crypto(1).md:6228,entries/dyndns.md
+3.23.5,dyndns profile update-interval,dyndns,/rci/dyndns/profile/update-interval,yes,yes,no,no,,,days:Integer;hours:Integer;minutes:Integer;seconds:Integer,days,02_commands_core_access_storage_components_crypto(1).md:6333,entries/dyndns.md
+3.23.6,dyndns profile url,dyndns,/rci/dyndns/profile/url,yes,yes,no,no,,,url:String,url,02_commands_core_access_storage_components_crypto(1).md:6380,entries/dyndns.md
+3.23.7,dyndns profile username,dyndns,/rci/dyndns/profile/username,yes,yes,no,no,,,username:String,username,02_commands_core_access_storage_components_crypto(1).md:6414,entries/dyndns.md
+3.24,easyconfig check,easyconfig,/rci/easyconfig/check,no,no,no,no,(ezconfig-check),,,,02_commands_core_access_storage_components_crypto(1).md:6450,entries/easyconfig.md
+3.24.1,easyconfig check exclude-gateway,easyconfig,/rci/easyconfig/check/exclude-gateway,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6480,
+3.24.2,easyconfig check max-fails,easyconfig,/rci/easyconfig/check/max-fails,yes,yes,no,no,,,count:Integer,count,02_commands_core_access_storage_components_crypto(1).md:6514,
+3.24.3,easyconfig check period,easyconfig,/rci/easyconfig/check/period,yes,yes,no,no,,,period:Integer,period,02_commands_core_access_storage_components_crypto(1).md:6556,
+3.25,easyconfig disable,easyconfig,/rci/easyconfig/disable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6597,
+3.1.2,erase,erase,/rci/erase,yes,no,no,yes,,,filename:Filename,filename,02_commands_core_access_storage_components_crypto(1).md:49,entries/erase.md
+3.26,eula accept,eula,/rci/eula/accept,no,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6631,entries/eula.md
+3.1.3,exit,exit,/rci/exit,no,no,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:76,entries/exit.md
+3.1.4,grep,grep,/rci/grep,no,no,no,no,,,command:String;a:String;b:String;c:String;pattern:String,command;pattern,02_commands_core_access_storage_components_crypto(1).md:99,entries/grep.md
+3.27,igmp-proxy,igmp-proxy,/rci/igmp-proxy,no,no,no,no,(igmp-proxy),,,,02_commands_core_access_storage_components_crypto(1).md:6656,entries/igmp-proxy.md
+3.27.1,igmp-proxy fast-leave,igmp-proxy,/rci/igmp-proxy/fast-leave,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6680,entries/igmp-proxy.md
+3.27.2,igmp-proxy force,igmp-proxy,/rci/igmp-proxy/force,yes,yes,no,no,,,protocol:Keyword,protocol,02_commands_core_access_storage_components_crypto(1).md:6715,entries/igmp-proxy.md
+3.28,igmp-snooping disable,igmp-snooping,/rci/igmp-snooping/disable,yes,yes,no,no,,,,,02_commands_core_access_storage_components_crypto(1).md:6755,entries/igmp-snooping.md
+3.29,interface,interface,/rci/interface,yes,yes,no,yes,(config-if),,name:Interface,name,03_commands_interface(1).md:5,entries/interface-other.md
+3.29.1,interface atf disable,interface,/rci/interface/atf/disable,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:84,entries/interface-other.md
+3.29.2,interface atf inbound,interface,/rci/interface/atf/inbound,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:121,entries/interface-other.md
+3.29.3,interface authentication chap,interface,/rci/interface/authentication/chap,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:164,entries/interface-authentication.md
+3.29.4,interface authentication eap-md5,interface,/rci/interface/authentication/eap-md5,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:202,entries/interface-authentication.md
+3.29.5,interface authentication eap-mschapv2,interface,/rci/interface/authentication/eap-mschapv2,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:240,entries/interface-authentication.md
+3.29.6,interface authentication eap-ttls,interface,/rci/interface/authentication/eap-ttls,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:278,entries/interface-authentication.md
+3.29.7,interface authentication identity,interface,/rci/interface/authentication/identity,yes,yes,no,no,,Secure,identity:String,identity,03_commands_interface(1).md:316,entries/interface-authentication.md
+3.29.8,interface authentication mschap,interface,/rci/interface/authentication/mschap,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:359,entries/interface-authentication.md
+3.29.9,interface authentication mschap-v2,interface,/rci/interface/authentication/mschap-v2,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:397,entries/interface-authentication.md
+3.29.10,interface authentication pap,interface,/rci/interface/authentication/pap,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:435,entries/interface-authentication.md
+3.29.11,interface authentication password,interface,/rci/interface/authentication/password,yes,yes,no,no,,Secure,password:String,password,03_commands_interface(1).md:473,entries/interface-authentication.md
+3.29.12,interface authentication peap,interface,/rci/interface/authentication/peap,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:515,entries/interface-authentication.md
+3.29.13,interface authentication shared,interface,/rci/interface/authentication/shared,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:553,entries/interface-authentication.md
+3.29.14,interface authentication wpa-psk,interface,/rci/interface/authentication/wpa-psk,yes,yes,no,no,,WiFi,psk:String,psk,03_commands_interface(1).md:593,entries/interface-authentication.md
+3.29.15,interface auto-ssid,interface,/rci/interface/auto-ssid,,no,no,no,,WifiMaster,template:Keyword;prefix:String,template;prefix,03_commands_interface(1).md:641,entries/interface-other.md
+3.29.16,interface backhaul,interface,/rci/interface/backhaul,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:681,entries/interface-other.md
+3.29.17,interface band-steering,interface,/rci/interface/band-steering,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:719,entries/interface-other.md
+3.29.18,interface band-steering preference,interface,/rci/interface/band-steering/preference,yes,yes,no,no,,WiFiMaster,band:Keyword,band,03_commands_interface(1).md:766,entries/interface-other.md
+3.29.19,interface beamforming explicit,interface,/rci/interface/beamforming/explicit,yes,yes,no,no,,WiFiMaster,mu-mimo:Keyword,,03_commands_interface(1).md:811,entries/interface-other.md
+3.29.20,interface beamforming implicit,interface,/rci/interface/beamforming/implicit,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:862,entries/interface-other.md
+3.29.21,interface ccp,interface,/rci/interface/ccp,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:901,entries/interface-other.md
+3.29.22,interface channel,interface,/rci/interface/channel,yes,yes,no,no,,Radio,channel:Keyword,channel,03_commands_interface(1).md:936,entries/interface-other.md
+3.29.23,interface channel auto-rescan,interface,/rci/interface/channel/auto-rescan,yes,yes,no,no,,Radio,interval:Keyword;hh:Keyword;mm:Keyword,interval,03_commands_interface(1).md:987,entries/interface-other.md
+3.29.24,interface channel width,interface,/rci/interface/channel/width,yes,yes,no,no,,Radio,width:Keyword,width,03_commands_interface(1).md:1036,entries/interface-other.md
+3.29.49,interface compatibility,interface,/rci/interface/compatibility,yes,no,no,no,,Radio,annex:Keyword,annex,03_commands_interface(1).md:2105,entries/interface-other.md
+3.29.50,interface connect,interface,/rci/interface/connect,yes,yes,no,no,,"PPP, IP",via:Interface,,03_commands_interface(1).md:2152,entries/interface-other.md
+3.29.51,interface country-code,interface,/rci/interface/country-code,yes,no,no,no,,Radio,code:String,code,03_commands_interface(1).md:2191,entries/interface-other.md
+3.29.52,interface debug,interface,/rci/interface/debug,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:2225,entries/interface-other.md
+3.29.53,interface description,interface,/rci/interface/description,yes,yes,no,no,,,description:Keyword,,03_commands_interface(1).md:2261,entries/interface-other.md
+3.29.54,interface dfs zero-wait,interface,/rci/interface/dfs/zero-wait,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:2300,entries/interface-other.md
+3.29.55,interface down,interface,/rci/interface/down,yes,yes,no,no,,,,,03_commands_interface(1).md:2338,entries/interface-other.md
+3.29.56,interface downlink-mumimo,interface,/rci/interface/downlink-mumimo,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:2372,entries/interface-other.md
+3.29.57,interface downlink-ofdma,interface,/rci/interface/downlink-ofdma,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:2413,entries/interface-other.md
+3.29.58,interface duplex,interface,/rci/interface/duplex,yes,yes,no,no,,Ethernet,mode:Keyword,,03_commands_interface(1).md:2451,entries/interface-other.md
+3.29.59,interface dyndns nobind,interface,/rci/interface/dyndns/nobind,yes,yes,no,no,,,,,03_commands_interface(1).md:2495,entries/interface-other.md
+3.29.60,interface dyndns profile,interface,/rci/interface/dyndns/profile,yes,yes,no,no,,,profile:String,profile,03_commands_interface(1).md:2529,entries/interface-other.md
+3.29.61,interface dyndns update,interface,/rci/interface/dyndns/update,yes,no,no,no,,,force:Keyword,,03_commands_interface(1).md:2569,entries/interface-other.md
+3.29.62,interface encryption anonymous-dh,interface,/rci/interface/encryption/anonymous-dh,yes,yes,no,no,,SSTP,,,03_commands_interface(1).md:2600,entries/interface-encryption.md
+3.29.63,interface encryption enable,interface,/rci/interface/encryption/enable,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:2636,entries/interface-encryption.md
+3.29.64,interface encryption key,interface,/rci/interface/encryption/key,yes,yes,no,yes,,WiFi,id:Integer;value:String;default:Keyword,id;value,03_commands_interface(1).md:2675,entries/interface-encryption.md
+3.29.65,interface encryption mppe,interface,/rci/interface/encryption/mppe,yes,yes,no,no,,PPTP,,,03_commands_interface(1).md:2725,entries/interface-encryption.md
+3.29.66,interface encryption owe,interface,/rci/interface/encryption/owe,,yes,no,no,,WifiMaster,,,03_commands_interface(1).md:2761,entries/interface-encryption.md
+3.29.67,interface encryption tkip hold-down,interface,/rci/interface/encryption/tkip/hold-down,yes,yes,no,no,,WiFi,hold-down:Integer,hold-down,03_commands_interface(1).md:2800,entries/interface-encryption.md
+3.29.68,interface encryption wpa,interface,/rci/interface/encryption/wpa,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:2847,entries/interface-encryption.md
+3.29.69,interface encryption wpa2,interface,/rci/interface/encryption/wpa2,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:2882,entries/interface-encryption.md
+3.29.70,interface encryption wpa3,interface,/rci/interface/encryption/wpa3,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:2917,entries/interface-encryption.md
+3.29.71,interface encryption wpa3 suite-b,interface,/rci/interface/encryption/wpa3/suite-b,yes,no,no,no,,WiFi,,,03_commands_interface(1).md:2956,entries/interface-encryption.md
+3.29.72,interface flowcontrol,interface,/rci/interface/flowcontrol,yes,yes,no,no,,Ethernet,send:Keyword,,03_commands_interface(1).md:2985,entries/interface-other.md
+3.29.73,interface follow,interface,/rci/interface/follow,yes,no,no,no,,AccessPoint,access-point:Interface,access-point,03_commands_interface(1).md:3028,entries/interface-other.md
+3.29.74,interface ft enable,interface,/rci/interface/ft/enable,yes,yes,no,no,,AccessPoint,,,03_commands_interface(1).md:3073,entries/interface-other.md
+3.29.75,interface ft mdid,interface,/rci/interface/ft/mdid,yes,yes,no,no,,AccessPoint,mdid:String,mdid,03_commands_interface(1).md:3121,entries/interface-other.md
+3.29.76,interface ft otd,interface,/rci/interface/ft/otd,yes,yes,no,no,,AccessPoint,,,03_commands_interface(1).md:3164,entries/interface-other.md
+3.29.77,interface green-ethernet,interface,/rci/interface/green-ethernet,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:3203,entries/interface-other.md
+3.29.78,interface hide-ssid,interface,/rci/interface/hide-ssid,yes,yes,no,no,,Access Point,,,03_commands_interface(1).md:3239,entries/interface-other.md
+3.29.79,interface iapp auto,interface,/rci/interface/iapp/auto,yes,no,no,no,,Bridge,,,03_commands_interface(1).md:3279,entries/interface-other.md
+3.29.80,interface iapp key,interface,/rci/interface/iapp/key,yes,yes,no,no,,Bridge,key:String,key,03_commands_interface(1).md:3306,entries/interface-other.md
+3.29.81,interface idle-timeout,interface,/rci/interface/idle-timeout,yes,yes,no,no,,WiFiMaster,idle-timeout:Integer,idle-timeout,03_commands_interface(1).md:3349,entries/interface-other.md
+3.29.82,interface igmp downstream,interface,/rci/interface/igmp/downstream,yes,yes,no,no,,IP,,,03_commands_interface(1).md:3394,entries/interface-other.md
+3.29.83,interface igmp fork,interface,/rci/interface/igmp/fork,yes,yes,no,no,,IP,,,03_commands_interface(1).md:3430,entries/interface-other.md
+3.29.84,interface igmp upstream,interface,/rci/interface/igmp/upstream,yes,yes,no,no,,IP,,,03_commands_interface(1).md:3464,entries/interface-other.md
+3.29.85,interface include,interface,/rci/interface/include,yes,yes,no,yes,,Bridge,interface:Interface,interface,03_commands_interface(1).md:3500,entries/interface-other.md
+3.29.86,interface inherit,interface,/rci/interface/inherit,yes,yes,no,yes,,Bridge,interface:Interface,interface,03_commands_interface(1).md:3542,entries/interface-other.md
+3.29.87,interface ip access-group,interface,/rci/interface/ip/access-group,yes,yes,no,yes,,IP,acl:String;direction:Keyword,acl;direction,03_commands_interface(1).md:3595,entries/interface-ip.md
+3.29.88,interface ip address,interface,/rci/interface/ip/address,yes,yes,no,no,,IP,address:IP address;mask:IP-mask,address;mask,03_commands_interface(1).md:3648,entries/interface-ip.md
+3.29.89,interface ip address dhcp,interface,/rci/interface/ip/address/dhcp,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:3699,entries/interface-ip.md
+3.29.90,interface ip adjust-ttl recv,interface,/rci/interface/ip/adjust-ttl/recv,yes,yes,no,no,,IP,recv:Integer,recv,03_commands_interface(1).md:3739,entries/interface-ip.md
+3.29.91,interface ip adjust-ttl send,interface,/rci/interface/ip/adjust-ttl/send,yes,yes,no,no,,IP,send:Integer,send,03_commands_interface(1).md:3783,entries/interface-ip.md
+3.29.92,interface ip alias,interface,/rci/interface/ip/alias,yes,yes,yes,yes,,"IP, Ethernet",address:IP address;mask:IP-mask,address;mask,03_commands_interface(1).md:3826,entries/interface-ip.md
+3.29.93,interface ip dhcp client broadcast,interface,/rci/interface/ip/dhcp/client/broadcast,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:3880,entries/interface-ip.md
+3.29.94,interface ip dhcp client class-id,interface,/rci/interface/ip/dhcp/client/class-id,yes,yes,no,no,,Ethernet,class:String,class,03_commands_interface(1).md:3918,entries/interface-ip.md
+3.29.95,interface ip dhcp client debug,interface,/rci/interface/ip/dhcp/client/debug,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:3961,entries/interface-ip.md
+3.29.96,interface ip dhcp client displace,interface,/rci/interface/ip/dhcp/client/displace,yes,yes,no,yes,,Ethernet,what:Interface,what,03_commands_interface(1).md:3998,entries/interface-ip.md
+3.29.97,interface ip dhcp client dns-routes,interface,/rci/interface/ip/dhcp/client/dns-routes,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:4055,entries/interface-ip.md
+3.29.98,interface ip dhcp client fallback,interface,/rci/interface/ip/dhcp/client/fallback,yes,yes,no,no,,Ethernet,type:String,type,03_commands_interface(1).md:4092,entries/interface-ip.md
+3.29.99,interface ip dhcp client hostname,interface,/rci/interface/ip/dhcp/client/hostname,yes,yes,no,no,,Ethernet,hostname:String,hostname,03_commands_interface(1).md:4134,entries/interface-ip.md
+3.29.100,interface ip dhcp client name-servers,interface,/rci/interface/ip/dhcp/client/name-servers,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:4175,entries/interface-ip.md
+3.29.101,interface ip dhcp client release,interface,/rci/interface/ip/dhcp/client/release,yes,no,no,no,,Ethernet,,,03_commands_interface(1).md:4213,entries/interface-ip.md
+3.29.102,interface ip dhcp client renew,interface,/rci/interface/ip/dhcp/client/renew,yes,no,no,no,,Ethernet,,,03_commands_interface(1).md:4242,entries/interface-ip.md
+3.29.103,interface ip dhcp client routes,interface,/rci/interface/ip/dhcp/client/routes,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:4270,entries/interface-ip.md
+3.29.104,interface ip flow,interface,/rci/interface/ip/flow,yes,yes,no,no,,IP,direction:Keyword,direction,03_commands_interface(1).md:4307,entries/interface-ip.md
+3.29.105,interface ip global,interface,/rci/interface/ip/global,yes,yes,no,no,,IP,priority:Integer;order:Integer;auto:Keyword,priority;order,03_commands_interface(1).md:4359,entries/interface-ip.md
+3.29.106,interface ip mru,interface,/rci/interface/ip/mru,yes,yes,no,no,,PPP,mru:Integer,mru,03_commands_interface(1).md:4424,entries/interface-ip.md
+3.29.107,interface ip mtu,interface,/rci/interface/ip/mtu,yes,yes,no,no,,IP,mtu:Integer,mtu,03_commands_interface(1).md:4465,entries/interface-ip.md
+3.29.108,interface ip name-servers,interface,/rci/interface/ip/name-servers,yes,yes,no,no,,IP,,,03_commands_interface(1).md:4510,entries/interface-ip.md
+3.29.109,interface ip nat loopback,interface,/rci/interface/ip/nat/loopback,yes,yes,no,no,,IP,,,03_commands_interface(1).md:4550,entries/interface-ip.md
+3.29.110,interface ip remote,interface,/rci/interface/ip/remote,yes,yes,no,no,,PPP,address:IP address,address,03_commands_interface(1).md:4587,entries/interface-ip.md
+3.29.111,interface ip tcp adjust-mss,interface,/rci/interface/ip/tcp/adjust-mss,yes,yes,no,no,,IP,pmtu:Keyword;mss:Integer,mss,03_commands_interface(1).md:4623,entries/interface-ip.md
+3.29.112,interface ipcp address,interface,/rci/interface/ipcp/address,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:4673,entries/interface-other.md
+3.29.113,interface ipcp default-route,interface,/rci/interface/ipcp/default-route,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:4709,entries/interface-other.md
+3.29.114,interface ipcp dns-routes,interface,/rci/interface/ipcp/dns-routes,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:4743,entries/interface-other.md
+3.29.115,interface ipcp name-servers,interface,/rci/interface/ipcp/name-servers,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:4779,entries/interface-other.md
+3.29.116,interface ipcp vj,interface,/rci/interface/ipcp/vj,yes,yes,no,no,,PPP,cid:Keyword,,03_commands_interface(1).md:4816,entries/interface-other.md
+3.29.117,interface ipsec aggressive,interface,/rci/interface/ipsec/aggressive,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:4858,entries/interface-ipsec.md
+3.29.118,interface ipsec encryption-level,interface,/rci/interface/ipsec/encryption-level,yes,yes,no,no,,Secure,level:Keyword,level,03_commands_interface(1).md:4895,entries/interface-ipsec.md
+3.29.119,interface ipsec force-encaps,interface,/rci/interface/ipsec/force-encaps,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:4963,entries/interface-ipsec.md
+3.29.120,interface ipsec ignore,interface,/rci/interface/ipsec/ignore,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:5002,entries/interface-ipsec.md
+3.29.121,interface ipsec ikev2,interface,/rci/interface/ipsec/ikev2,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:5039,entries/interface-ipsec.md
+3.29.122,interface ipsec nail-up,interface,/rci/interface/ipsec/nail-up,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:5076,entries/interface-ipsec.md
+3.29.123,interface ipsec name-servers,interface,/rci/interface/ipsec/name-servers,yes,yes,no,no,,Secure,,,03_commands_interface(1).md:5113,entries/interface-ipsec.md
+3.29.124,interface ipsec preshared-key,interface,/rci/interface/ipsec/preshared-key,yes,yes,no,no,,Secure,key:String,key,03_commands_interface(1).md:5153,entries/interface-ipsec.md
+3.29.125,interface ipsec proposal lifetime,interface,/rci/interface/ipsec/proposal/lifetime,yes,yes,no,no,,Secure,lifetime:Integer,lifetime,03_commands_interface(1).md:5198,entries/interface-ipsec.md
+3.29.126,interface ipsec proposal local-id,interface,/rci/interface/ipsec/proposal/local-id,yes,yes,no,no,,Secure,local-id:String,local-id,03_commands_interface(1).md:5244,entries/interface-ipsec.md
+3.29.127,interface ipsec proposal remote-id,interface,/rci/interface/ipsec/proposal/remote-id,yes,yes,no,no,,Secure,remote-id:String,remote-id,03_commands_interface(1).md:5285,entries/interface-ipsec.md
+3.29.128,interface ipsec transform-set lifetime,interface,/rci/interface/ipsec/transform-set/lifetime,yes,yes,no,no,,Secure,lifetime:Integer,lifetime,03_commands_interface(1).md:5326,entries/interface-ipsec.md
+3.29.129,interface ipv6 address,interface,/rci/interface/ipv6/address,yes,yes,no,yes,,,address:IPv6 address;block:IPv6 address;auto:Keyword,address;block,03_commands_interface(1).md:5372,entries/interface-other.md
+3.29.130,interface ipv6 dhcp client pd hint,interface,/rci/interface/ipv6/dhcp/client/pd/hint,yes,yes,no,no,,,prefix:Prefix,prefix,03_commands_interface(1).md:5428,entries/interface-other.md
+3.29.131,interface ipv6 id,interface,/rci/interface/ipv6/id,yes,yes,no,no,,,suffix:Suffix;eui64:Keyword;random:Keyword,suffix,03_commands_interface(1).md:5474,entries/interface-other.md
+3.29.132,interface ipv6 name-servers,interface,/rci/interface/ipv6/name-servers,yes,yes,no,no,,,auto:Keyword,,03_commands_interface(1).md:5523,entries/interface-other.md
+3.29.133,interface ipv6 prefix,interface,/rci/interface/ipv6/prefix,yes,yes,no,no,,,prefix:Prefix;auto:Keyword,prefix,03_commands_interface(1).md:5560,entries/interface-other.md
+3.29.134,interface ipv6cp,interface,/rci/interface/ipv6cp,yes,yes,no,no,,PPP,,,03_commands_interface(1).md:5597,entries/interface-other.md
+3.29.135,interface lcp acfc,interface,/rci/interface/lcp/acfc,yes,yes,no,no,,PPP,cid:Keyword,,03_commands_interface(1).md:5629,entries/interface-other.md
+3.29.136,interface lcp echo,interface,/rci/interface/lcp/echo,yes,yes,no,no,,PPP,interval:Integer;count:Integer;adaptive:Keyword,interval;count,03_commands_interface(1).md:5672,entries/interface-other.md
+3.29.137,interface lcp pfc,interface,/rci/interface/lcp/pfc,yes,yes,no,no,,PPP,cid:Keyword,,03_commands_interface(1).md:5726,entries/interface-other.md
+3.29.138,interface ldpc,interface,/rci/interface/ldpc,yes,yes,no,no,,WifiMaster,,,03_commands_interface(1).md:5769,entries/interface-other.md
+3.29.139,interface led wan,interface,/rci/interface/led/wan,yes,yes,no,no,,,,,03_commands_interface(1).md:5804,entries/interface-other.md
+3.29.140,interface lldp disable,interface,/rci/interface/lldp/disable,yes,yes,no,no,,,,,03_commands_interface(1).md:5838,entries/interface-other.md
+3.29.141,interface mac access-list address,interface,/rci/interface/mac/access-list/address,yes,yes,no,yes,,Access Point,address:MAC address,address,03_commands_interface(1).md:5874,entries/interface-mac.md
+3.29.142,interface mac access-list type,interface,/rci/interface/mac/access-list/type,yes,no,no,no,,Access Point,type:Keyword,type,03_commands_interface(1).md:5922,entries/interface-mac.md
+3.29.143,interface mac address,interface,/rci/interface/mac/address,yes,yes,no,no,,MAC,mac:MAC address,mac,03_commands_interface(1).md:5960,entries/interface-mac.md
+3.29.144,interface mac address factory,interface,/rci/interface/mac/address/factory,yes,no,no,no,,MAC,name:Keyword,name,03_commands_interface(1).md:6004,entries/interface-mac.md
+3.29.145,interface mac band,interface,/rci/interface/mac/band,yes,yes,yes,yes,,Bridge,mac:MAC address;band:Keyword,mac;band,03_commands_interface(1).md:6039,entries/interface-mac.md
+3.29.146,interface mac bssid,interface,/rci/interface/mac/bssid,yes,yes,no,no,,WifiStation,bssid:MAC address,bssid,03_commands_interface(1).md:6091,entries/interface-mac.md
+3.29.147,interface mac clone,interface,/rci/interface/mac/clone,yes,no,no,no,,"MAC, IP",,,03_commands_interface(1).md:6131,entries/interface-mac.md
+3.29.148,interface mac vht40,interface,/rci/interface/mac/vht40,yes,yes,yes,yes,,WiFiMaster,vht40:MAC address,vht40,03_commands_interface(1).md:6152,entries/interface-mac.md
+3.29.149,interface media-type,interface,/rci/interface/media-type,yes,yes,no,no,,Ethernet,type:Keyword,type,03_commands_interface(1).md:6199,entries/interface-other.md
+3.29.150,interface mobile lte disable-band,interface,/rci/interface/mobile/lte/disable-band,yes,yes,yes,yes,,Usb,band:Integer,band,03_commands_interface(1).md:6248,entries/interface-other.md
+3.29.151,interface mobile name-servers,interface,/rci/interface/mobile/name-servers,yes,yes,no,no,,Usb,,,03_commands_interface(1).md:6293,entries/interface-other.md
+3.29.152,interface mobile operator,interface,/rci/interface/mobile/operator,yes,yes,no,no,,Usb,PLMN:String,PLMN,03_commands_interface(1).md:6333,entries/interface-other.md
+3.29.153,interface mobile pdp,interface,/rci/interface/mobile/pdp,yes,yes,no,no,,Usb,ipv4:String;ipv6:String;ipv4v6:String,,03_commands_interface(1).md:6374,entries/interface-other.md
+3.29.154,interface mobile roaming,interface,/rci/interface/mobile/roaming,yes,yes,no,no,,Usb,,,03_commands_interface(1).md:6425,entries/interface-other.md
+3.29.155,interface mobile scan,interface,/rci/interface/mobile/scan,no,yes,no,no,,Usb,,,03_commands_interface(1).md:6461,entries/interface-other.md
+3.29.156,interface mobile umts disable-band,interface,/rci/interface/mobile/umts/disable-band,yes,yes,yes,yes,,Usb,band:Integer,band,03_commands_interface(1).md:6497,entries/interface-other.md
+3.29.157,interface modem connect,interface,/rci/interface/modem/connect,yes,yes,no,no,,UsbModem,phone:String;string:String,phone;string,03_commands_interface(1).md:6543,entries/interface-other.md
+3.29.158,interface modem timeout,interface,/rci/interface/modem/timeout,yes,yes,no,no,,UsbModem,timeout:Integer,timeout,03_commands_interface(1).md:6587,entries/interface-other.md
+3.29.159,interface openconnect accept-addresses,interface,/rci/interface/openconnect/accept-addresses,yes,yes,no,no,,OpenConnect,,,03_commands_interface(1).md:6632,entries/interface-other.md
+3.29.160,interface openconnect accept-routes,interface,/rci/interface/openconnect/accept-routes,yes,yes,no,no,,OpenConnect,,,03_commands_interface(1).md:6668,entries/interface-other.md
+3.29.161,interface openconnect authgroup,interface,/rci/interface/openconnect/authgroup,yes,yes,no,no,,OpenConnect,authgroup:String,authgroup,03_commands_interface(1).md:6704,entries/interface-other.md
+3.29.162,interface openconnect dtls,interface,/rci/interface/openconnect/dtls,yes,yes,no,no,,OpenConnect,,,03_commands_interface(1).md:6748,entries/interface-other.md
+3.29.163,interface openconnect protocol fortinet,interface,/rci/interface/openconnect/protocol/fortinet,yes,yes,no,no,,OpenConnect,,,03_commands_interface(1).md:6788,entries/interface-other.md
+3.29.164,interface openvpn accept-routes,interface,/rci/interface/openvpn/accept-routes,yes,yes,no,no,,OpenVPN,,,03_commands_interface(1).md:6827,entries/interface-other.md
+3.29.165,interface openvpn connect,interface,/rci/interface/openvpn/connect,yes,no,no,no,,OpenVPN,via:Interface,,03_commands_interface(1).md:6870,entries/interface-other.md
+3.29.166,interface openvpn name-servers,interface,/rci/interface/openvpn/name-servers,yes,yes,no,no,,OpenVPN,,,03_commands_interface(1).md:6911,entries/interface-other.md
+3.29.167,interface peer,interface,/rci/interface/peer,yes,yes,no,no,,PPP,peer:String,peer,03_commands_interface(1).md:6951,entries/interface-other.md
+3.29.168,interface peer-isolation,interface,/rci/interface/peer-isolation,yes,yes,no,no,,Bridge,,,03_commands_interface(1).md:6996,entries/interface-other.md
+3.29.169,interface ping-check profile,interface,/rci/interface/ping-check/profile,yes,yes,no,no,,,profile:String,profile,03_commands_interface(1).md:7034,entries/interface-other.md
+3.29.170,interface ping-check restart,interface,/rci/interface/ping-check/restart,yes,yes,no,no,,,interface:Interface,,03_commands_interface(1).md:7073,entries/interface-other.md
+3.29.171,interface pmf,interface,/rci/interface/pmf,yes,yes,no,no,,WiFi,force:Keyword,,03_commands_interface(1).md:7120,entries/interface-other.md
+3.29.172,interface pmksa-lifetime,interface,/rci/interface/pmksa-lifetime,yes,no,no,no,,WiFiMaster,pmksa-lifetime:Keyword,,03_commands_interface(1).md:7179,entries/interface-other.md
+3.29.173,interface power,interface,/rci/interface/power,yes,no,no,no,,Radio,power:Integer,power,03_commands_interface(1).md:7210,entries/interface-other.md
+3.29.174,interface pppoe service,interface,/rci/interface/pppoe/service,yes,yes,no,no,,PPPoE,service:String,service,03_commands_interface(1).md:7248,entries/interface-other.md
+3.29.175,interface pppoe session auto-cleanup,interface,/rci/interface/pppoe/session/auto-cleanup,yes,yes,no,no,,PPPoE,,,03_commands_interface(1).md:7288,entries/interface-other.md
+3.29.176,interface preamble-short,interface,/rci/interface/preamble-short,yes,yes,no,no,,Radio,,,03_commands_interface(1).md:7325,entries/interface-other.md
+3.29.177,interface proxy connect,interface,/rci/interface/proxy/connect,yes,yes,no,no,,Proxy,via:Interface,,03_commands_interface(1).md:7359,entries/interface-other.md
+3.29.178,interface proxy protocol,interface,/rci/interface/proxy/protocol,yes,yes,no,no,,Proxy,protocol:Keyword,protocol,03_commands_interface(1).md:7403,entries/interface-other.md
+3.29.179,interface proxy socks5-udp,interface,/rci/interface/proxy/socks5-udp,yes,yes,no,no,,Proxy,,,03_commands_interface(1).md:7446,entries/interface-other.md
+3.29.180,interface proxy upstream,interface,/rci/interface/proxy/upstream,yes,yes,no,no,,Proxy,host:String;port:Integer,host,03_commands_interface(1).md:7483,entries/interface-other.md
+3.29.181,interface reconnect-delay,interface,/rci/interface/reconnect-delay,yes,yes,no,no,,PPP,sec:Integer,sec,03_commands_interface(1).md:7528,entries/interface-other.md
+3.29.182,interface rekey-interval,interface,/rci/interface/rekey-interval,yes,yes,no,no,,WiFi,interval:Integer,interval,03_commands_interface(1).md:7573,entries/interface-other.md
+3.29.183,interface rename,interface,/rci/interface/rename,yes,yes,no,no,,,rename:String,rename,03_commands_interface(1).md:7619,entries/interface-other.md
+3.29.184,interface rf e2p set,interface,/rci/interface/rf/e2p/set,no,no,no,no,,Radio,offset:Hex;value:Hex,offset;value,03_commands_interface(1).md:7661,entries/interface-other.md
+3.29.185,interface role,interface,/rci/interface/role,no,yes,yes,yes,,,role:Keyword;ifor:Interface,role,03_commands_interface(1).md:7696,entries/interface-other.md
+3.29.186,interface rrm,interface,/rci/interface/rrm,yes,yes,no,no,,AccessPoint,,,03_commands_interface(1).md:7745,entries/interface-other.md
+3.29.187,interface rssi-threshold,interface,/rci/interface/rssi-threshold,yes,yes,no,no,,AccessPoint,rssi-threshold:Keyword,,03_commands_interface(1).md:7784,entries/interface-other.md
+3.29.188,interface schedule,interface,/rci/interface/schedule,yes,yes,no,no,,,schedule:Schedule,schedule,03_commands_interface(1).md:7830,entries/interface-other.md
+3.29.189,interface security-level,interface,/rci/interface/security-level,yes,no,no,no,,IP,,,03_commands_interface(1).md:7870,entries/interface-other.md
+3.29.190,interface sfp init-timeout,interface,/rci/interface/sfp/init-timeout,yes,yes,no,no,,Ethernet,auto:Keyword;timeout:Integer,timeout,03_commands_interface(1).md:7945,entries/interface-other.md
+3.29.191,interface sfp pcs,interface,/rci/interface/sfp/pcs,yes,yes,no,no,,Ethernet,mode:Keyword,mode,03_commands_interface(1).md:8015,entries/interface-other.md
+3.29.192,interface sfp rx-los,interface,/rci/interface/sfp/rx-los,yes,yes,no,no,,Ethernet,mode:Keyword,mode,03_commands_interface(1).md:8084,entries/interface-other.md
+3.29.193,interface sim pin,interface,/rci/interface/sim/pin,no,yes,no,no,,Usb,pin:String,pin,03_commands_interface(1).md:8134,entries/interface-other.md
+3.29.194,interface sim slot,interface,/rci/interface/sim/slot,yes,yes,no,no,,Usb,slot:Keyword,slot,03_commands_interface(1).md:8175,entries/interface-other.md
+3.29.195,interface spatial-reuse,interface,/rci/interface/spatial-reuse,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:8216,entries/interface-other.md
+3.29.196,interface speed,interface,/rci/interface/speed,yes,yes,no,no,,Ethernet,10:Keyword;auto:Keyword,,03_commands_interface(1).md:8255,entries/interface-other.md
+3.29.197,interface speed nonegotiate,interface,/rci/interface/speed/nonegotiate,yes,yes,no,no,,Ethernet,,,03_commands_interface(1).md:8300,entries/interface-other.md
+3.29.198,interface ssid,interface,/rci/interface/ssid,yes,yes,no,no,,WiFi,ssid:String,ssid,03_commands_interface(1).md:8338,entries/interface-other.md
+3.29.199,interface standby enable,interface,/rci/interface/standby/enable,yes,yes,no,no,,,,,03_commands_interface(1).md:8389,entries/interface-other.md
+3.29.200,interface storm-control disable,interface,/rci/interface/storm-control/disable,yes,yes,no,no,,Bridge,,,03_commands_interface(1).md:8433,entries/interface-other.md
+3.29.201,interface switchport access,interface,/rci/interface/switchport/access,yes,yes,no,no,,Port,vid:Integer,vid,03_commands_interface(1).md:8472,entries/interface-other.md
+3.29.202,interface switchport friend,interface,/rci/interface/switchport/friend,yes,yes,no,no,,Port,vid:Integer,vid,03_commands_interface(1).md:8513,entries/interface-other.md
+3.29.203,interface switchport mode,interface,/rci/interface/switchport/mode,yes,yes,no,no,,Port,mode:Keyword;q-in-q:Keyword,,03_commands_interface(1).md:8556,entries/interface-other.md
+3.29.204,interface switchport trunk,interface,/rci/interface/switchport/trunk,yes,yes,yes,yes,,Port,vid:Integer,vid,03_commands_interface(1).md:8611,entries/interface-other.md
+3.29.205,interface target-waketime,interface,/rci/interface/target-waketime,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:8654,entries/interface-other.md
+3.29.206,interface traffic-counter action disconnect,interface,/rci/interface/traffic-counter/action/disconnect,yes,no,no,no,,Usb,trigger:Keyword,trigger,03_commands_interface(1).md:8693,entries/interface-traffic-counter.md
+3.29.207,interface traffic-counter action sms-alert message,interface,/rci/interface/traffic-counter/action/sms-alert/message,yes,no,no,no,,Usb,trigger:Keyword;message:String,trigger;message,03_commands_interface(1).md:8724,entries/interface-traffic-counter.md
+3.29.208,interface traffic-counter action sms-alert phone,interface,/rci/interface/traffic-counter/action/sms-alert/phone,yes,no,no,yes,,Usb,trigger:Keyword;phone:String,trigger;phone,03_commands_interface(1).md:8761,entries/interface-traffic-counter.md
+3.29.209,interface traffic-counter enable,interface,/rci/interface/traffic-counter/enable,yes,yes,no,no,,Usb,,,03_commands_interface(1).md:8796,entries/interface-traffic-counter.md
+3.29.210,interface traffic-counter limit,interface,/rci/interface/traffic-counter/limit,yes,yes,no,no,,Usb,value:Integer;unit:String,value;unit,03_commands_interface(1).md:8832,entries/interface-traffic-counter.md
+3.29.211,interface traffic-counter monthly,interface,/rci/interface/traffic-counter/monthly,yes,yes,no,no,,Usb,day-of-month:Keyword,,03_commands_interface(1).md:8874,entries/interface-traffic-counter.md
+3.29.212,interface traffic-counter set,interface,/rci/interface/traffic-counter/set,yes,no,no,no,,Usb,value:Integer;unit:String,value;unit,03_commands_interface(1).md:8916,entries/interface-traffic-counter.md
+3.29.213,interface traffic-counter threshold,interface,/rci/interface/traffic-counter/threshold,yes,yes,no,no,,Usb,threshold:Integer,threshold,03_commands_interface(1).md:8948,entries/interface-traffic-counter.md
+3.29.214,interface traffic-shape,interface,/rci/interface/traffic-shape,yes,yes,no,no,,,rate:Integer;schedule:Schedule;upstream-rate:Keyword,rate,03_commands_interface(1).md:8991,entries/interface-other.md
+3.29.215,interface tty init,interface,/rci/interface/tty/init,yes,yes,no,no,,Usb,index:Integer;string:String;delay:Integer,string,03_commands_interface(1).md:9045,entries/interface-other.md
+3.29.216,interface tty send,interface,/rci/interface/tty/send,yes,no,no,no,,Usb,command:String;expect:String;timeout:Integer,command,03_commands_interface(1).md:9092,entries/interface-other.md
+3.29.217,interface tunnel destination,interface,/rci/interface/tunnel/destination,yes,yes,no,no,,Tunnel,destination:Keyword,,03_commands_interface(1).md:9141,entries/interface-other.md
+3.29.218,interface tunnel eoip id,interface,/rci/interface/tunnel/eoip/id,yes,yes,no,no,,Eoip,id:Integer,id,03_commands_interface(1).md:9186,entries/interface-other.md
+3.29.219,interface tunnel gre keepalive,interface,/rci/interface/tunnel/gre/keepalive,yes,yes,no,no,,Tunnel,interval:Integer;count:Integer,interval,03_commands_interface(1).md:9227,entries/interface-other.md
+3.29.220,interface tunnel source,interface,/rci/interface/tunnel/source,yes,no,no,no,,Tunnel,auto:Keyword;interface:Interface;address:IP address,interface;address,03_commands_interface(1).md:9281,entries/interface-other.md
+3.29.221,interface tx-burst,interface,/rci/interface/tx-burst,yes,yes,no,no,,,,,03_commands_interface(1).md:9319,entries/interface-other.md
+3.29.222,interface tx-queue length,interface,/rci/interface/tx-queue/length,yes,yes,no,no,,,length:Integer,length,03_commands_interface(1).md:9349,entries/interface-other.md
+3.29.223,interface tx-queue scheduler cake,interface,/rci/interface/tx-queue/scheduler/cake,yes,yes,no,no,,,,,03_commands_interface(1).md:9391,entries/interface-other.md
+3.29.224,interface tx-queue scheduler fq_codel,interface,/rci/interface/tx-queue/scheduler/fq_codel,yes,yes,no,no,,,,,03_commands_interface.md:9427,entries/interface-other.md
+3.29.225,interface up,interface,/rci/interface/up,yes,yes,no,no,,,,,03_commands_interface(1).md:9462,entries/interface-other.md
+3.29.226,interface uplink-mumimo,interface,/rci/interface/uplink-mumimo,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:9493,entries/interface-other.md
+3.29.227,interface uplink-ofdma,interface,/rci/interface/uplink-ofdma,yes,yes,no,no,,WiFiMaster,,,03_commands_interface(1).md:9531,entries/interface-other.md
+3.29.228,interface usb acq,interface,/rci/interface/usb/acq,yes,yes,no,no,,Usb,acq:Keyword,acq,03_commands_interface(1).md:9569,entries/interface-other.md
+3.29.229,interface usb apn,interface,/rci/interface/usb/apn,yes,yes,no,no,,Usb,apn:String,apn,03_commands_interface(1).md:9613,entries/interface-other.md
+3.29.230,interface usb device-id,interface,/rci/interface/usb/device-id,yes,yes,no,no,,Usb,vendor:String;model:String,vendor;model,03_commands_interface(1).md:9654,entries/interface-other.md
+3.29.231,interface usb port-id,interface,/rci/interface/usb/port-id,yes,yes,no,no,,Usb,port:String;auto:Keyword,port,03_commands_interface(1).md:9698,entries/interface-other.md
+3.29.232,interface usb power-cycle,interface,/rci/interface/usb/power-cycle,no,no,no,no,,Usb,pause:Integer,pause,03_commands_interface(1).md:9745,entries/interface-other.md
+3.29.233,interface usb power-fail,interface,/rci/interface/usb/power-fail,yes,no,no,no,,Usb,interval:Integer;pause:Integer;reboot:Keyword,interval;pause,03_commands_interface(1).md:9779,entries/interface-other.md
+3.29.234,interface usb wwan-force-connected,interface,/rci/interface/usb/wwan-force-connected,yes,yes,no,no,,Usb,,,03_commands_interface(1).md:9816,entries/interface-other.md
+3.29.235,interface vlan qos egress map,interface,/rci/interface/vlan/qos/egress/map,yes,yes,no,yes,,Ethernet,pcp:Keyword;priority:Keyword,,03_commands_interface(1).md:9852,entries/interface-other.md
+3.29.236,interface web-api address,interface,/rci/interface/web-api/address,yes,yes,no,no,,Usb,address:IP address,address,03_commands_interface(1).md:9917,entries/interface-other.md
+3.29.237,interface web-api login,interface,/rci/interface/web-api/login,yes,yes,no,no,,Usb,login:String,login,03_commands_interface(1).md:9959,entries/interface-other.md
+3.29.238,interface web-api password,interface,/rci/interface/web-api/password,yes,yes,no,no,,Usb,password:String,password,03_commands_interface(1).md:10002,entries/interface-other.md
+3.29.239,interface wireguard asc,interface,/rci/interface/wireguard/asc,yes,yes,no,no,,Wireguard,jc:String;jmin:String;jmax:String;s1:String;s2:String;h1:String;h2:String;h3:String;h4:String,jc;jmin;jmax;s1;s2;h1;h2;h3;h4,03_commands_interface(1).md:10044,entries/interface-wireguard.md
+3.29.240,interface wireguard listen-port,interface,/rci/interface/wireguard/listen-port,yes,yes,no,no,,Wireguard,port:Integer,port,03_commands_interface(1).md:10101,entries/interface-wireguard.md
+3.29.241,interface wireguard obfs-key,interface,/rci/interface/wireguard/obfs-key,yes,yes,no,no,,Wireguard,obfs-key:String,obfs-key,03_commands_interface(1).md:10144,entries/interface-wireguard.md
+3.29.242,interface wireguard peer,interface,/rci/interface/wireguard/peer,yes,yes,no,yes,(config-wg-peer),Wireguard,key:String,key,03_commands_interface(1).md:10189,entries/interface-wireguard.md
+3.29.242.1,interface wireguard peer allow-ips,interface,/rci/interface/wireguard/peer/allow-ips,yes,yes,yes,yes,,Wireguard,address:IP address;mask:IP-mask,address;mask,03_commands_interface(1).md:10241,entries/interface-wireguard.md
+3.29.242.2,interface wireguard peer client-id send,interface,/rci/interface/wireguard/peer/client-id/send,yes,yes,no,no,,Wireguard,client-id:String,client-id,03_commands_interface(1).md:10300,entries/interface-wireguard.md
+3.29.242.3,interface wireguard peer connect,interface,/rci/interface/wireguard/peer/connect,yes,yes,no,no,,WireGuard,via:Interface,via,03_commands_interface(1).md:10347,entries/interface-wireguard.md
+3.29.242.4,interface wireguard peer endpoint,interface,/rci/interface/wireguard/peer/endpoint,yes,yes,no,no,,Wireguard,address:IP address;port:Integer,address,03_commands_interface(1).md:10391,entries/interface-wireguard.md
+3.29.242.5,interface wireguard peer keepalive-interval,interface,/rci/interface/wireguard/peer/keepalive-interval,yes,yes,no,no,,Wireguard,interval:Integer,interval,03_commands_interface(1).md:10437,entries/interface-wireguard.md
+3.29.242.6,interface wireguard peer obfs-key,interface,/rci/interface/wireguard/peer/obfs-key,yes,yes,no,no,,Wireguard,obfs-key:String,obfs-key,03_commands_interface(1).md:10484,entries/interface-wireguard.md
+3.29.242.7,interface wireguard peer preshared-key,interface,/rci/interface/wireguard/peer/preshared-key,yes,yes,no,no,,Wireguard,preshared-key:Keyword,,03_commands_interface(1).md:10530,entries/interface-wireguard.md
+3.29.243,interface wireguard private-key,interface,/rci/interface/wireguard/private-key,no,no,no,no,,Wireguard,private-key:Keyword,,03_commands_interface(1).md:10579,entries/interface-wireguard.md
+3.29.244,interface wmm,interface,/rci/interface/wmm,yes,yes,no,no,,Access Point,,,03_commands_interface(1).md:10618,entries/interface-other.md
+3.29.245,interface wpa-eap radius secret,interface,/rci/interface/wpa-eap/radius/secret,yes,yes,no,no,,Bridge,secret:String,secret,03_commands_interface(1).md:10646,entries/interface-other.md
+3.29.246,interface wpa-eap radius server,interface,/rci/interface/wpa-eap/radius/server,yes,yes,no,no,,Bridge,address:IP address;port:Integer,address,03_commands_interface(1).md:10690,entries/interface-other.md
+3.29.247,interface wps,interface,/rci/interface/wps,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:10739,entries/interface-other.md
+3.29.248,interface wps auto-self-pin,interface,/rci/interface/wps/auto-self-pin,yes,yes,no,no,,WiFi,,,03_commands_interface(1).md:10767,entries/interface-other.md
+3.29.249,interface wps button,interface,/rci/interface/wps/button,no,no,no,no,,WiFi,direction:Keyword,direction,03_commands_interface(1).md:10800,entries/interface-other.md
+3.29.250,interface wps peer,interface,/rci/interface/wps/peer,no,no,no,no,,WiFi,direction:Keyword;pin:String,direction;pin,03_commands_interface(1).md:10834,entries/interface-other.md
+3.29.251,interface wps self-pin,interface,/rci/interface/wps/self-pin,no,no,no,no,,WiFi,direction:Keyword,direction,03_commands_interface(1).md:10870,entries/interface-other.md
+3.29.252,interface zerotier accept-addresses,interface,/rci/interface/zerotier/accept-addresses,yes,yes,no,no,,ZeroTier,,,03_commands_interface(1).md:10904,entries/interface-other.md
+3.29.253,interface zerotier accept-routes,interface,/rci/interface/zerotier/accept-routes,yes,yes,no,no,,ZeroTier,,,03_commands_interface(1).md:10940,entries/interface-other.md
+3.29.254,interface zerotier connect,interface,/rci/interface/zerotier/connect,yes,yes,no,no,,ZeroTier,via:Interface,,03_commands_interface(1).md:10976,entries/interface-other.md
+3.29.255,interface zerotier network-id,interface,/rci/interface/zerotier/network-id,yes,yes,no,no,,ZeroTier,network-id:String,network-id,03_commands_interface(1).md:11019,entries/interface-other.md
+3.30,ip arp,ip,/rci/ip/arp,yes,yes,yes,yes,,,ip:IP address;mac:MAC address,ip;mac,04_commands_ip_ipv6_network(1).md:5,entries/ip-other.md
+3.31,ip conntrack lockout disable,ip,/rci/ip/conntrack/lockout/disable,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:51,entries/ip-other.md
+3.32,ip conntrack lockout duration,ip,/rci/ip/conntrack/lockout/duration,yes,yes,no,no,,IP,duration:Integer,duration,04_commands_ip_ipv6_network(1).md:87,entries/ip-other.md
+3.33,ip conntrack lockout threshold public,ip,/rci/ip/conntrack/lockout/threshold/public,yes,yes,no,no,,IP,public:Integer,public,04_commands_ip_ipv6_network(1).md:131,entries/ip-other.md
+3.34,ip conntrack max-entries,ip,/rci/ip/conntrack/max-entries,yes,no,no,no,,IP,max-entries:Keyword,,04_commands_ip_ipv6_network(1).md:177,entries/ip-other.md
+3.35,ip conntrack sweep threshold,ip,/rci/ip/conntrack/sweep/threshold,yes,yes,no,no,,IP,threshold:Integer,threshold,04_commands_ip_ipv6_network(1).md:207,entries/ip-other.md
+3.36,ip dhcp class,ip,/rci/ip/dhcp/class,no,yes,no,yes,(config-dhcp-class),,class:String,class,04_commands_ip_ipv6_network(1).md:254,entries/ip-dhcp.md
+3.36.1,ip dhcp class option,ip,/rci/ip/dhcp/class/option,yes,yes,no,yes,,,number:Integer;data:String,number;data,04_commands_ip_ipv6_network(1).md:292,entries/ip-dhcp.md
+3.37,ip dhcp host,ip,/rci/ip/dhcp/host,yes,yes,no,yes,,,ip:IP address;host:String;mac:MAC address,host,04_commands_ip_ipv6_network(1).md:329,entries/ip-dhcp.md
+3.38,ip dhcp pool,ip,/rci/ip/dhcp/pool,yes,yes,no,yes,(config-dhcp-pool),,name:String,name,04_commands_ip_ipv6_network(1).md:378,entries/ip-dhcp.md
+3.38.1,ip dhcp pool bind,ip,/rci/ip/dhcp/pool/bind,yes,yes,no,no,,Ethernet,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:430,entries/ip-dhcp.md
+3.38.2,ip dhcp pool bootfile,ip,/rci/ip/dhcp/pool/bootfile,yes,yes,no,no,,Ethernet,bootfile:Filename,bootfile,04_commands_ip_ipv6_network(1).md:463,entries/ip-dhcp.md
+3.38.3,ip dhcp pool class,ip,/rci/ip/dhcp/pool/class,yes,yes,no,yes,(config-dhcp-pool-class),,class:String,class,04_commands_ip_ipv6_network(1).md:504,entries/ip-dhcp.md
+3.38.3.1,ip dhcp pool class option,ip,/rci/ip/dhcp/pool/class/option,yes,yes,no,yes,,,number:Keyword;type:Keyword;data:String,number;type;data,04_commands_ip_ipv6_network(1).md:545,entries/ip-dhcp.md
+3.38.4,ip dhcp pool debug,ip,/rci/ip/dhcp/pool/debug,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:589,entries/ip-dhcp.md
+3.38.5,ip dhcp pool default-router,ip,/rci/ip/dhcp/pool/default-router,yes,yes,no,no,,,address:IP address,address,04_commands_ip_ipv6_network(1).md:614,entries/ip-dhcp.md
+3.38.6,ip dhcp pool dns-server,ip,/rci/ip/dhcp/pool/dns-server,yes,yes,no,no,,,address1:IP address;address2:IP address;disable:Keyword,address1,04_commands_ip_ipv6_network(1).md:652,entries/ip-dhcp.md
+3.38.7,ip dhcp pool domain,ip,/rci/ip/dhcp/pool/domain,yes,yes,no,no,,,domain:String,domain,04_commands_ip_ipv6_network(1).md:693,entries/ip-dhcp.md
+3.38.8,ip dhcp pool enable,ip,/rci/ip/dhcp/pool/enable,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:729,entries/ip-dhcp.md
+3.38.9,ip dhcp pool lease,ip,/rci/ip/dhcp/pool/lease,yes,yes,no,no,,,lease:Integer,lease,04_commands_ip_ipv6_network(1).md:759,entries/ip-dhcp.md
+3.38.10,ip dhcp pool next-server,ip,/rci/ip/dhcp/pool/next-server,yes,yes,no,no,,Ethernet,address:IP address,address,04_commands_ip_ipv6_network(1).md:800,entries/ip-dhcp.md
+3.38.11,ip dhcp pool option,ip,/rci/ip/dhcp/pool/option,yes,yes,no,yes,,Ethernet,number:Keyword;type:Keyword;data:String,number;data,04_commands_ip_ipv6_network(1).md:841,entries/ip-dhcp.md
+3.38.12,ip dhcp pool range,ip,/rci/ip/dhcp/pool/range,yes,yes,no,no,,,begin:IP address;end:IP address;size:Integer,begin;end;size,04_commands_ip_ipv6_network(1).md:908,entries/ip-dhcp.md
+3.38.13,ip dhcp pool update-dns,ip,/rci/ip/dhcp/pool/update-dns,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:952,entries/ip-dhcp.md
+3.38.14,ip dhcp pool wpad,ip,/rci/ip/dhcp/pool/wpad,yes,yes,no,no,,,wpad:String,wpad,04_commands_ip_ipv6_network(1).md:985,entries/ip-dhcp.md
+3.39,ip dhcp relay enable,ip,/rci/ip/dhcp/relay/enable,yes,yes,no,no,,Ethernet,,,04_commands_ip_ipv6_network(1).md:1021,entries/ip-dhcp.md
+3.40,ip dhcp relay lan,ip,/rci/ip/dhcp/relay/lan,yes,yes,yes,yes,,,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:1057,entries/ip-dhcp.md
+3.41,ip dhcp relay server,ip,/rci/ip/dhcp/relay/server,yes,yes,no,no,,,address:IP address,address,04_commands_ip_ipv6_network(1).md:1099,entries/ip-dhcp.md
+3.42,ip dhcp relay upstream interface,ip,/rci/ip/dhcp/relay/upstream/interface,yes,yes,no,no,,Ethernet,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:1135,entries/ip-dhcp.md
+3.43,ip dhcp relay upstream server,ip,/rci/ip/dhcp/relay/upstream/server,yes,yes,no,no,,Ethernet,server:IP address,server,04_commands_ip_ipv6_network(1).md:1178,entries/ip-dhcp.md
+3.44,ip dhcp relay wan,ip,/rci/ip/dhcp/relay/wan,yes,yes,no,no,,,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:1220,entries/ip-dhcp.md
+3.45,ip esp alg enable,ip,/rci/ip/esp/alg/enable,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:1261,entries/ip-other.md
+3.46,ip flow-cache timeout active,ip,/rci/ip/flow-cache/timeout/active,yes,yes,no,no,,,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:1295,entries/ip-other.md
+3.47,ip flow-cache timeout inactive,ip,/rci/ip/flow-cache/timeout/inactive,yes,yes,no,no,,,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:1335,entries/ip-other.md
+3.48,ip flow-export destination,ip,/rci/ip/flow-export/destination,yes,yes,no,no,,,address:IP address;port:Integer,address;port,04_commands_ip_ipv6_network(1).md:1375,entries/ip-other.md
+3.49,ip flow-export version,ip,/rci/ip/flow-export/version,yes,yes,no,no,,,version:String,version,04_commands_ip_ipv6_network(1).md:1418,entries/ip-other.md
+3.50,ip ftp,ip,/rci/ip/ftp,no,no,no,no,(config-ftp),IP,,,04_commands_ip_ipv6_network(1).md:1457,entries/ip-other.md
+3.50.1,ip ftp client-charset,ip,/rci/ip/ftp/client-charset,yes,yes,no,no,,IP,charset:Keyword,charset,04_commands_ip_ipv6_network(1).md:1483,entries/ip-other.md
+3.50.2,ip ftp lockout-policy,ip,/rci/ip/ftp/lockout-policy,yes,yes,no,no,,IP,threshold:Integer;duration:Integer;observation-window:Keyword,threshold,04_commands_ip_ipv6_network(1).md:1596,entries/ip-other.md
+3.50.3,ip ftp permissive,ip,/rci/ip/ftp/permissive,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:1652,entries/ip-other.md
+3.50.4,ip ftp security-level,ip,/rci/ip/ftp/security-level,yes,no,no,no,,IP,public:Keyword;private:Keyword;protected:Keyword,,04_commands_ip_ipv6_network(1).md:1685,entries/ip-other.md
+3.51,ip host,ip,/rci/ip/host,yes,yes,no,yes,,,domain:String;address:IP address,domain;address,04_commands_ip_ipv6_network(1).md:1719,entries/ip-other.md
+3.52,ip hotspot,ip,/rci/ip/hotspot,no,no,no,no,(config-hotspot),IP,,,04_commands_ip_ipv6_network(1).md:1756,entries/ip-hotspot.md
+3.52.1,ip hotspot auto-register disable,ip,/rci/ip/hotspot/auto-register/disable,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:1782,entries/ip-hotspot.md
+3.52.2,ip hotspot auto-scan interface,ip,/rci/ip/hotspot/auto-scan/interface,yes,yes,no,yes,,IP,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:1819,entries/ip-hotspot.md
+3.52.3,ip hotspot auto-scan interval,ip,/rci/ip/hotspot/auto-scan/interval,yes,yes,no,no,,IP,interval:Integer,interval,04_commands_ip_ipv6_network(1).md:1862,entries/ip-hotspot.md
+3.52.4,ip hotspot auto-scan passive,ip,/rci/ip/hotspot/auto-scan/passive,yes,yes,no,no,,IP,rate:Integer,rate,04_commands_ip_ipv6_network(1).md:1905,entries/ip-hotspot.md
+3.52.5,ip hotspot auto-scan timeout,ip,/rci/ip/hotspot/auto-scan/timeout,yes,yes,no,no,,IP,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:1946,entries/ip-hotspot.md
+3.52.6,ip hotspot default-policy,ip,/rci/ip/hotspot/default-policy,yes,yes,no,yes,,IP,access:Keyword;policy:Policy,access;policy,04_commands_ip_ipv6_network(1).md:1990,entries/ip-hotspot.md
+3.52.7,ip hotspot host,ip,/rci/ip/hotspot/host,yes,yes,no,yes,,IP,mac:MAC address;access:Keyword;schedule:Schedule;policy:Policy,mac;access;schedule;policy,04_commands_ip_ipv6_network(1).md:2043,entries/ip-hotspot.md
+3.52.8,ip hotspot host conform,ip,/rci/ip/hotspot/host/conform,yes,yes,no,no,,IP,mac:MAC address,mac,04_commands_ip_ipv6_network(1).md:2110,entries/ip-hotspot.md
+3.52.9,ip hotspot host priority,ip,/rci/ip/hotspot/host/priority,yes,yes,no,no,,IP,mac:MAC address;priority:Keyword,mac;priority,04_commands_ip_ipv6_network(1).md:2153,entries/ip-hotspot.md
+3.52.10,ip hotspot policy,ip,/rci/ip/hotspot/policy,yes,yes,no,yes,,IP,interface:Interface;access:Keyword;policy:Policy,interface;access;policy,04_commands_ip_ipv6_network(1).md:2203,entries/ip-hotspot.md
+3.52.11,ip hotspot priority,ip,/rci/ip/hotspot/priority,yes,yes,no,yes,,IP,interface:Interface;priority:Keyword,interface;priority,04_commands_ip_ipv6_network(1).md:2256,entries/ip-hotspot.md
+3.52.12,ip hotspot wake,ip,/rci/ip/hotspot/wake,no,no,no,no,,IP,mac:MAC address,mac,04_commands_ip_ipv6_network(1).md:2303,entries/ip-hotspot.md
+3.53,ip http lockout-policy,ip,/rci/ip/http/lockout-policy,yes,yes,no,no,,IP,threshold:Integer;duration:Integer;observation-window:Keyword,threshold,04_commands_ip_ipv6_network(1).md:2332,entries/ip-http.md
+3.54,ip http log access,ip,/rci/ip/http/log/access,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2389,entries/ip-http.md
+3.55,ip http log auth,ip,/rci/ip/http/log/auth,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2424,entries/ip-http.md
+3.56,ip http log webdav,ip,/rci/ip/http/log/webdav,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2460,entries/ip-http.md
+3.57,ip http port,ip,/rci/ip/http/port,yes,yes,no,no,,IP,port:Integer,port,04_commands_ip_ipv6_network(1).md:2496,entries/ip-http.md
+3.58,ip http proxy,ip,/rci/ip/http/proxy,yes,yes,no,yes,(config-http-proxy),IP,name:String,name,04_commands_ip_ipv6_network(1).md:2536,entries/ip-http.md
+3.58.1,ip http proxy auth,ip,/rci/ip/http/proxy/auth,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2576,entries/ip-http.md
+3.58.2,ip http proxy dns-override,ip,/rci/ip/http/proxy/dns-override,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2611,entries/ip-http.md
+3.58.3,ip http proxy domain,ip,/rci/ip/http/proxy/domain,yes,yes,no,no,,IP,domain:String,domain,04_commands_ip_ipv6_network(1).md:2657,entries/ip-http.md
+3.58.4,ip http proxy domain ndns,ip,/rci/ip/http/proxy/domain/ndns,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2698,entries/ip-http.md
+3.58.5,ip http proxy force-host,ip,/rci/ip/http/proxy/force-host,yes,yes,no,no,,IP,force-host:String,force-host,04_commands_ip_ipv6_network(1).md:2735,entries/ip-http.md
+3.58.6,ip http proxy preserve-host,ip,/rci/ip/http/proxy/preserve-host,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2781,entries/ip-http.md
+3.58.7,ip http proxy preserve-origin,ip,/rci/ip/http/proxy/preserve-origin,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2818,entries/ip-http.md
+3.58.8,ip http proxy preserve-referer,ip,/rci/ip/http/proxy/preserve-referer,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2855,entries/ip-http.md
+3.58.9,ip http proxy security-level,ip,/rci/ip/http/proxy/security-level,yes,yes,no,no,,IP,public:Keyword;private:Keyword,,04_commands_ip_ipv6_network(1).md:2892,entries/ip-http.md
+3.58.10,ip http proxy ssl redirect,ip,/rci/ip/http/proxy/ssl/redirect,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:2936,entries/ip-http.md
+3.58.11,ip http proxy timeout,ip,/rci/ip/http/proxy/timeout,yes,yes,no,no,,IP,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:2973,entries/ip-http.md
+3.58.12,ip http proxy upstream,ip,/rci/ip/http/proxy/upstream,yes,yes,no,no,,IP,http:Keyword;https:Keyword;connect:Keyword;mac:MAC address;ip:IP address;fqdn:FQDN;port:Integer,mac;ip;fqdn,04_commands_ip_ipv6_network(1).md:3016,entries/ip-http.md
+3.58.13,ip http proxy x-real-ip,ip,/rci/ip/http/proxy/x-real-ip,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3073,entries/ip-http.md
+3.59,ip http security-level,ip,/rci/ip/http/security-level,yes,no,no,no,,IP,public:Keyword;ssl:Keyword;private:Keyword;protected:Keyword,,04_commands_ip_ipv6_network(1).md:3111,entries/ip-http.md
+3.60,ip http ssl acme debug,ip,/rci/ip/http/ssl/acme/debug,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:3156,entries/ip-http.md
+3.61,ip http ssl acme ecdsa,ip,/rci/ip/http/ssl/acme/ecdsa,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:3190,entries/ip-http.md
+3.62,ip http ssl acme get,ip,/rci/ip/http/ssl/acme/get,no,no,no,no,,,domain:String,,04_commands_ip_ipv6_network(1).md:3224,entries/ip-http.md
+3.64,ip http ssl acme list,ip,/rci/ip/http/ssl/acme/list,no,no,no,no,,,,,04_commands_ip_ipv6_network(1).md:3287,entries/ip-http.md
+3.63,ip http ssl acme revoke,ip,/rci/ip/http/ssl/acme/revoke,no,no,no,no,,,revoke:String,revoke,04_commands_ip_ipv6_network(1).md:3255,entries/ip-http.md
+3.65,ip http ssl enable,ip,/rci/ip/http/ssl/enable,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3322,entries/ip-http.md
+3.66,ip http ssl port,ip,/rci/ip/http/ssl/port,yes,yes,no,no,,IP,port:Integer,port,04_commands_ip_ipv6_network(1).md:3357,entries/ip-http.md
+3.67,ip http ssl redirect,ip,/rci/ip/http/ssl/redirect,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3397,entries/ip-http.md
+3.68,ip http webdav,ip,/rci/ip/http/webdav,no,no,no,no,(config-webdav),IP,,,04_commands_ip_ipv6_network(1).md:3433,entries/ip-http.md
+3.68.1,ip http webdav enable,ip,/rci/ip/http/webdav/enable,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3460,entries/ip-http.md
+3.68.2,ip http webdav permissive,ip,/rci/ip/http/webdav/permissive,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3496,entries/ip-http.md
+3.68.3,ip http webdav security-level,ip,/rci/ip/http/webdav/security-level,yes,no,no,no,,IP,public:Keyword;private:Keyword,,04_commands_ip_ipv6_network(1).md:3532,entries/ip-http.md
+3.69,ip http x-frame-options,ip,/rci/ip/http/x-frame-options,yes,yes,no,no,,IP,x-frame-options:Keyword,,04_commands_ip_ipv6_network(1).md:3568,entries/ip-http.md
+3.70,ip name-server,ip,/rci/ip/name-server,yes,yes,yes,yes,,IP,address:IP address;port:Integer;domain:String;interface:Interface,address,04_commands_ip_ipv6_network(1).md:3610,entries/ip-other.md
+3.71,ip nat,ip,/rci/ip/nat,yes,yes,no,yes,,IP,interface:Interface;address:IP address;mask:IP-mask,interface;address;mask,04_commands_ip_ipv6_network(1).md:3682,entries/ip-other.md
+3.72,ip nat full-cone,ip,/rci/ip/nat/full-cone,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3729,entries/ip-other.md
+3.73,ip nat oc,ip,/rci/ip/nat/oc,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3764,entries/ip-other.md
+3.74,ip nat restricted-cone,ip,/rci/ip/nat/restricted-cone,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3802,entries/ip-other.md
+3.75,ip nat sstp,ip,/rci/ip/nat/sstp,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3838,entries/ip-other.md
+3.76,ip nat vpn,ip,/rci/ip/nat/vpn,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:3876,entries/ip-other.md
+3.77,ip policy,ip,/rci/ip/policy,yes,yes,no,yes,(config-policy),,name:Policy,name,04_commands_ip_ipv6_network(1).md:3914,entries/ip-policy.md
+3.77.1,ip policy description,ip,/rci/ip/policy/description,yes,yes,no,no,,IP,description:Keyword,,04_commands_ip_ipv6_network(1).md:3958,entries/ip-policy.md
+3.77.2,ip policy ipv6 route,ip,/rci/ip/policy/ipv6/route,yes,yes,no,yes,,IP,prefix:Prefix;interface:Interface;gateway:IP address;auto:Keyword;metric:Integer;reject:Keyword,prefix;interface,04_commands_ip_ipv6_network(1).md:4000,entries/ip-policy.md
+3.77.3,ip policy multipath,ip,/rci/ip/policy/multipath,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:4065,entries/ip-policy.md
+3.77.4,ip policy permit,ip,/rci/ip/policy/permit,yes,yes,yes,yes,,IP,interface:Interface;order:Integer,interface,04_commands_ip_ipv6_network(1).md:4101,entries/ip-policy.md
+3.77.5,ip policy permit auto,ip,/rci/ip/policy/permit/auto,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:4147,entries/ip-policy.md
+3.77.6,ip policy rate-limit input,ip,/rci/ip/policy/rate-limit/input,yes,yes,no,no,,IP,interface:Interface;rate:Integer;auto:Keyword,interface;rate,04_commands_ip_ipv6_network(1).md:4184,entries/ip-policy.md
+3.77.7,ip policy rate-limit output,ip,/rci/ip/policy/rate-limit/output,yes,yes,no,no,,IP,interface:Interface;rate:Integer;auto:Keyword,interface;rate,04_commands_ip_ipv6_network(1).md:4233,entries/ip-policy.md
+3.77.8,ip policy route,ip,/rci/ip/policy/route,yes,yes,no,yes,,IP,network:IP address;mask:IP-mask;host:IP address;gateway:IP address;auto:Keyword;metric:Integer;reject:Keyword;interface:Keyword,network;mask;host;gateway,04_commands_ip_ipv6_network(1).md:4283,entries/ip-policy.md
+3.77.9,ip policy standalone,ip,/rci/ip/policy/standalone,yes,,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:4367,entries/ip-policy.md
+3.78,ip route,ip,/rci/ip/route,yes,yes,no,yes,,IP,network:IP address;mask:IP-mask;host:IP address;default:Keyword;gateway:IP address;auto:Keyword;metric:Integer;reject:Keyword;interface:Keyword,network;mask;host;gateway,04_commands_ip_ipv6_network(1).md:4406,entries/ip-other.md
+3.79,ip search-domain,ip,/rci/ip/search-domain,yes,yes,no,no,,,domain:String,domain,04_commands_ip_ipv6_network(1).md:4496,entries/ip-other.md
+3.80,ip sip alg direct-media,ip,/rci/ip/sip/alg/direct-media,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:4532,entries/ip-other.md
+3.81,ip sip alg port,ip,/rci/ip/sip/alg/port,yes,yes,no,no,,,port:Integer,port,04_commands_ip_ipv6_network(1).md:4567,entries/ip-other.md
+3.82,ip ssh,ip,/rci/ip/ssh,no,no,no,no,(config-ssh),IP,,,04_commands_ip_ipv6_network(1).md:4606,entries/ip-ssh.md
+3.82.1,ip ssh cipher,ip,/rci/ip/ssh/cipher,yes,yes,no,yes,,IP,cipher:Keyword,cipher,04_commands_ip_ipv6_network(1).md:4632,entries/ip-ssh.md
+3.82.2,ip ssh keygen,ip,/rci/ip/ssh/keygen,yes,no,no,no,,IP,keygen:Keyword,keygen,04_commands_ip_ipv6_network(1).md:4685,entries/ip-ssh.md
+3.82.3,ip ssh lockout-policy,ip,/rci/ip/ssh/lockout-policy,yes,yes,no,no,,IP,threshold:Integer;duration:Integer;observation-window:Keyword,threshold,04_commands_ip_ipv6_network(1).md:4729,entries/ip-ssh.md
+3.82.4,ip ssh port,ip,/rci/ip/ssh/port,yes,yes,no,no,,IP,number:Integer,number,04_commands_ip_ipv6_network(1).md:4785,entries/ip-ssh.md
+3.82.5,ip ssh security-level,ip,/rci/ip/ssh/security-level,yes,no,no,no,,IP,public:Keyword;private:Keyword;protected:Keyword,,04_commands_ip_ipv6_network(1).md:4826,entries/ip-ssh.md
+3.82.6,ip ssh session timeout,ip,/rci/ip/ssh/session/timeout,yes,yes,no,no,,IP,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:4860,entries/ip-ssh.md
+3.82.7,ip ssh sftp,ip,/rci/ip/ssh/sftp,no,no,no,no,(config-sftp),IP,,,04_commands_ip_ipv6_network(1).md:4906,entries/ip-ssh.md
+3.82.7.1,ip ssh sftp enable,ip,/rci/ip/ssh/sftp/enable,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:4932,entries/ip-ssh.md
+3.82.7.2,ip ssh sftp permissive,ip,/rci/ip/ssh/sftp/permissive,yes,yes,no,no,,IP,,,04_commands_ip_ipv6_network(1).md:4967,entries/ip-ssh.md
+3.82.7.3,ip ssh sftp root,ip,/rci/ip/ssh/sftp/root,yes,yes,no,no,,IP,directory:String,directory,04_commands_ip_ipv6_network(1).md:5001,entries/ip-ssh.md
+3.83,ip static,ip,/rci/ip/static,yes,yes,no,yes,,IP,protocol:Keyword;interface:Interface;address:IP address;mask:IP-mask;port:Integer;end-port:Integer;to-address:IP address;to-host:MAC address;to-port:Integer;comment:String;to-interface:Keyword,interface;address;mask;port;end-port;to-address;to-host,04_commands_ip_ipv6_network(1).md:5041,entries/ip-other.md
+3.84,ip static rule,ip,/rci/ip/static/rule,yes,yes,no,yes,,IP,index:Integer;disable:Keyword;schedule:Schedule,index;schedule,04_commands_ip_ipv6_network(1).md:5150,entries/ip-other.md
+3.85,ip telnet,ip,/rci/ip/telnet,no,no,no,no,(config-telnet),IP,,,04_commands_ip_ipv6_network(1).md:5199,entries/ip-other.md
+3.85.1,ip telnet lockout-policy,ip,/rci/ip/telnet/lockout-policy,yes,yes,no,no,,IP,threshold:Integer;duration:Integer;observation-window:Keyword,threshold,04_commands_ip_ipv6_network(1).md:5225,entries/ip-other.md
+3.85.2,ip telnet port,ip,/rci/ip/telnet/port,yes,yes,no,no,,IP,number:Integer,number,04_commands_ip_ipv6_network(1).md:5282,entries/ip-other.md
+3.85.3,ip telnet security-level,ip,/rci/ip/telnet/security-level,yes,no,no,no,,IP,public:Keyword;private:Keyword;protected:Keyword,,04_commands_ip_ipv6_network(1).md:5323,entries/ip-other.md
+3.85.4,ip telnet session max-count,ip,/rci/ip/telnet/session/max-count,yes,yes,no,no,,IP,count:Integer,count,04_commands_ip_ipv6_network(1).md:5358,entries/ip-other.md
+3.85.5,ip telnet session timeout,ip,/rci/ip/telnet/session/timeout,yes,yes,no,no,,IP,timeout:Integer,timeout,04_commands_ip_ipv6_network(1).md:5402,entries/ip-other.md
+3.86,ip traffic-shape host,ip,/rci/ip/traffic-shape/host,yes,yes,yes,yes,,IP,mac:MAC address;rate:Integer;schedule:Schedule;upstream-rate:Keyword,mac;rate,04_commands_ip_ipv6_network(1).md:5449,entries/ip-other.md
+3.87,ip traffic-shape unknown-host,ip,/rci/ip/traffic-shape/unknown-host,yes,yes,no,no,,IP,rate:Integer;upstream-rate:Keyword,rate,04_commands_ip_ipv6_network(1).md:5520,entries/ip-other.md
+3.88,ipv6 local-prefix,ipv6,/rci/ipv6/local-prefix,yes,yes,no,no,,,default:Keyword;prefix:Prefix,prefix,04_commands_ip_ipv6_network(1).md:5572,entries/ipv6.md
+3.89,ipv6 name-server,ipv6,/rci/ipv6/name-server,yes,yes,yes,yes,,,address:IPv6 address;domain:String;interface:Interface,address,04_commands_ip_ipv6_network(1).md:5620,entries/ipv6.md
+3.90,ipv6 pass,ipv6,/rci/ipv6/pass,yes,yes,no,no,,,wan-iface:Interface;lan-iface:Interface,wan-iface;lan-iface,04_commands_ip_ipv6_network(1).md:5694,entries/ipv6.md
+3.91,ipv6 route,ipv6,/rci/ipv6/route,yes,yes,no,yes,,,prefix:Prefix;default:Keyword;interface:Interface;gateway:IP address,prefix;interface,04_commands_ip_ipv6_network(1).md:5736,entries/ipv6.md
+3.92,ipv6 static,ipv6,/rci/ipv6/static,yes,yes,no,no,,,protocol:Keyword;interface:Interface;mac:MAC address;port:Integer;end-port:Integer,protocol;interface;mac,04_commands_ip_ipv6_network(1).md:5791,entries/ipv6.md
+3.93,ipv6 subnet,ipv6,/rci/ipv6/subnet,yes,yes,no,yes,(config-subnet),,name:String,name,04_commands_ip_ipv6_network(1).md:5853,entries/ipv6.md
+3.93.1,ipv6 subnet bind,ipv6,/rci/ipv6/subnet/bind,yes,yes,no,no,,,bind:Interface,bind,04_commands_ip_ipv6_network(1).md:5889,entries/ipv6.md
+3.93.2,ipv6 subnet dns-server,ipv6,/rci/ipv6/subnet/dns-server,yes,yes,no,no,,,address1:IPv6 address;address2:IPv6 address;disable:Keyword,address1,04_commands_ip_ipv6_network(1).md:5928,entries/ipv6.md
+3.93.3,ipv6 subnet mode,ipv6,/rci/ipv6/subnet/mode,yes,yes,no,no,,,mode:Keyword,mode,04_commands_ip_ipv6_network(1).md:5978,entries/ipv6.md
+3.93.4,ipv6 subnet number,ipv6,/rci/ipv6/subnet/number,yes,no,no,no,,,number:Integer,number,04_commands_ip_ipv6_network(1).md:6019,entries/ipv6.md
+3.93.5,ipv6 subnet prefix delegate,ipv6,/rci/ipv6/subnet/prefix/delegate,yes,yes,no,no,,,delegate:Integer,delegate,04_commands_ip_ipv6_network(1).md:6049,entries/ipv6.md
+3.93.6,ipv6 subnet prefix length,ipv6,/rci/ipv6/subnet/prefix/length,yes,yes,no,no,,,length:Integer,length,04_commands_ip_ipv6_network(1).md:6090,entries/ipv6.md
+3.94,isolate-private,isolate-private,/rci/isolate-private,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:6131,entries/isolate-private.md
+3.95,kabinet,kabinet,/rci/kabinet,yes,yes,no,no,(kabinet),,,,04_commands_ip_ipv6_network(1).md:6166,
+3.95.1,kabinet access-level,kabinet,/rci/kabinet/access-level,yes,yes,no,no,,,level:Keyword,level,04_commands_ip_ipv6_network(1).md:6202,
+3.95.2,kabinet interface,kabinet,/rci/kabinet/interface,yes,yes,no,no,,,interface:Interface,interface,04_commands_ip_ipv6_network(1).md:6245,
+3.95.3,kabinet password,kabinet,/rci/kabinet/password,yes,yes,no,no,,,password:String,password,04_commands_ip_ipv6_network(1).md:6299,
+3.95.4,kabinet port,kabinet,/rci/kabinet/port,yes,yes,no,no,,,port:Integer,port,04_commands_ip_ipv6_network(1).md:6337,
+3.95.5,kabinet protocol-version,kabinet,/rci/kabinet/protocol-version,yes,yes,no,no,,,version:String,version,04_commands_ip_ipv6_network(1).md:6376,
+3.95.6,kabinet server,kabinet,/rci/kabinet/server,yes,yes,no,no,,,address:IP address,address,04_commands_ip_ipv6_network(1).md:6416,
+3.96,known host,known,/rci/known/host,yes,yes,no,yes,,,name:String;mac:MAC address,name;mac,04_commands_ip_ipv6_network(1).md:6455,entries/known.md
+3.1.5,ls,ls,/rci/ls,no,no,no,no,,,directory:String,,02_commands_core_access_storage_components_crypto(1).md:238,entries/ls.md
+3.97,mdns,mdns,/rci/mdns,no,no,no,no,(config-mdns),,,,04_commands_ip_ipv6_network(1).md:6490,entries/mdns.md
+3.97.1,mdns reflector disable,mdns,/rci/mdns/reflector/disable,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:6515,entries/mdns.md
+3.97.2,mdns reflector enforce,mdns,/rci/mdns/reflector/enforce,yes,yes,no,no,,,,,04_commands_ip_ipv6_network(1).md:6550,entries/mdns.md
+3.1.6,mkdir,mkdir,/rci/mkdir,no,no,no,no,,,directory:String,directory,02_commands_core_access_storage_components_crypto(1).md:289,entries/mkdir.md
+3.1.7,more,more,/rci/more,no,no,no,no,,,filename:Filename,filename,02_commands_core_access_storage_components_crypto(1).md:319,entries/more.md
+3.98,mws acquire,mws,/rci/mws/acquire,no,yes,no,no,,,candidate:String;dpn-accept:Keyword;no-update:Keyword,candidate,05_commands_mws_ndns_opkg_services(1).md:5,entries/mws.md
+3.99,mws auto-ap-shutdown,mws,/rci/mws/auto-ap-shutdown,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:56,entries/mws.md
+3.100,mws backhaul shutdown,mws,/rci/mws/backhaul/shutdown,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:92,entries/mws.md
+3.101,mws log stp,mws,/rci/mws/log/stp,no,yes,yes,yes,,,interface:Interface,interface,05_commands_mws_ndns_opkg_services(1).md:127,entries/mws.md
+3.102,mws member,mws,/rci/mws/member,no,yes,yes,no,,,member:String,,05_commands_mws_ndns_opkg_services(1).md:174,entries/mws.md
+3.103,mws member debug,mws,/rci/mws/member/debug,yes,yes,no,no,,,member:String,member,05_commands_mws_ndns_opkg_services(1).md:205,entries/mws.md
+3.104,mws member dpn-accept,mws,/rci/mws/member/dpn-accept,no,no,no,no,,,member:String,member,05_commands_mws_ndns_opkg_services(1).md:246,entries/mws.md
+3.105,mws member port access,mws,/rci/mws/member/port/access,yes,yes,no,no,,,member:String;port:Integer;interface:Interface,member;port;interface,05_commands_mws_ndns_opkg_services(1).md:276,entries/mws.md
+3.106,mws member port disable,mws,/rci/mws/member/port/disable,yes,yes,no,no,,,member:String;port:Integer,member;port,05_commands_mws_ndns_opkg_services(1).md:327,entries/mws.md
+3.107,mws member reboot,mws,/rci/mws/member/reboot,no,no,no,no,,,member:String;interval:Integer,member,05_commands_mws_ndns_opkg_services(1).md:369,entries/mws.md
+3.108,mws member update channel,mws,/rci/mws/member/update/channel,yes,yes,no,no,,,member:String;channel:String,member;channel,05_commands_mws_ndns_opkg_services(1).md:407,entries/mws.md
+3.109,mws member update check,mws,/rci/mws/member/update/check,no,no,no,no,,,member:String,member,05_commands_mws_ndns_opkg_services(1).md:454,entries/mws.md
+3.110,mws member update start,mws,/rci/mws/member/update/start,no,no,no,no,,,member:String,member,05_commands_mws_ndns_opkg_services(1).md:483,entries/mws.md
+3.111,mws member update stop,mws,/rci/mws/member/update/stop,no,no,no,no,,,member:String,member,05_commands_mws_ndns_opkg_services(1).md:512,entries/mws.md
+3.112,mws reboot,mws,/rci/mws/reboot,no,no,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:540,entries/mws.md
+3.113,mws revisit,mws,/rci/mws/revisit,no,yes,no,no,,,candidate:String,candidate,05_commands_mws_ndns_opkg_services(1).md:563,entries/mws.md
+3.114,mws stp encapsulation,mws,/rci/mws/stp/encapsulation,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:597,entries/mws.md
+3.115,mws stp priority,mws,/rci/mws/stp/priority,no,yes,no,yes,,,priority:Keyword,priority,05_commands_mws_ndns_opkg_services(1).md:644,entries/mws.md
+3.116,mws update start,mws,/rci/mws/update/start,no,no,no,no,,,controller:Keyword;members:Keyword,,05_commands_mws_ndns_opkg_services(1).md:697,entries/mws.md
+3.117,mws update stop,mws,/rci/mws/update/stop,no,no,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:740,entries/mws.md
+3.118,mws zone,mws,/rci/mws/zone,no,yes,yes,yes,,,mac:MAC address;cid:Keyword,mac;cid,05_commands_mws_ndns_opkg_services(1).md:762,entries/mws.md
+3.120,ndns,ndns,/rci/ndns,no,no,no,no,(ndns),,,,05_commands_mws_ndns_opkg_services(1).md:982,entries/ndns.md
+3.120.1,ndns book-name,ndns,/rci/ndns/book-name,yes,no,no,no,,,name:String;domain:String;access:Keyword;access6:Keyword;transfer-code:Keyword,name;domain,05_commands_mws_ndns_opkg_services(1).md:1006,entries/ndns.md
+3.120.2,ndns check-name,ndns,/rci/ndns/check-name,no,no,no,no,,,name:String,name,05_commands_mws_ndns_opkg_services(1).md:1158,entries/ndns.md
+3.120.3,ndns drop-name,ndns,/rci/ndns/drop-name,yes,no,no,no,,,name:String;domain:String,name;domain,05_commands_mws_ndns_opkg_services(1).md:1199,entries/ndns.md
+3.120.4,ndns get-booked,ndns,/rci/ndns/get-booked,no,no,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:1246,entries/ndns.md
+3.120.5,ndns get-update,ndns,/rci/ndns/get-update,no,no,no,no,,,access:Keyword;access6:Keyword,,05_commands_mws_ndns_opkg_services(1).md:1298,entries/ndns.md
+3.119,nextdns,nextdns,/rci/nextdns,no,no,no,no,(nextdns),,,,05_commands_mws_ndns_opkg_services(1).md:813,entries/nextdns.md
+3.119.1,nextdns assign,nextdns,/rci/nextdns/assign,yes,yes,no,yes,,,host:MAC address;token:Integer;iface:Interface,host;token;iface,05_commands_mws_ndns_opkg_services(1).md:838,entries/nextdns.md
+3.119.2,nextdns authenticate,nextdns,/rci/nextdns/authenticate,no,no,no,no,,,login:String;password:String;pin:String,login;password,05_commands_mws_ndns_opkg_services(1).md:887,entries/nextdns.md
+3.119.3,nextdns authtoken,nextdns,/rci/nextdns/authtoken,yes,yes,no,no,,,authtoken:String,authtoken,05_commands_mws_ndns_opkg_services(1).md:921,entries/nextdns.md
+3.119.4,nextdns check-availability,nextdns,/rci/nextdns/check-availability,no,no,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:959,entries/nextdns.md
+3.121,ntce,ntce,/rci/ntce,no,no,no,no,(config-ntce),,,,05_commands_mws_ndns_opkg_services(1).md:1431,entries/ntce.md
+3.121.1,ntce debug,ntce,/rci/ntce/debug,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:1455,
+3.121.2,ntce filter assign host,ntce,/rci/ntce/filter/assign/host,yes,yes,yes,yes,,,host:MAC address;profile:String,host;profile,05_commands_mws_ndns_opkg_services(1).md:1488,entries/ntce.md
+3.121.3,ntce filter assign interface,ntce,/rci/ntce/filter/assign/interface,yes,yes,yes,yes,,,interface:Interface;profile:String,interface;profile,05_commands_mws_ndns_opkg_services(1).md:1538,entries/ntce.md
+3.121.4,ntce filter profile,ntce,/rci/ntce/filter/profile,yes,yes,no,yes,,IP,name:String,name,05_commands_mws_ndns_opkg_services(1).md:1588,
+3.121.5,ntce filter profile application,ntce,/rci/ntce/filter/profile/application,yes,yes,no,no,,,name:String;application:Keyword,name,05_commands_mws_ndns_opkg_services(1).md:1628,
+3.121.6,ntce filter profile description,ntce,/rci/ntce/filter/profile/description,yes,yes,no,no,,,name:String;description:Keyword,name,05_commands_mws_ndns_opkg_services(1).md:1668,
+3.121.7,ntce filter profile group,ntce,/rci/ntce/filter/profile/group,yes,yes,no,no,,,name:String;group:String,name;group,05_commands_mws_ndns_opkg_services(1).md:1708,
+3.121.8,ntce filter profile schedule,ntce,/rci/ntce/filter/profile/schedule,yes,yes,no,no,,,name:String;schedule:Schedule,name;schedule,05_commands_mws_ndns_opkg_services(1).md:1748,
+3.121.9,ntce filter profile type,ntce,/rci/ntce/filter/profile/type,yes,no,no,no,,,name:String;type:Keyword,name;type,05_commands_mws_ndns_opkg_services(1).md:1789,
+3.121.10,ntce memory-watcher,ntce,/rci/ntce/memory-watcher,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:1822,
+3.121.11,ntce qos category priority,ntce,/rci/ntce/qos/category/priority,yes,yes,no,no,,,category:Keyword;priority:Integer,category;priority,05_commands_mws_ndns_opkg_services(1).md:1857,
+3.121.12,ntce qos enable,ntce,/rci/ntce/qos/enable,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:1904,
+3.121.13,ntce upstream rate-limit input,ntce,/rci/ntce/upstream/rate-limit/input,yes,yes,no,no,,,interface:Interface;rate:Integer;auto:Keyword,interface;rate,05_commands_mws_ndns_opkg_services(1).md:1939,
+3.121.14,ntce upstream rate-limit output,ntce,/rci/ntce/upstream/rate-limit/output,yes,yes,no,no,,,interface:Interface;rate:Integer;auto:Keyword,interface;rate,05_commands_mws_ndns_opkg_services(1).md:1984,
+3.122,ntp,ntp,/rci/ntp,no,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2029,entries/ntp.md
+3.123,ntp master,ntp,/rci/ntp/master,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2055,entries/ntp.md
+3.124,ntp server,ntp,/rci/ntp/server,yes,yes,yes,yes,,,server:String,server,05_commands_mws_ndns_opkg_services(1).md:2090,entries/ntp.md
+3.125,ntp source,ntp,/rci/ntp/source,yes,yes,no,yes,,,address:IP address,address,05_commands_mws_ndns_opkg_services(1).md:2129,entries/ntp.md
+3.126,ntp sync-period,ntp,/rci/ntp/sync-period,yes,yes,no,no,,,period:Integer,period,05_commands_mws_ndns_opkg_services(1).md:2167,entries/ntp.md
+3.127,object-group fqdn,object-group,/rci/object-group/fqdn,yes,yes,no,yes,(config-ogrp-fqdn),IP,name:String,name,05_commands_mws_ndns_opkg_services(1).md:2207,entries/object-group.md
+3.127.1,object-group fqdn exclude,object-group,/rci/object-group/fqdn/exclude,yes,yes,yes,yes,,,address:String,address,05_commands_mws_ndns_opkg_services(1).md:2249,entries/object-group.md
+3.127.2,object-group fqdn include,object-group,/rci/object-group/fqdn/include,yes,yes,yes,yes,,,address:String,address,05_commands_mws_ndns_opkg_services(1).md:2330,entries/object-group.md
+3.128,object-group ip,object-group,/rci/object-group/ip,yes,yes,no,yes,(config-ogrp-ip),IP,name:String,name,05_commands_mws_ndns_opkg_services(1).md:2409,entries/object-group.md
+3.128.1,object-group ip exclude,object-group,/rci/object-group/ip/exclude,yes,yes,no,yes,,,proto:Keyword;address:String;port:Integer;end-port:Integer,proto;address,05_commands_mws_ndns_opkg_services(1).md:2452,entries/object-group.md
+3.128.2,object-group ip include,object-group,/rci/object-group/ip/include,yes,yes,no,yes,,,proto:Keyword;address:String;port:Integer;end-port:Integer,proto;address,05_commands_mws_ndns_opkg_services(1).md:2508,entries/object-group.md
+3.129,oc-server,oc-server,/rci/oc-server,no,no,no,no,(oc-server),,,,05_commands_mws_ndns_opkg_services(1).md:2564,entries/oc-server.md
+3.129.1,oc-server camouflage,oc-server,/rci/oc-server/camouflage,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2588,
+3.129.2,oc-server debug,oc-server,/rci/oc-server/debug,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2624,
+3.129.3,oc-server interface,oc-server,/rci/oc-server/interface,yes,yes,no,no,,,interface:Interface,interface,05_commands_mws_ndns_opkg_services(1).md:2659,
+3.129.4,oc-server mtu,oc-server,/rci/oc-server/mtu,yes,yes,no,no,,,value:Integer,value,05_commands_mws_ndns_opkg_services(1).md:2699,
+3.129.5,oc-server multi-login,oc-server,/rci/oc-server/multi-login,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2739,
+3.129.6,oc-server pool-range,oc-server,/rci/oc-server/pool-range,yes,yes,no,no,,,begin:IP address;size:Integer,begin,05_commands_mws_ndns_opkg_services(1).md:2773,
+3.129.7,oc-server route,oc-server,/rci/oc-server/route,yes,yes,yes,yes,,,address:IP address;mask:IP-mask,address;mask,05_commands_mws_ndns_opkg_services(1).md:2817,entries/oc-server.md
+3.129.8,oc-server session-logout,oc-server,/rci/oc-server/session-logout,yes,no,no,no,,,session:Integer,session,05_commands_mws_ndns_opkg_services(1).md:2866,
+3.129.9,oc-server session-preempt,oc-server,/rci/oc-server/session-preempt,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2896,
+3.129.10,oc-server static-ip,oc-server,/rci/oc-server/static-ip,yes,yes,no,yes,,,name:String;address:IP address,name;address,05_commands_mws_ndns_opkg_services(1).md:2931,
+3.130,opkg chroot,opkg,/rci/opkg/chroot,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:2971,entries/opkg.md
+3.131,opkg disk,opkg,/rci/opkg/disk,yes,yes,no,no,,,disk:String;url:String,disk,05_commands_mws_ndns_opkg_services(1).md:3005,entries/opkg.md
+3.132,opkg dns-override,opkg,/rci/opkg/dns-override,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:3057,entries/opkg.md
+3.133,opkg initrc,opkg,/rci/opkg/initrc,yes,yes,no,no,,,path:Filename,path,05_commands_mws_ndns_opkg_services(1).md:3093,entries/opkg.md
+3.134,opkg object-group fqdn enable,opkg,/rci/opkg/object-group/fqdn/enable,yes,yes,no,no,,,name:String,name,05_commands_mws_ndns_opkg_services(1).md:3135,entries/opkg.md
+3.135,opkg timezone,opkg,/rci/opkg/timezone,yes,yes,no,no,,,auto:Keyword;timezone:String,timezone,05_commands_mws_ndns_opkg_services(1).md:3175,entries/opkg.md
+3.136,ping-check profile,ping-check,/rci/ping-check/profile,yes,yes,no,yes,(config-pchk),,name:String,name,05_commands_mws_ndns_opkg_services(1).md:3226,entries/ping-check.md
+3.136.1,ping-check profile host,ping-check,/rci/ping-check/profile/host,yes,yes,no,no,,,host:Hostname,host,05_commands_mws_ndns_opkg_services(1).md:3279,entries/ping-check.md
+3.136.2,ping-check profile max-fails,ping-check,/rci/ping-check/profile/max-fails,yes,yes,no,no,,,count:Integer,count,05_commands_mws_ndns_opkg_services(1).md:3322,entries/ping-check.md
+3.136.3,ping-check profile min-success,ping-check,/rci/ping-check/profile/min-success,yes,yes,no,no,,,count:Integer,count,05_commands_mws_ndns_opkg_services(1).md:3365,entries/ping-check.md
+3.136.4,ping-check profile mode,ping-check,/rci/ping-check/profile/mode,yes,no,no,no,,,mode:Keyword,mode,05_commands_mws_ndns_opkg_services(1).md:3408,entries/ping-check.md
+3.136.5,ping-check profile port,ping-check,/rci/ping-check/profile/port,yes,yes,no,no,,,port:Integer,port,05_commands_mws_ndns_opkg_services(1).md:3446,entries/ping-check.md
+3.136.6,ping-check profile power-cycle,ping-check,/rci/ping-check/profile/power-cycle,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:3487,entries/ping-check.md
+3.136.7,ping-check profile timeout,ping-check,/rci/ping-check/profile/timeout,yes,yes,no,no,,,timeout:Integer,timeout,05_commands_mws_ndns_opkg_services(1).md:3521,entries/ping-check.md
+3.136.8,ping-check profile update-interval,ping-check,/rci/ping-check/profile/update-interval,yes,no,no,no,,,seconds:Integer,seconds,05_commands_mws_ndns_opkg_services(1).md:3562,entries/ping-check.md
+3.136.9,ping-check profile uri,ping-check,/rci/ping-check/profile/uri,yes,yes,no,no,,,uri:Keyword,,05_commands_mws_ndns_opkg_services(1).md:3592,entries/ping-check.md
+3.137,ppe,ppe,/rci/ppe,yes,yes,no,no,,,engine:Keyword,engine,05_commands_mws_ndns_opkg_services(1).md:3648,entries/ppe.md
+3.138,pppoe pass,pppoe,/rci/pppoe/pass,yes,yes,no,no,,Ethernet,wan-iface:Interface;lan-iface:Interface,wan-iface;lan-iface,05_commands_mws_ndns_opkg_services(1).md:3691,entries/pppoe.md
+3.139,printer,printer,/rci/printer,yes,yes,no,yes,(config-printer),,id:String,id,05_commands_mws_ndns_opkg_services(1).md:3734,
+3.139.1,printer bidirectional,printer,/rci/printer/bidirectional,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:3772,
+3.139.2,printer debug,printer,/rci/printer/debug,yes,yes,no,no,,,level:Integer,,05_commands_mws_ndns_opkg_services(1).md:3805,
+3.139.3,printer firmware,printer,/rci/printer/firmware,yes,yes,no,no,,,firmware:String,firmware,05_commands_mws_ndns_opkg_services(1).md:3845,
+3.139.4,printer name,printer,/rci/printer/name,yes,no,no,no,,,name:String,name,05_commands_mws_ndns_opkg_services(1).md:3879,
+3.139.5,printer port,printer,/rci/printer/port,yes,no,no,no,,,port:Integer,port,05_commands_mws_ndns_opkg_services(1).md:3906,
+3.139.6,printer status-polling,printer,/rci/printer/status-polling,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:3933,
+3.139.7,printer type,printer,/rci/printer/type,yes,no,no,no,,,type:Keyword,type,05_commands_mws_ndns_opkg_services(1).md:3967,
+3.140,schedule,schedule,/rci/schedule,yes,yes,no,yes,(config-sched),,name:String,name,05_commands_mws_ndns_opkg_services(1).md:3995,entries/schedule.md
+3.140.1,schedule action,schedule,/rci/schedule/action,yes,yes,no,yes,,,action:Keyword;min:Integer;hour:Integer;dow:Integer,action;min;hour;dow,05_commands_mws_ndns_opkg_services(1).md:4028,entries/schedule.md
+3.140.2,schedule description,schedule,/rci/schedule/description,no,yes,no,no,,,description:Keyword,,05_commands_mws_ndns_opkg_services(1).md:4068,entries/schedule.md
+3.140.3,schedule led,schedule,/rci/schedule/led,yes,yes,no,no,,,action:Keyword,action,05_commands_mws_ndns_opkg_services(1).md:4104,entries/schedule.md
+3.141,service afp,service,/rci/service/afp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4142,entries/service.md
+3.142,service cifs,service,/rci/service/cifs,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4168,entries/service.md
+3.143,service dhcp,service,/rci/service/dhcp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4197,entries/service.md
+3.144,service dhcp-relay,service,/rci/service/dhcp-relay,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4229,entries/service.md
+3.145,service dlna,service,/rci/service/dlna,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4262,entries/service.md
+3.146,service dns-proxy,service,/rci/service/dns-proxy,yes,no,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4294,entries/service.md
+3.147,service ftp,service,/rci/service/ftp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4319,entries/service.md
+3.148,service http,service,/rci/service/http,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4350,entries/service.md
+3.149,service igmp-proxy,service,/rci/service/igmp-proxy,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4381,entries/service.md
+3.150,service internet-checker,service,/rci/service/internet-checker,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4414,entries/service.md
+3.151,service ipsec,service,/rci/service/ipsec,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4449,entries/service.md
+3.152,service kabinet,service,/rci/service/kabinet,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4479,entries/service.md
+3.153,service mdns,service,/rci/service/mdns,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4512,entries/service.md
+3.154,service mws,service,/rci/service/mws,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4543,entries/service.md
+3.155,service ntce,service,/rci/service/ntce,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4576,entries/service.md
+3.156,service ntp,service,/rci/service/ntp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4607,entries/service.md
+3.157,service oc-server,service,/rci/service/oc-server,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4641,entries/service.md
+3.158,service snmp,service,/rci/service/snmp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4674,entries/service.md
+3.159,service ssh,service,/rci/service/ssh,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4707,entries/service.md
+3.160,service sstp-server,service,/rci/service/sstp-server,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4741,entries/service.md
+3.161,service telnet,service,/rci/service/telnet,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4774,entries/service.md
+3.162,service torrent,service,/rci/service/torrent,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4805,entries/service.md
+3.163,service udpxy,service,/rci/service/udpxy,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4836,entries/service.md
+3.164,service upnp,service,/rci/service/upnp,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4866,entries/service.md
+3.165,service vpn-server,service,/rci/service/vpn-server,yes,yes,no,no,,,,,05_commands_mws_ndns_opkg_services(1).md:4891,entries/service.md
+3.166,show,show,/rci/show,no,no,no,no,(show),,,,06_commands_show(1).md:5,entries/show-other.md
+3.166.1,show access,show,/rci/show/access,no,no,no,no,,,directory:String,directory,06_commands_show(1).md:27,entries/show-other.md
+3.166.2,show acme,show,/rci/show/acme,no,no,no,no,,,,,06_commands_show(1).md:64,entries/show-other.md
+3.166.3,show afp,show,/rci/show/afp,no,no,no,no,,,,,06_commands_show(1).md:104,entries/show-other.md
+3.166.4,show associations,show,/rci/show/associations,no,no,no,no,,Access Point,name:String,,06_commands_show(1).md:142,entries/show-other.md
+3.166.5,show button,show,/rci/show/button,no,no,no,no,,,name:String,,06_commands_show(1).md:224,entries/show-other.md
+3.166.6,show button bindings,show,/rci/show/button/bindings,no,no,no,no,,,,,06_commands_show(1).md:264,entries/show-other.md
+3.166.7,show button handlers,show,/rci/show/button/handlers,no,no,no,no,,,,,06_commands_show(1).md:366,entries/show-other.md
+3.166.8,show chilli profiles,show,/rci/show/chilli/profiles,no,no,no,no,,,,,06_commands_show(1).md:485,entries/show-other.md
+3.166.9,show cifs,show,/rci/show/cifs,no,no,no,no,,,,,06_commands_show(1).md:530,entries/show-other.md
+3.166.10,show clock date,show,/rci/show/clock/date,no,no,no,no,,,,,06_commands_show(1).md:565,entries/show-other.md
+3.166.11,show clock timezone-list,show,/rci/show/clock/timezone-list,no,no,no,no,,,,,06_commands_show(1).md:604,entries/show-other.md
+3.166.12,show components status,show,/rci/show/components/status,no,no,no,no,,,,,06_commands_show(1).md:652,entries/show-other.md
+3.166.13,show configurator status,show,/rci/show/configurator/status,no,no,no,no,,,,,06_commands_show(1).md:683,entries/show-other.md
+3.166.14,show credits,show,/rci/show/credits,no,no,no,no,,,package:String,,06_commands_show(1).md:723,entries/show-other.md
+3.166.15,show crypto ike key,show,/rci/show/crypto/ike/key,no,no,no,no,,,name:String,,06_commands_show(1).md:1169,entries/show-other.md
+3.166.16,show crypto map,show,/rci/show/crypto/map,no,no,no,no,,,map-name:String,,06_commands_show(1).md:1207,entries/show-other.md
+3.166.17,show defaults,show,/rci/show/defaults,no,no,no,no,,,,,06_commands_show(1).md:1298,entries/show-other.md
+3.166.18,show dlna,show,/rci/show/dlna,no,no,no,no,,,,,06_commands_show(1).md:1334,entries/show-other.md
+3.166.19,show dns-proxy,show,/rci/show/dns-proxy,no,no,no,no,,,,,06_commands_show(1).md:1357,entries/show-other.md
+3.166.20,show dns-proxy filter presets,show,/rci/show/dns-proxy/filter/presets,no,no,no,no,,,lang:String;description:Keyword;id:Keyword;stale:Keyword,,06_commands_show(1).md:1460,entries/show-other.md
+3.166.21,show dns-proxy filter profiles,show,/rci/show/dns-proxy/filter/profiles,no,no,no,no,,,,,06_commands_show(1).md:1548,entries/show-other.md
+3.166.24,show dot1x,show,/rci/show/dot1x,no,no,no,no,,Ethernet,interface:Interface,,06_commands_show(1).md:1748,entries/show-other.md
+3.166.22,show dpn document,show,/rci/show/dpn/document,no,no,no,no,,,version:String;language:String,,06_commands_show(1).md:1574,entries/show-other.md
+3.166.23,show dpn list,show,/rci/show/dpn/list,no,no,no,no,,,,,06_commands_show(1).md:1648,entries/show-other.md
+3.166.25,show drivers,show,/rci/show/drivers,no,no,no,no,,,,,06_commands_show(1).md:1800,entries/show-other.md
+3.166.26,show dyndns updaters,show,/rci/show/dyndns/updaters,no,no,no,no,,,,,06_commands_show(1).md:1850,entries/show-other.md
+3.166.27,show easyconfig status,show,/rci/show/easyconfig/status,no,no,no,no,,,,,06_commands_show(1).md:1882,entries/show-other.md
+3.166.28,show eula document,show,/rci/show/eula/document,no,no,no,no,,,version:String;language:String,,06_commands_show(1).md:1927,entries/show-other.md
+3.166.29,show eula list,show,/rci/show/eula/list,no,no,no,no,,,,,06_commands_show(1).md:1994,entries/show-other.md
+3.166.30,show interface,show,/rci/show/interface,no,no,no,no,,IP,name:Interface,name,06_commands_show(1).md:2045,entries/show-interface.md
+3.166.31,show interface antennas,show,/rci/show/interface/antennas,no,no,no,no,,Usb,name:Interface;channel:Keyword;ecio:Keyword;phase:Keyword;rsrp:Keyword;rsrq:Keyword;rssi:Keyword,name,06_commands_show(1).md:2148,entries/show-interface.md
+3.166.32,show interface bands,show,/rci/show/interface/bands,no,no,no,no,,Usb,name:Interface,name,06_commands_show(1).md:2204,entries/show-interface.md
+3.166.33,show interface bridge,show,/rci/show/interface/bridge,no,no,no,no,,Bridge,interface:Interface;name:Interface;inherited:Keyword;link:Keyword;members:Keyword,name,06_commands_show(1).md:2260,entries/show-interface.md
+3.166.34,show interface cells,show,/rci/show/interface/cells,no,no,no,no,,Usb,name:Interface;phy-id:Keyword;rssi:Keyword,name,06_commands_show(1).md:2304,entries/show-interface.md
+3.166.35,show interface channel-utilization rrd,show,/rci/show/interface/channel-utilization/rrd,no,no,no,no,,,name:Interface;attribute:Keyword;detail:Keyword,name;attribute,06_commands_show(1).md:2352,entries/show-interface.md
+3.166.36,show interface channels,show,/rci/show/interface/channels,no,no,no,no,,Radio,name:Interface;channels:Keyword;ext-40-above:Keyword;ext-40-below:Keyword;number:Keyword;vhc-80:Keyword,name,06_commands_show(1).md:2454,entries/show-interface.md
+3.166.37,show interface chilli,show,/rci/show/interface/chilli,no,no,no,no,,,name:Interface,name,06_commands_show(1).md:2547,entries/show-interface.md
+3.166.38,show interface country-codes,show,/rci/show/interface/country-codes,no,no,no,no,,Radio,name:Interface;country:Keyword;country-codes:Keyword;code:Keyword,name,06_commands_show(1).md:2592,entries/show-interface.md
+3.166.39,show interface mac,show,/rci/show/interface/mac,no,no,no,no,,Switch,name:Interface,name,06_commands_show(1).md:2654,entries/show-interface.md
+3.166.40,show interface name-server,show,/rci/show/interface/name-server,no,no,no,no,,,name:Interface,name,06_commands_show(1).md:2724,entries/show-interface.md
+3.166.41,show interface operators,show,/rci/show/interface/operators,no,no,no,no,,Usb,name:Interface,name,06_commands_show(1).md:2791,entries/show-interface.md
+3.166.42,show interface rf e2p,show,/rci/show/interface/rf/e2p,no,no,no,no,,Radio,name:Interface,name,06_commands_show(1).md:2904,entries/show-interface.md
+3.166.43,show interface rrd,show,/rci/show/interface/rrd,no,no,no,no,,,name:Interface;attribute:Keyword;detail:Keyword,name;attribute,06_commands_show(1).md:2954,entries/show-interface.md
+3.166.44,show interface spectrum rrd,show,/rci/show/interface/spectrum/rrd,no,no,no,no,,,name:Interface;channel:Integer;attribute:Keyword;detail:Keyword,name;channel;attribute,06_commands_show(1).md:3058,entries/show-interface.md
+3.166.45,show interface stat,show,/rci/show/interface/stat,no,no,no,no,,,name:Interface,name,06_commands_show(1).md:3163,entries/show-interface.md
+3.166.46,show interface traffic-counter,show,/rci/show/interface/traffic-counter,no,no,no,no,,Usb,name:Interface,name,06_commands_show(1).md:3199,entries/show-interface.md
+3.166.47,show interface wps pin,show,/rci/show/interface/wps/pin,no,no,no,no,,WiFi,name:Interface;pin:Keyword,name,06_commands_show(1).md:3244,entries/show-interface.md
+3.166.48,show interface wps status,show,/rci/show/interface/wps/status,no,no,no,no,,WiFi,name:Interface;wps:Keyword;status:Keyword;auto-self-pin:Keyword;configured:Keyword;direction:Keyword;left:Time;mode:Keyword,name,06_commands_show(1).md:3280,entries/show-interface.md
+3.166.49,show interface zerotier peers,show,/rci/show/interface/zerotier/peers,no,no,no,no,,,name:Interface,name,06_commands_show(1).md:3338,entries/show-interface.md
+3.166.50,show internet status,show,/rci/show/internet/status,no,no,no,no,,,,,06_commands_show(1).md:3411,entries/show-other.md
+3.166.51,show ip arp,show,/rci/show/ip/arp,no,no,no,no,,,,,06_commands_show(1).md:3463,entries/show-ip.md
+3.166.52,show ip conntrack lockout,show,/rci/show/ip/conntrack/lockout,no,no,no,no,,,,,06_commands_show(1).md:3499,entries/show-ip.md
+3.166.53,show ip dhcp bindings,show,/rci/show/ip/dhcp/bindings,no,no,no,no,,,pool:String,,06_commands_show(1).md:3529,entries/show-ip.md
+3.166.54,show ip dhcp pool,show,/rci/show/ip/dhcp/pool,no,no,no,no,,,pool:String,,06_commands_show(1).md:3573,entries/show-ip.md
+3.166.55,show ip ftp,show,/rci/show/ip/ftp,no,no,no,no,,,,,06_commands_show(1).md:3612,entries/show-ip.md
+3.166.56,show ip hotspot,show,/rci/show/ip/hotspot,no,no,no,no,,,,,06_commands_show(1).md:3643,entries/show-ip.md
+3.166.57,show ip hotspot rrd,show,/rci/show/ip/hotspot/rrd,no,no,no,no,,,mac:MAC address;attribute:Keyword;detail:Keyword,mac;attribute,06_commands_show(1).md:3727,entries/show-ip.md
+3.166.58,show ip hotspot summary,show,/rci/show/ip/hotspot/summary,no,no,no,no,,,attribute:Keyword;detail:Keyword;count:Integer,attribute,06_commands_show(1).md:3855,entries/show-ip.md
+3.166.59,show ip http proxy,show,/rci/show/ip/http/proxy,no,no,no,no,,,,,06_commands_show(1).md:3955,entries/show-ip.md
+3.166.60,show ip http webdav,show,/rci/show/ip/http/webdav,no,no,no,no,,,,,06_commands_show(1).md:3983,entries/show-ip.md
+3.166.61,show ip name-server,show,/rci/show/ip/name-server,no,no,no,no,,,,,06_commands_show(1).md:4021,entries/show-ip.md
+3.166.62,show ip nat,show,/rci/show/ip/nat,no,no,no,no,,,tcp:Keyword,,06_commands_show(1).md:4095,entries/show-ip.md
+3.166.63,show ip neighbour,show,/rci/show/ip/neighbour,no,no,no,no,,,alive:Keyword,,06_commands_show(1).md:4144,entries/show-ip.md
+3.166.64,show ip policy,show,/rci/show/ip/policy,no,no,no,no,,,policy:Policy,,06_commands_show(1).md:4205,entries/show-ip.md
+3.166.65,show ip route,show,/rci/show/ip/route,no,no,no,no,,,table:Integer;criteria:Keyword;direction:Keyword,,06_commands_show(1).md:4349,entries/show-ip.md
+3.166.66,show ip service,show,/rci/show/ip/service,no,no,no,no,,,,,06_commands_show(1).md:4509,entries/show-ip.md
+3.166.67,show ipsec,show,/rci/show/ipsec,no,no,no,no,,,,,06_commands_show(1).md:4559,entries/show-other.md
+3.166.68,show ipv6 addresses,show,/rci/show/ipv6/addresses,no,no,no,no,,,,,06_commands_show(1).md:4617,entries/show-other.md
+3.166.69,show ipv6 dhcp bindings,show,/rci/show/ipv6/dhcp/bindings,no,no,no,no,,,,,06_commands_show(1).md:4656,entries/show-other.md
+3.166.70,show ipv6 prefixes,show,/rci/show/ipv6/prefixes,no,no,no,no,,,,,06_commands_show(1).md:4696,entries/show-other.md
+3.166.71,show ipv6 route,show,/rci/show/ipv6/route,no,no,no,no,,,table:Integer;criteria:Keyword;direction:Keyword,,06_commands_show(1).md:4733,entries/show-other.md
+3.166.72,show ipv6 subnets,show,/rci/show/ipv6/subnets,no,no,no,no,,,,,06_commands_show(1).md:4805,entries/show-other.md
+3.166.73,show kabinet status,show,/rci/show/kabinet/status,no,no,no,no,,,,,06_commands_show(1).md:4837,entries/show-other.md
+3.166.74,show last-change,show,/rci/show/last-change,no,no,no,no,,,,,06_commands_show(1).md:4866,entries/show-other.md
+3.166.75,show led,show,/rci/show/led,no,no,no,no,,,name:Keyword,,06_commands_show(1).md:4891,entries/show-other.md
+3.166.76,show led bindings,show,/rci/show/led/bindings,no,no,no,no,,,name:Keyword,,06_commands_show(1).md:4948,entries/show-other.md
+3.166.77,show led controls,show,/rci/show/led/controls,no,no,no,no,,,,,06_commands_show(1).md:5110,entries/show-other.md
+3.166.78,show log,show,/rci/show/log,no,no,no,no,,,max-lines:Integer;once:Keyword,,06_commands_show(1).md:5271,entries/show-other.md
+3.166.79,show media,show,/rci/show/media,no,no,no,no,,,,,06_commands_show(1).md:5324,entries/show-other.md
+3.166.80,show mws associations,show,/rci/show/mws/associations,no,no,no,no,,,,,06_commands_show(1).md:5379,entries/show-other.md
+3.166.81,show mws candidate,show,/rci/show/mws/candidate,no,no,no,no,,,candidate:String,,06_commands_show(1).md:5422,entries/show-other.md
+3.166.82,show mws log,show,/rci/show/mws/log,no,no,no,no,,,max-lines:Integer;once:Keyword,,06_commands_show(1).md:5508,entries/show-other.md
+3.166.83,show mws member,show,/rci/show/mws/member,no,no,no,no,,,member:String,,06_commands_show(1).md:5558,entries/show-other.md
+3.166.84,show ndns,show,/rci/show/ndns,no,no,no,no,,,,,06_commands_show(1).md:5681,entries/show-other.md
+3.166.85,show netfilter,show,/rci/show/netfilter,no,no,no,no,,,,,06_commands_show(1).md:5734,entries/show-other.md
+3.166.86,show nextdns availability,show,/rci/show/nextdns/availability,no,no,no,no,,,,,06_commands_show(1).md:5754,entries/show-other.md
+3.166.87,show nextdns profiles,show,/rci/show/nextdns/profiles,no,no,no,no,,,,,06_commands_show(1).md:5781,entries/show-other.md
+3.166.88,show ntce applications,show,/rci/show/ntce/applications,no,no,no,no,,,,,06_commands_show(1).md:5814,entries/show-ntce.md
+3.166.89,show ntce attributes,show,/rci/show/ntce/attributes,no,no,no,no,,,,,06_commands_show(1).md:5938,entries/show-ntce.md
+3.166.90,show ntce filter profile,show,/rci/show/ntce/filter/profile,no,no,no,no,,,name:String,,06_commands_show(1).md:6125,entries/show-ntce.md
+3.166.91,show ntce groups,show,/rci/show/ntce/groups,no,no,no,no,,,,,06_commands_show(1).md:6174,entries/show-ntce.md
+3.166.92,show ntce groupsets,show,/rci/show/ntce/groupsets,no,no,no,no,,,,,06_commands_show(1).md:6493,entries/show-ntce.md
+3.166.93,show ntce hosts,show,/rci/show/ntce/hosts,no,no,no,no,,,,,06_commands_show(1).md:6551,entries/show-ntce.md
+3.166.94,show ntce oses,show,/rci/show/ntce/oses,no,no,no,no,,,,,06_commands_show(1).md:6814,entries/show-ntce.md
+3.166.95,show ntce status,show,/rci/show/ntce/status,no,no,no,no,,,,,06_commands_show(1).md:6887,entries/show-ntce.md
+3.166.96,show ntp status,show,/rci/show/ntp/status,no,no,no,no,,,,,06_commands_show(1).md:6945,entries/show-other.md
+3.166.97,show object-group fqdn,show,/rci/show/object-group/fqdn,no,no,no,no,,,group:String,,06_commands_show(1).md:6985,entries/show-other.md
+3.166.98,show oc-server,show,/rci/show/oc-server,no,no,no,no,,,,,06_commands_show(1).md:7073,entries/show-other.md
+3.166.99,show ping-check,show,/rci/show/ping-check,no,no,no,no,,,profile_name:Keyword,,06_commands_show(1).md:7120,entries/show-other.md
+3.166.100,show printers,show,/rci/show/printers,no,no,no,no,,,,,06_commands_show(1).md:7169,entries/show-other.md
+3.166.101,show processes,show,/rci/show/processes,no,no,no,no,,,,,06_commands_show(1).md:7193,entries/show-other.md
+3.166.102,show running-config,show,/rci/show/running-config,no,no,no,no,,,,,06_commands_show(1).md:7289,entries/show-other.md
+3.166.103,show schedule,show,/rci/show/schedule,no,no,no,no,,,name:String,,06_commands_show(1).md:7638,entries/show-other.md
+3.166.104,show self-test,show,/rci/show/self-test,no,no,no,no,,,,,06_commands_show(1).md:7676,entries/show-other.md
+3.166.105,show site-survey,show,/rci/show/site-survey,no,no,no,no,,Radio,name:Interface,name,06_commands_show(1).md:7696,entries/show-other.md
+3.166.106,show snmp view,show,/rci/show/snmp/view,no,no,no,no,,,,,06_commands_show(1).md:7753,entries/show-other.md
+3.166.107,show ssh fingerprint,show,/rci/show/ssh/fingerprint,no,no,no,no,,,,,06_commands_show(1).md:7781,entries/show-other.md
+3.166.108,show ssh sftp,show,/rci/show/ssh/sftp,no,no,no,no,,,,,06_commands_show(1).md:7817,entries/show-other.md
+3.166.109,show sstp-server,show,/rci/show/sstp-server,no,no,no,no,,,,,06_commands_show(1).md:7848,entries/show-other.md
+3.166.110,show system,show,/rci/show/system,no,no,no,no,,,,,06_commands_show(1).md:7894,entries/show-other.md
+3.166.111,show system country,show,/rci/show/system/country,no,no,no,no,,,,,06_commands_show(1).md:7931,entries/show-other.md
+3.166.112,show system cpustat,show,/rci/show/system/cpustat,no,no,no,no,,,,,06_commands_show(1).md:7992,entries/show-other.md
+3.166.113,show system zram,show,/rci/show/system/zram,no,no,no,no,,,,,06_commands_show(1).md:8058,entries/show-other.md
+3.166.114,show tags,show,/rci/show/tags,no,no,no,no,,,,,06_commands_show(1).md:8089,entries/show-other.md
+3.166.115,show threads,show,/rci/show/threads,no,no,no,no,,,,,06_commands_show(1).md:8124,entries/show-other.md
+3.166.116,show torrent status,show,/rci/show/torrent/status,no,no,no,no,,,,,06_commands_show(1).md:8177,entries/show-other.md
+3.166.117,show upnp redirect,show,/rci/show/upnp/redirect,no,no,no,no,,IP,protocol:Keyword;interface:Interface;port:Integer;index:Integer,,06_commands_show(1).md:8201,entries/show-other.md
+3.166.118,show usb,show,/rci/show/usb,no,no,no,no,,,,,06_commands_show(1).md:8249,entries/show-other.md
+3.166.119,show version,show,/rci/show/version,no,no,no,no,,,,,06_commands_show(1).md:8287,entries/show-other.md
+3.166.120,show vpn-server,show,/rci/show/vpn-server,no,no,no,no,,,,,06_commands_show(1).md:8345,entries/show-other.md
+3.167,sms,sms,/rci/sms,no,no,no,no,(sms),Usb,name:Interface,name,07_commands_sms_system_tools_users_vpn(1).md:5,entries/sms.md
+3.167.1,sms delete,sms,/rci/sms/delete,no,no,no,no,,,id:String,id,07_commands_sms_system_tools_users_vpn(1).md:36,entries/sms.md
+3.167.2,sms list,sms,/rci/sms/list,no,no,no,no,,,unread:Keyword;id:Keyword;no-content:Keyword,,07_commands_sms_system_tools_users_vpn(1).md:63,entries/sms.md
+3.167.3,sms read,sms,/rci/sms/read,no,yes,no,no,,,id:String,id,07_commands_sms_system_tools_users_vpn(1).md:210,entries/sms.md
+3.167.4,sms send,sms,/rci/sms/send,no,no,no,no,,,to:String;message:String,to;message,07_commands_sms_system_tools_users_vpn(1).md:244,entries/sms.md
+3.168,snmp community,snmp,/rci/snmp/community,yes,yes,no,no,,,community:String,community,07_commands_sms_system_tools_users_vpn(1).md:276,
+3.169,snmp contact,snmp,/rci/snmp/contact,yes,yes,no,no,,,contact:String,contact,07_commands_sms_system_tools_users_vpn(1).md:314,
+3.170,snmp location,snmp,/rci/snmp/location,yes,yes,no,no,,,location:String,location,07_commands_sms_system_tools_users_vpn(1).md:351,
+3.171,snmp view,snmp,/rci/snmp/view,yes,yes,no,yes,,,name:String,name,07_commands_sms_system_tools_users_vpn(1).md:388,
+3.172,snmp view exclude,snmp,/rci/snmp/view/exclude,yes,yes,no,no,,,oid:String,oid,07_commands_sms_system_tools_users_vpn(1).md:428,
+3.173,snmp view include,snmp,/rci/snmp/view/include,yes,yes,no,no,,,oid:String,oid,07_commands_sms_system_tools_users_vpn(1).md:466,
+3.174,sstp-server,sstp-server,/rci/sstp-server,no,no,no,no,(sstp-server),,,,07_commands_sms_system_tools_users_vpn(1).md:504,entries/sstp-server.md
+3.174.1,sstp-server allow-bridging,sstp-server,/rci/sstp-server/allow-bridging,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:523,
+3.174.2,sstp-server camouflage,sstp-server,/rci/sstp-server/camouflage,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:560,
+3.174.3,sstp-server debug,sstp-server,/rci/sstp-server/debug,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:595,
+3.174.4,sstp-server dhcp route,sstp-server,/rci/sstp-server/dhcp/route,yes,yes,yes,yes,,,address:IP address;mask:IP-mask,address;mask,07_commands_sms_system_tools_users_vpn(1).md:630,entries/sstp-server.md
+3.174.5,sstp-server interface,sstp-server,/rci/sstp-server/interface,yes,yes,no,no,,,interface:Interface,interface,07_commands_sms_system_tools_users_vpn(1).md:678,
+3.174.6,sstp-server ipv6cp,sstp-server,/rci/sstp-server/ipv6cp,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:734,
+3.174.7,sstp-server lcp echo,sstp-server,/rci/sstp-server/lcp/echo,yes,yes,no,no,,,interval:Integer;count:Integer;adaptive:Keyword,interval;count,07_commands_sms_system_tools_users_vpn(1).md:768,
+3.174.8,sstp-server lcp force-pap,sstp-server,/rci/sstp-server/lcp/force-pap,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:816,
+3.174.9,sstp-server mru,sstp-server,/rci/sstp-server/mru,yes,yes,no,no,,,value:Integer,value,07_commands_sms_system_tools_users_vpn(1).md:850,
+3.174.10,sstp-server mtu,sstp-server,/rci/sstp-server/mtu,yes,yes,no,no,,,value:Integer,value,07_commands_sms_system_tools_users_vpn(1).md:886,
+3.174.11,sstp-server multi-login,sstp-server,/rci/sstp-server/multi-login,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:922,
+3.174.12,sstp-server pool-range,sstp-server,/rci/sstp-server/pool-range,yes,yes,no,no,,,begin:IP address;size:Integer,begin,07_commands_sms_system_tools_users_vpn(1).md:953,
+3.174.13,sstp-server session-logout,sstp-server,/rci/sstp-server/session-logout,yes,no,no,no,,,session:Integer,session,07_commands_sms_system_tools_users_vpn(1).md:992,
+3.174.14,sstp-server session-preempt,sstp-server,/rci/sstp-server/session-preempt,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1021,
+3.174.15,sstp-server static-ip,sstp-server,/rci/sstp-server/static-ip,yes,yes,no,yes,,,name:String;address:IP address,name;address,07_commands_sms_system_tools_users_vpn(1).md:1056,
+3.175,system,system,/rci/system,no,no,no,no,(system),,,,07_commands_sms_system_tools_users_vpn(1).md:1093,entries/system.md
+3.175.1,system button,system,/rci/system/button,yes,yes,no,no,,,button:Keyword;action:Keyword;handler:Keyword,button;action;handler,07_commands_sms_system_tools_users_vpn(1).md:1112,entries/system.md
+3.175.2,system caption,system,/rci/system/caption,yes,no,no,no,,,template:Keyword,template,07_commands_sms_system_tools_users_vpn(1).md:1188,entries/system.md
+3.175.3,system clock date,system,/rci/system/clock/date,yes,no,no,no,,,date-and-time:Keyword,,07_commands_sms_system_tools_users_vpn(1).md:1227,entries/system.md
+3.175.4,system clock timezone,system,/rci/system/clock/timezone,yes,yes,no,no,,,locality:String,locality,07_commands_sms_system_tools_users_vpn(1).md:1255,entries/system.md
+3.175.5,system configuration factory-reset,system,/rci/system/configuration/factory-reset,yes,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1291,entries/system.md
+3.175.6,system configuration fail-safe commit,system,/rci/system/configuration/fail-safe/commit,no,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1315,entries/system.md
+3.175.7,system configuration fail-safe keep-alive,system,/rci/system/configuration/fail-safe/keep-alive,no,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1339,entries/system.md
+3.175.8,system configuration fail-safe rollback,system,/rci/system/configuration/fail-safe/rollback,no,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1364,entries/system.md
+3.175.9,system configuration fail-safe timer,system,/rci/system/configuration/fail-safe/timer,yes,yes,no,no,,,action:Keyword;interval:Integer,action;interval,07_commands_sms_system_tools_users_vpn(1).md:1394,entries/system.md
+3.175.10,system configuration save,system,/rci/system/configuration/save,yes,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1438,entries/system.md
+3.175.11,system country,system,/rci/system/country,yes,yes,no,no,,,country:Keyword,,07_commands_sms_system_tools_users_vpn(1).md:1461,entries/system.md
+3.175.12,system debug,system,/rci/system/debug,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1500,entries/system.md
+3.175.13,system description,system,/rci/system/description,yes,yes,no,no,,,description:String,description,07_commands_sms_system_tools_users_vpn(1).md:1530,entries/system.md
+3.175.14,system domainname,system,/rci/system/domainname,yes,yes,no,no,,,domain:String,domain,07_commands_sms_system_tools_users_vpn(1).md:1575,entries/system.md
+3.175.15,system eject,system,/rci/system/eject,no,no,no,no,,,name:String,name,07_commands_sms_system_tools_users_vpn(1).md:1611,entries/system.md
+3.175.16,system hostname,system,/rci/system/hostname,yes,yes,no,no,,,hostname:String,hostname,07_commands_sms_system_tools_users_vpn(1).md:1641,entries/system.md
+3.175.17,system led,system,/rci/system/led,yes,yes,no,yes,,,led:Keyword;indicate:Keyword;control:Keyword,led;control,07_commands_sms_system_tools_users_vpn(1).md:1681,entries/system.md
+3.175.18,system led power schedule,system,/rci/system/led/power/schedule,yes,yes,no,no,,,schedule:Schedule,schedule,07_commands_sms_system_tools_users_vpn(1).md:1745,entries/system.md
+3.175.19,system led power shutdown,system,/rci/system/led/power/shutdown,yes,yes,no,no,,,mode:Keyword,mode,07_commands_sms_system_tools_users_vpn(1).md:1786,entries/system.md
+3.175.20,system log clear,system,/rci/system/log/clear,no,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1828,entries/system.md
+3.175.21,system log reduction,system,/rci/system/log/reduction,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:1850,entries/system.md
+3.175.22,system log server,system,/rci/system/log/server,yes,yes,no,yes,,,address:IP address;port:Integer,address,07_commands_sms_system_tools_users_vpn(1).md:1882,entries/system.md
+3.175.23,system log suppress,system,/rci/system/log/suppress,yes,yes,no,yes,,,ident:String,ident,07_commands_sms_system_tools_users_vpn(1).md:1914,entries/system.md
+3.175.24,system mode,system,/rci/system/mode,yes,no,no,no,,,mode:Keyword,mode,07_commands_sms_system_tools_users_vpn(1).md:1958,entries/system.md
+3.175.25,system mount,system,/rci/system/mount,no,yes,no,no,,,filesystem:String,filesystem,07_commands_sms_system_tools_users_vpn(1).md:1992,entries/system.md
+3.175.26,system ndss dump-report disable,system,/rci/system/ndss/dump-report/disable,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:2027,entries/system.md
+3.175.27,system reboot,system,/rci/system/reboot,no,yes,no,no,,,interval:Integer;schedule:Schedule,,07_commands_sms_system_tools_users_vpn(1).md:2062,entries/system.md
+3.175.28,system set,system,/rci/system/set,yes,yes,no,yes,,,name:String;value:String,name;value,07_commands_sms_system_tools_users_vpn(1).md:2119,entries/system.md
+3.175.29,system swap,system,/rci/system/swap,yes,yes,no,no,,,area:Filename;size:Integer,area;size,07_commands_sms_system_tools_users_vpn(1).md:2177,entries/system.md
+3.175.30,system trace lock threshold,system,/rci/system/trace/lock/threshold,no,yes,no,no,,,threshold:String,threshold,07_commands_sms_system_tools_users_vpn(1).md:2217,entries/system.md
+3.175.31,system usb power schedule,system,/rci/system/usb/power/schedule,yes,yes,no,no,,,port:Keyword;schedule:Schedule,port;schedule,07_commands_sms_system_tools_users_vpn(1).md:2261,entries/system.md
+3.175.32,system usb power shutdown,system,/rci/system/usb/power/shutdown,yes,yes,no,no,,,port:Keyword,port,07_commands_sms_system_tools_users_vpn(1).md:2303,entries/system.md
+3.175.33,system zram,system,/rci/system/zram,yes,yes,no,no,,,size:Integer,,07_commands_sms_system_tools_users_vpn(1).md:2342,entries/system.md
+3.176,tools,tools,/rci/tools,no,no,no,no,(tools),,,,07_commands_sms_system_tools_users_vpn(1).md:2381,entries/tools.md
+3.176.1,tools arping,tools,/rci/tools/arping,no,no,no,no,,,address:IP address;count:Integer;wait-time:Integer;source-interface:Keyword,address,07_commands_sms_system_tools_users_vpn(1).md:2400,entries/tools.md
+3.176.2,tools ping,tools,/rci/tools/ping,no,no,no,no,,,host:String;count:Integer;packetsize:Integer;source:Keyword;tos:Integer;ttl:Integer;sequence-id:Keyword;source-address:Keyword;source-interface:Keyword,host,07_commands_sms_system_tools_users_vpn(1).md:2445,entries/tools.md
+3.176.3,tools ping6,tools,/rci/tools/ping6,no,no,no,no,,,host:String;count:Integer;packetsize:Integer;source:Keyword;tos:Integer;ttl:Integer;sequence-id:Keyword;source-address:Keyword;source-interface:Keyword,host,07_commands_sms_system_tools_users_vpn(1).md:2540,entries/tools.md
+3.176.4,tools traceroute,tools,/rci/tools/traceroute,no,no,no,no,,,host:String;count:Integer;interval:Integer;wait-time:Integer;packetsize:Integer;max-ttl:Integer;port:Integer;type:Keyword;tos:Integer;source-address:Keyword;source-interface:Keyword,host,07_commands_sms_system_tools_users_vpn(1).md:2645,entries/tools.md
+3.177,torrent,torrent,/rci/torrent,no,no,no,no,(config-torrent),,,,07_commands_sms_system_tools_users_vpn(1).md:2721,entries/torrent.md
+3.177.1,torrent directory,torrent,/rci/torrent/directory,yes,yes,no,no,,,directory:String,directory,07_commands_sms_system_tools_users_vpn(1).md:2740,
+3.177.2,torrent io-priority,torrent,/rci/torrent/io-priority,yes,yes,no,no,,,io-priority:Keyword,,07_commands_sms_system_tools_users_vpn(1).md:2780,
+3.177.3,torrent peer-port,torrent,/rci/torrent/peer-port,yes,no,no,no,,,port:Integer,port,07_commands_sms_system_tools_users_vpn(1).md:2820,
+3.177.4,torrent policy,torrent,/rci/torrent/policy,yes,yes,no,no,,,policy:Policy,policy,07_commands_sms_system_tools_users_vpn(1).md:2848,
+3.177.5,torrent reset,torrent,/rci/torrent/reset,no,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:2887,entries/torrent.md
+3.177.6,torrent rpc-port,torrent,/rci/torrent/rpc-port,yes,no,no,no,,,port:Integer;public:Keyword,port,07_commands_sms_system_tools_users_vpn(1).md:2909,
+3.178,udpxy,udpxy,/rci/udpxy,no,no,no,no,(udpxy),,,,07_commands_sms_system_tools_users_vpn(1).md:2942,entries/udpxy.md
+3.178.1,udpxy buffer-size,udpxy,/rci/udpxy/buffer-size,yes,yes,no,no,,,size:Integer,size,07_commands_sms_system_tools_users_vpn(1).md:2961,
+3.178.2,udpxy buffer-timeout,udpxy,/rci/udpxy/buffer-timeout,yes,yes,no,no,,,timeout:Integer,timeout,07_commands_sms_system_tools_users_vpn(1).md:2997,
+3.178.3,udpxy interface,udpxy,/rci/udpxy/interface,yes,yes,no,no,,,interface:Interface,interface,07_commands_sms_system_tools_users_vpn(1).md:3035,
+3.178.4,udpxy port,udpxy,/rci/udpxy/port,yes,yes,no,no,,,port:Integer,port,07_commands_sms_system_tools_users_vpn(1).md:3088,
+3.178.5,udpxy renew-interval,udpxy,/rci/udpxy/renew-interval,yes,yes,no,no,,,renew-interval:Keyword,,07_commands_sms_system_tools_users_vpn(1).md:3124,
+3.178.6,udpxy timeout,udpxy,/rci/udpxy/timeout,yes,yes,no,no,,,timeout:Integer,timeout,07_commands_sms_system_tools_users_vpn(1).md:3163,
+3.179,upnp forward,upnp,/rci/upnp/forward,yes,yes,no,yes,,IP,protocol:Keyword;interface:Interface;address:IP address;port:Integer;index:Integer,protocol;address;port,07_commands_sms_system_tools_users_vpn(1).md:3199,entries/upnp.md
+3.180,upnp lan,upnp,/rci/upnp/lan,yes,yes,no,no,,IP,interface:Interface,interface,07_commands_sms_system_tools_users_vpn(1).md:3239,entries/upnp.md
+3.181,upnp redirect,upnp,/rci/upnp/redirect,yes,yes,yes,yes,,IP,protocol:Keyword;interface:Interface;port:Integer;to-address:IP address;to-port:Integer;index:Integer,protocol;interface;port;to-address,07_commands_sms_system_tools_users_vpn(1).md:3298,entries/upnp.md
+3.182,user,user,/rci/user,yes,yes,no,yes,(config-user),,name:String,name,07_commands_sms_system_tools_users_vpn(1).md:3345,entries/user.md
+3.182.1,user home,user,/rci/user/home,yes,yes,no,no,,,directory:String,directory,07_commands_sms_system_tools_users_vpn(1).md:3382,entries/user.md
+3.182.2,user password generate,user,/rci/user/password/generate,yes,no,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:3422,entries/user.md
+3.182.3,user password md5,user,/rci/user/password/md5,yes,yes,no,no,,,hash:String,hash,07_commands_sms_system_tools_users_vpn(1).md:3452,entries/user.md
+3.182.4,user password nt,user,/rci/user/password/nt,yes,yes,no,no,,,hash:String,hash,07_commands_sms_system_tools_users_vpn(1).md:3490,entries/user.md
+3.182.5,user password plain,user,/rci/user/password/plain,yes,yes,no,no,,,password:String,password,07_commands_sms_system_tools_users_vpn(1).md:3528,entries/user.md
+3.182.6,user password validate,user,/rci/user/password/validate,no,no,no,no,,,value:String,value,07_commands_sms_system_tools_users_vpn(1).md:3574,entries/user.md
+3.182.7,user tag,user,/rci/user/tag,yes,yes,yes,yes,,,tag:Keyword,tag,07_commands_sms_system_tools_users_vpn(1).md:3617,entries/user.md
+3.183,ussd send,ussd,/rci/ussd/send,no,no,no,no,,Usb,interface:Interface;request:String,interface;request,07_commands_sms_system_tools_users_vpn(1).md:3759,entries/ussd.md
+3.184,vpn-server,vpn-server,/rci/vpn-server,no,no,no,no,(vpn-server),,,,07_commands_sms_system_tools_users_vpn(1).md:3795,entries/vpn-server.md
+3.184.1,vpn-server dhcp route,vpn-server,/rci/vpn-server/dhcp/route,yes,yes,yes,yes,,,address:IP address;mask:IP-mask,address;mask,07_commands_sms_system_tools_users_vpn(1).md:3814,entries/vpn-server.md
+3.184.2,vpn-server interface,vpn-server,/rci/vpn-server/interface,yes,yes,no,no,,,interface:Interface,interface,07_commands_sms_system_tools_users_vpn(1).md:3860,
+3.184.3,vpn-server ipv6cp,vpn-server,/rci/vpn-server/ipv6cp,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:3914,
+3.184.4,vpn-server lcp echo,vpn-server,/rci/vpn-server/lcp/echo,yes,yes,no,no,,,interval:Integer;count:Integer;adaptive:Keyword,interval;count,07_commands_sms_system_tools_users_vpn(1).md:3948,
+3.184.5,vpn-server lockout-policy,vpn-server,/rci/vpn-server/lockout-policy,yes,yes,no,no,,,threshold:Integer;duration:Integer;observation-window:Keyword,threshold,07_commands_sms_system_tools_users_vpn(1).md:3994,
+3.184.6,vpn-server mppe,vpn-server,/rci/vpn-server/mppe,yes,yes,no,yes,,,mode:Keyword,mode,07_commands_sms_system_tools_users_vpn(1).md:4049,
+3.184.7,vpn-server mppe-optional,vpn-server,/rci/vpn-server/mppe-optional,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:4085,
+3.184.8,vpn-server mru,vpn-server,/rci/vpn-server/mru,yes,yes,no,no,,,value:Integer,value,07_commands_sms_system_tools_users_vpn(1).md:4119,
+3.184.9,vpn-server mtu,vpn-server,/rci/vpn-server/mtu,yes,yes,no,no,,,value:Integer,value,07_commands_sms_system_tools_users_vpn(1).md:4155,
+3.184.10,vpn-server multi-login,vpn-server,/rci/vpn-server/multi-login,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:4191,
+3.184.11,vpn-server pool-range,vpn-server,/rci/vpn-server/pool-range,yes,yes,no,no,,,begin:IP address;size:Integer,begin,07_commands_sms_system_tools_users_vpn(1).md:4222,
+3.184.12,vpn-server session-logout,vpn-server,/rci/vpn-server/session-logout,yes,no,no,no,,,session:Integer,session,07_commands_sms_system_tools_users_vpn(1).md:4266,
+3.184.13,vpn-server session-preempt,vpn-server,/rci/vpn-server/session-preempt,yes,yes,no,no,,,,,07_commands_sms_system_tools_users_vpn(1).md:4295,
+3.184.14,vpn-server static-ip,vpn-server,/rci/vpn-server/static-ip,yes,yes,no,yes,,,name:String;address:IP address,name;address,07_commands_sms_system_tools_users_vpn(1).md:4330,

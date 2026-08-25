@@ -8,7 +8,7 @@ Single file, no packaging: dependencies are declared inline per [PEP 723](https:
 
 ## What you can ask the agent to do
 
-With the skill installed, you stop clicking through the router's web interface and just ask. Everything below maps to a command this CLI has built in, so the agent answers straight away:
+With the skill installed, you stop clicking through the router's web interface and just ask:
 
 - *"Which devices are routed through the Netherlands VPN right now?"*
 - *"Put the kids' tablet back on the default policy."*
@@ -20,8 +20,16 @@ With the skill installed, you stop clicking through the router's web interface a
 - *"How much traffic went through the VPN interface?"*
 - *"I'm adding a NAS — find me a free IP that DHCP won't hand out to anything else."*
 - *"Which addresses are reserved, and which are just leased right now?"*
+- *"Change the DNS servers the router hands out over DHCP."*
+- *"Add a static route for this subnet through the VPN interface."*
+- *"Set up a new WireGuard peer."*
+- *"Forward this port to my server."*
+- *"Reserve this IP for that device permanently."*
+- *"What does the router think its WAN configuration is?"*
+- *"Turn SSH on."*
+- *"Schedule the guest network to switch off overnight."*
 
-Anything the router can do beyond that is still reachable through [raw API calls](#raw-api-calls) — DNS, routes, VPN setup and the rest.
+Some of those only read the router; others change it, and the ones that change it need your say-so — see [Safety model](#safety-model).
 
 ## Safety model
 
@@ -182,16 +190,7 @@ Occupancy is counted from two sources: `/rci/show/ip/dhcp/bindings` does not kno
 
 ### Raw API calls
 
-The commands above cover what you reach for most days. Everything else the router can do — and it can do a lot — is one raw call away:
-
-- *"Change the DNS servers the router hands out over DHCP."*
-- *"Add a static route for this subnet through the VPN interface."*
-- *"Set up a new WireGuard peer."*
-- *"Forward this port to my server."*
-- *"Reserve this IP for that device permanently."*
-- *"What does the router think its WAN configuration is?"*
-
-Reading anything is free. Most of the items above also *change* the router, and those the CLI refuses until you say you meant it — see [Safety model](#safety-model) for why the line falls where it does.
+Any RCI endpoint can be called directly. Reading is free; anything that changes the router the CLI refuses until you say you meant it — see [Safety model](#safety-model) for why the line falls where it does.
 
 ```bash
 uv run keenetic_cli.py api request --method GET --endpoint /rci/show/interface
@@ -211,28 +210,9 @@ uv run keenetic_cli.py api request \
 
 Output is redacted by default, here as everywhere else. `--no-redact` prints the router's response unmasked, and is the only way to see a raw secret.
 
-#### Give the agent the command reference
-
-Raw calls are where an agent guesses, and a guessed endpoint on a router is not a cheap mistake. It does much better with the vendor's CLI manual in front of it, because the manual documents every command, its arguments, and — crucially — whether it changes settings.
-
-Download the manual and keep it somewhere the agent can read, for example:
-
-<https://storage.googleapis.com/docs.help.keenetic.com/cli/5.0/en/cli_manual_kn-1011.pdf>
-
-That one is for the KN-1011, but **the manuals are nearly identical across models**, so any of them works for learning the API surface: the command tree and the CLI-to-RCI mapping are shared. Grab the one for your own model if you want exact coverage of its hardware-specific commands.
-
-Converting the PDF to Markdown, split by chapter, makes it far more usable: the agent can grep for a command instead of paging through a few hundred pages, and it can read one chapter rather than loading the whole document into context. Tell it where the files are and it will consult them before inventing an endpoint.
-
-Either of these will do the conversion:
-
-- [markitdown](https://github.com/microsoft/markitdown) — Python, `pip install 'markitdown[all]'`, then `markitdown cli_manual.pdf -o manual.md`. Built specifically to produce Markdown for LLMs.
-- [markit](https://github.com/shift-labs-ai/markit) — Node, `npm install -g @shiftlabs/markit`, then `markit cli_manual.pdf -o manual.md`. Rust engine, no OCR, so it is fast on a text-layer PDF like this one.
-
-The manual has a text layer, so neither needs OCR. Splitting the result by chapter is worth the extra minute: a few hundred pages in one file defeats the point of grepping it.
-
 ## The agent skill
 
-`skill/` contains a skill that teaches an agent to use this CLI: the safety rules, the command recipes, and how to translate Keenetic/Netcraze CLI commands into `/rci/...` endpoints.
+`skill/` contains a skill that teaches an agent to use this CLI: the safety rules, the command recipes, how to translate Keenetic/Netcraze CLI commands into `/rci/...` endpoints, and `command-index/` — every documented command with its endpoint, its arguments, and notes on the ones that bite.
 
 For Claude Code:
 
@@ -256,7 +236,7 @@ ln -s ~/.agents/skills/keenetic-router-api ~/.codex/skills/keenetic-router-api
 
 Either way, edit the installed `SKILL.md` and replace `/path/to/keenetic-cli` with wherever you cloned this repository.
 
-The skill deliberately does not bundle Keenetic/Netcraze's command reference — that is the vendor's copyrighted manual, not ours to redistribute. Get the CLI manual for your model from Keenetic/Netcraze's documentation site; the skill explains where to point the agent at it if you convert it to Markdown.
+The command index is copied along with the rest, so the agent finds it beside `SKILL.md` with no further setup.
 
 ## Tests
 
